@@ -9,24 +9,31 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import ru.sscalliance.R
+import ru.sscalliance.databinding.FragmentEventsBinding
 import ru.sscalliance.ui.events.presenter.NotificationsViewModel
 
 class EventsFragment : Fragment() {
 
     private lateinit var notificationsViewModel: NotificationsViewModel
 
+    private lateinit var binding: FragmentEventsBinding
+
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         notificationsViewModel =
                 ViewModelProvider(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_events, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
+
+        binding = FragmentEventsBinding.inflate(inflater, container, false)
+        val view = binding.root
+        //val root = inflater.inflate(R.layout.fragment_events, container, false)
+        //val textView: TextView = root.findViewById(R.id.text_notifications)
         notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            //textView.text = it
+            binding.textNotifications.text = it
         })
-        return root
+        return view
     }
 }

@@ -1,6 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    //id 'kotlin-android-extensions' // DELETE bcs synthetics is deprecated
+    id 'kotlin-kapt'
+    id 'realm-android'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -29,6 +33,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        // Instead of Kotlin Synthetics
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -39,15 +47,42 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.3'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.3'
+
+    // Multidex App
+    implementation 'com.android.support:multidex:1.0.3'
+
+    // Local Database
+
+    // Network
+    // ? Retrofit or WebSockets
+
+    // JSON Parser
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+
+    // Dependency Injection
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    // Images
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+
+    // Reactive
+    implementation "io.reactivex.rxjava3:rxandroid:$rootProject.rxJava3Version"
+    implementation "io.reactivex.rxjava3:rxjava:$rootProject.rxJava3Version"
+
+    // Leak Canary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakCanaryVersion"
 
     // Unit Tests
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
 }
