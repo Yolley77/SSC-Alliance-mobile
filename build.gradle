@@ -34,5 +34,6 @@ ext {
     rxJava3Version = '3.0.0'
     leakCanaryVersion = '2.4'
     mockitoVersion = '3.5.13'
-
+    okHttpBOMVersion = '4.9.0'
+    retrofitVersion = '2.9.0'
 }

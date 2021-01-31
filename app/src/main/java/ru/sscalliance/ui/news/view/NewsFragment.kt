@@ -9,22 +9,22 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import ru.sscalliance.R
-import ru.sscalliance.ui.news.presenter.DashboardViewModel
+import ru.sscalliance.ui.news.presenter.NewsPresenter
 
 class NewsFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var newsPresenter: NewsPresenter
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProvider(this).get(DashboardViewModel::class.java)
+        newsPresenter =
+                ViewModelProvider(this).get(NewsPresenter::class.java)
         val root = inflater.inflate(R.layout.fragment_news, container, false)
         val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        newsPresenter.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

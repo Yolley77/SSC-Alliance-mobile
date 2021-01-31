@@ -1,6 +1,6 @@
 package ru.sscalliance.ui.base.view
 
-interface MvpVIew {
+interface MvpView {
 
 }
 
