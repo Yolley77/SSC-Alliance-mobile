@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.reactivex.schedulers.Schedulers
+import io.realm.Realm
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level
@@ -18,7 +19,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class NetworkModule {
+class NetworkAndDatabaseModule {
 
     @Provides
     @Singleton
@@ -46,5 +47,9 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideApiService(): ApiService = provideRetrofit().create(ApiService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideRealm(): Realm = Realm.getDefaultInstance()
 
 }

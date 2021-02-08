@@ -1,6 +1,14 @@
 <resources>
+
+    <!--==================================== Common =================================-->
     <string name="app_name">SSC Alliance</string>
     <string name="title_profile">Профиль</string>
     <string name="title_news">Новости</string>
     <string name="title_events">Мероприятия</string>
+
+
+    <!--==================================== Errors =================================-->
+    <string name="error_occurred_short">Произошла ошибка.</string>
+    <string name="error_occurred_long">Произошла ошибка. Повторите попытку позже.</string>
+
 </resources>
