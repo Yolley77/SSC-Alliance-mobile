@@ -4,7 +4,9 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.*
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-class ScheduleProvider {
+interface IScheduleProvider
+
+class ScheduleProvider : IScheduleProvider {
 
     private fun getMainThreadScheduler() = AndroidSchedulers.mainThread()
 
