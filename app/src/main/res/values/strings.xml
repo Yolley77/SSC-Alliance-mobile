@@ -10,5 +10,15 @@
     <!--==================================== Errors =================================-->
     <string name="error_occurred_short">Произошла ошибка.</string>
     <string name="error_occurred_long">Произошла ошибка. Повторите попытку позже.</string>
+    <string name="tv_current_events">Актуальные мероприятия</string>
+    <string name="tv_sections">Секции</string>
+    <string name="find_players">Поиск Игроков</string>
+    <string name="football">Футбол</string>
+    <string name="join">Вступить</string>
+    <string name="description">Описание</string>
+    <string name="section_schedule">Расписание Занятий</string>
+    <string name="organizers">Организаторы</string>
+    <string name="photos">Фотографии</string>
+    <string name="section_news">Новости Секции</string>
 
 </resources>
