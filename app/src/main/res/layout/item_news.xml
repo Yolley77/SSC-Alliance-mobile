@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/itemNewsImage"
+        android:layout_width="match_parent"
+        android:layout_height="216dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_news"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/itemNewsTag"
+        android:layout_width="wrap_content"
+        android:layout_height="14dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/tag"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemNewsImage"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/itemNewsTitle"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/news_title"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:maxLines="3"
+        app:layout_constraintBottom_toTopOf="@+id/itemNewsTag"
+        app:layout_constraintStart_toStartOf="@+id/itemNewsImage" />
+
+    <TextView
+        android:id="@+id/itemNewsPublicationDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/news_date"
+        android:background="@drawable/rounded_news_date"
+        android:textColor="@color/black"
+        android:fontFamily="@font/roboto_medium"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/itemNewsTitle"
+        app:layout_constraintStart_toStartOf="@+id/itemNewsImage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
