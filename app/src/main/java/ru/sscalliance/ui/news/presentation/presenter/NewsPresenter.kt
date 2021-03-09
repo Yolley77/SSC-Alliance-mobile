@@ -9,7 +9,7 @@ import ru.sscalliance.utils.IScheduleProvider
 import javax.inject.Inject
 
 interface INewsPresenter<V: INewsFragment, I: INewsInteractor> : IMvpPresenter<V, I> {
-
+    fun getNews(): Any?
 }
 
 class NewsPresenter<V: INewsFragment, I: INewsInteractor> @Inject constructor(
@@ -21,5 +21,21 @@ class NewsPresenter<V: INewsFragment, I: INewsInteractor> @Inject constructor(
         scheduleProvider = scheduleProvider,
         interactor = interactor
 ), INewsPresenter<V, I> {
+
+    override fun getNews(): Any? = getView()?.let { view ->
+        interactor.let {
+            compositeDisposable.add(
+                    interactor.getNews()
+                            .compose(scheduleProvider.ioToMainObservableScheduler())
+                            .doOnSubscribe { view.showProgress() }
+                            .doFinally { view.hideProgress() }
+                            .subscribe({ items ->
+                                       view.showNews(items)
+                            }, { error ->
+                                // TODO handle it
+                            })
+            )
+        }
+    }
 
 }
