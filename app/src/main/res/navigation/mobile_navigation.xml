@@ -12,14 +12,20 @@
         tools:layout="@layout/fragment_news" />
 
     <fragment
-        android:id="@+id/navigation_events"
-        android:name="ru.sscalliance.ui.events.view.EventsFragment"
+        android:id="@+id/navigation_sport"
+        android:name="ru.sscalliance.ui.sport.presentation.view.SportFragment"
         android:label="@string/title_events"
-        tools:layout="@layout/fragment_events" />
+        tools:layout="@layout/fragment_sport" />
 
     <fragment
-        android:id="@+id/navigation_profile"
-        android:name="ru.sscalliance.ui.profile.view.ProfileFragment"
+        android:id="@+id/navigation_sport_club"
+        android:name="ru.sscalliance.ui.sportClub.presentation.view.SportClubFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_sport_club" />
+
+    <fragment
+        android:id="@+id/navigation_team"
+        android:name="ru.sscalliance.ui.team.presentation.view.TeamFragment"
+        android:label="Сборные"
+        tools:layout="@layout/fragment_teams" />
 </navigation>
