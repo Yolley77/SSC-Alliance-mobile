@@ -11,6 +11,10 @@
     <!--==================================== Errors =================================-->
     <string name="error_occurred_short">Произошла ошибка.</string>
     <string name="error_occurred_long">Произошла ошибка. Повторите попытку позже.</string>
+    <string name="auth_error">Ошибка аутентификации.</string>
+    <string name="no_internet_error">Проблемы с соединением.</string>
+
+
     <string name="tv_current_events">Актуальные мероприятия</string>
     <string name="tv_sections">Секции</string>
     <string name="find_players">Поиск Игроков</string>

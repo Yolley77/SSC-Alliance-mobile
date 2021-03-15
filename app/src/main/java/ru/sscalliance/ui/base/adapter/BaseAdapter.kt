@@ -9,22 +9,11 @@ abstract class BaseAdapter<T> : RecyclerView.Adapter<BaseViewHolder>() {
 
     var data: MutableList<T> = mutableListOf()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(getItemResId(viewType), parent, false)
-        return getViewHolder(view, viewType)
-    }
-
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bind(position)
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
-
-    abstract fun getItemResId(viewType: Int): Int
-
-    abstract fun getViewHolder(view: View, viewType: Int): BaseViewHolder
+    override fun getItemCount(): Int = data.size
 
     open fun setItems(data: List<T>) {
         this.data.clear()

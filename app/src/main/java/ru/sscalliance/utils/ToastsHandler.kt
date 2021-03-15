@@ -16,6 +16,8 @@ class ToastsHandler @Inject constructor(
     override fun showError(errorCode: Int?, httpErrorCode: Int?) {
         when (errorCode) {
             AppConstants.ERROR -> makeToast(context.getString(R.string.error_occurred_short))
+            AppConstants.NO_INTERNET_ERROR -> makeToast(context.getString(R.string.error_occurred_short))
+            AppConstants.AUTH_ERROR -> makeToast(context.getString(R.string.error_occurred_short))
             else -> makeToast(context.getString(R.string.error_occurred_long))
         }
     }

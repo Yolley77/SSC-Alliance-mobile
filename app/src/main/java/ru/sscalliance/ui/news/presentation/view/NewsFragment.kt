@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.R
@@ -36,12 +35,14 @@ class NewsFragment : BaseFragment(R.layout.fragment_news), INewsFragment {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = FragmentNewsBinding.inflate(inflater, container, false)
-        return super.onCreateView(inflater, container, savedInstanceState)
+        // IMPORTANT
+        // to work with binding - must return binding.root in onCreate/onCreateView
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,7 +56,7 @@ class NewsFragment : BaseFragment(R.layout.fragment_news), INewsFragment {
     }
 
     override fun showNews(items: List<NewsBusinessModel>) {
-        TODO("Not yet implemented")
+        newsAdapter.updateAdapter(items)
     }
 
     private fun setUpNewsRv() {
@@ -64,6 +65,8 @@ class NewsFragment : BaseFragment(R.layout.fragment_news), INewsFragment {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(context)
         }
+        binding.rvNews.adapter = newsAdapter
+        binding.rvNews.layoutManager = LinearLayoutManager(context)
         presenter.getNews()
     }
 
