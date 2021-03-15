@@ -4,12 +4,14 @@ import io.reactivex.rxjava3.core.Observable
 import ru.sscalliance.data.base.preferences.PreferencesHelper
 import ru.sscalliance.domain.base.BaseInteractor
 import ru.sscalliance.domain.base.MvpInteractor
-import ru.sscalliance.domain.sport.model.SportBusinessModel
+import ru.sscalliance.domain.sport.model.EventBusiness
+import ru.sscalliance.domain.sport.model.SectionBusiness
 import ru.sscalliance.domain.sport.repository.ISportRepository
 import javax.inject.Inject
 
 interface ISportInteractor: MvpInteractor {
-    fun getSport(): Observable<List<SportBusinessModel>>
+    fun getSections(): Observable<List<SectionBusiness>>
+    fun getEvents(): Observable<List<EventBusiness>>
 }
 
 class SportInteractor @Inject constructor(
@@ -17,8 +19,12 @@ class SportInteractor @Inject constructor(
     private val repository: ISportRepository
 ): ISportInteractor, BaseInteractor() {
 
-    override fun getSport(): Observable<List<SportBusinessModel>> {
-        return repository.getSport()
+    override fun getSections(): Observable<List<SectionBusiness>> {
+        return repository.getSections()
+    }
+
+    override fun getEvents(): Observable<List<EventBusiness>> {
+        return repository.getEvents()
     }
 }
 

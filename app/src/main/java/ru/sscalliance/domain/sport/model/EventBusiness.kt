@@ -1,5 +1,5 @@
 package ru.sscalliance.domain.sport.model
 
-data class SportBusinessModel (
+data class EventBusiness (
     val id: String,
 )

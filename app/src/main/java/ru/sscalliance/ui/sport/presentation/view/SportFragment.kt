@@ -4,14 +4,16 @@ import android.os.Bundle
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.R
 import ru.sscalliance.domain.sport.interactor.ISportInteractor
-import ru.sscalliance.domain.sport.model.SportBusinessModel
+import ru.sscalliance.domain.sport.model.EventBusiness
+import ru.sscalliance.domain.sport.model.SectionBusiness
 import ru.sscalliance.ui.base.view.BaseFragment
 import ru.sscalliance.ui.base.view.IMvpView
 import ru.sscalliance.ui.sport.presentation.presenter.SportPresenter
 import javax.inject.Inject
 
 interface ISportFragment: IMvpView {
-    fun showSport(items: List<SportBusinessModel>)
+    fun showSections(items: List<SectionBusiness>)
+    fun showEvents(items: List<EventBusiness>)
 }
 
 @AndroidEntryPoint
@@ -30,7 +32,11 @@ class SportFragment: BaseFragment(R.layout.fragment_sport), ISportFragment {
         super.onDestroyView()
     }
 
-    override fun showSport(items: List<SportBusinessModel>) {
+    override fun showSections(items: List<SectionBusiness>) {
+        TODO("Not yet implemented")
+    }
+
+    override fun showEvents(items: List<EventBusiness>) {
         TODO("Not yet implemented")
     }
 }

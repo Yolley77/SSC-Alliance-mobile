@@ -9,7 +9,8 @@ import ru.sscalliance.utils.IScheduleProvider
 import javax.inject.Inject
 
 interface ISportPresenter<V: ISportFragment, I: ISportInteractor> : IMvpPresenter<V, I> {
-    fun getSport(): Any?
+    fun getSections(): Any?
+    fun getEvents(): Any?
 }
 
 class SportPresenter<V: ISportFragment, I: ISportInteractor> @Inject constructor(
@@ -21,17 +22,33 @@ class SportPresenter<V: ISportFragment, I: ISportInteractor> @Inject constructor
     scheduleProvider = scheduleProvider,
     interactor = interactor
 ), ISportPresenter<V, I> {
-    override fun getSport(): Any? = getView()?.let{ view ->
+
+    override fun getSections(): Any? = getView()?.let{ view ->
         interactor.let {
             compositeDisposable.add(
-                interactor.getSport()
-                    .compose(scheduleProvider.ioToMainObservableScheduler())
-                    .doOnSubscribe { view.showProgress() }
-                    .doFinally { view.hideProgress() }
-                    .subscribe({ items ->
-                        view.showSport(items)
-                    }, { error ->
-                    })
+                    interactor.getSections()
+                            .compose(scheduleProvider.ioToMainObservableScheduler())
+                            .doOnSubscribe { view.showProgress() }
+                            .doFinally { view.hideProgress() }
+                            .subscribe({ items ->
+                                view.showSections(items)
+                            }, { error ->
+                            })
+            )
+        }
+    }
+
+    override fun getEvents(): Any? = getView()?.let{ view ->
+        interactor.let {
+            compositeDisposable.add(
+                    interactor.getEvents()
+                            .compose(scheduleProvider.ioToMainObservableScheduler())
+                            .doOnSubscribe { view.showProgress() }
+                            .doFinally { view.hideProgress() }
+                            .subscribe({ items ->
+                                view.showEvents(items)
+                            }, { error ->
+                            })
             )
         }
     }
