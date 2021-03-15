@@ -10,7 +10,7 @@ class NewsRepository @Inject constructor(
 ) : INewsRepository {
 
     override fun getNews(): Observable<List<NewsBusinessModel>> {
-        val model = NewsBusinessModel("1")
+        val model = NewsBusinessModel("Title", "image", "pubDate", "tag")
         return Observable.just(
                 listOf<NewsBusinessModel>(
                         model, model, model, model

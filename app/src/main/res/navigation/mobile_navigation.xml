@@ -14,18 +14,18 @@
     <fragment
         android:id="@+id/navigation_sport"
         android:name="ru.sscalliance.ui.sport.presentation.view.SportFragment"
-        android:label="@string/title_events"
+        android:label="@string/title_sport"
         tools:layout="@layout/fragment_sport" />
 
     <fragment
-        android:id="@+id/navigation_sport_club"
+        android:id="@+id/navigation_sportclub"
         android:name="ru.sscalliance.ui.sportClub.presentation.view.SportClubFragment"
-        android:label="@string/title_profile"
+        android:label="@string/title_sportclub"
         tools:layout="@layout/fragment_sport_club" />
 
     <fragment
         android:id="@+id/navigation_team"
         android:name="ru.sscalliance.ui.team.presentation.view.TeamFragment"
-        android:label="Сборные"
+        android:label="@string/title_team"
         tools:layout="@layout/fragment_teams" />
 </navigation>
