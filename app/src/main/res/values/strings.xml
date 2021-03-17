@@ -28,5 +28,8 @@
     <string name="tag">#ssc_alliance #асск #студенческийспорт</string>
     <string name="news_title">Футбольный клуб МИРЭА на АССК.фест 2020!</string>
     <string name="news_date">15 октября</string>
+    <string name="informations">Информации</string>
+    <string name="media">Медиа</string>
+    <string name="statistics">Статистика</string>
 
 </resources>

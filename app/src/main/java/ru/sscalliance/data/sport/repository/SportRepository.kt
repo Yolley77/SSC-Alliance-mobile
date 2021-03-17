@@ -10,11 +10,13 @@ class SportRepository @Inject constructor(
 
 ): ISportRepository {
     override fun getSections(): Observable<List<SectionBusiness>> {
-        val model = SectionBusiness("2")
+        val model1 = SectionBusiness("Секция по футболу", "image", "20/05/2021", "#мирэаспортфамили")
+        val model2 = SectionBusiness("Секция по баскетболу", "image", "25/05/2021", "#баскетбол")
+        val model3 = SectionBusiness("Секция по волейболу", "image", "30/06/2021", "#волейбол")
         return Observable.just(
-            listOf(
-                    model, model, model, model
-            )
+                listOf(
+                        model1, model2, model3
+                )
         )
     }
 
