@@ -1,8 +1,7 @@
 package ru.sscalliance.domain.sport.model
 
-data class SectionBusiness (
+data class EventBusinessModel(
         var title: String = "",
         var image: String = "",
         var publicationDate: String = "",
-        var tag: String = ""
 )

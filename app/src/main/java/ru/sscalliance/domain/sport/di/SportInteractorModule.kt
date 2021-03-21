@@ -10,6 +10,8 @@ import ru.sscalliance.domain.sport.repository.ISportRepository
 @Module
 @InstallIn(FragmentComponent::class)
 abstract class SportInteractorModule {
+
     @Binds
     abstract fun bindSportRepository(impl: SportRepository): ISportRepository
+
 }

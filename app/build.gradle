@@ -82,6 +82,7 @@ dependencies {
 
     // Dependency Injection
     implementation "com.google.dagger:hilt-android:$hilt_version"
+    implementation 'androidx.viewpager:viewpager:1.0.0'
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
 
     // Images
@@ -91,6 +92,12 @@ dependencies {
     // Reactive
     implementation "io.reactivex.rxjava3:rxandroid:$rootProject.rxJava3Version"
     implementation "io.reactivex.rxjava3:rxjava:$rootProject.rxJava3Version"
+
+    // Adapter Delegate
+    implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.0'
+    implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.0'
+
+    implementation 'com.github.Liverm0r:delegateadapters:4.0'
 
     // Leak Canary
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakCanaryVersion"

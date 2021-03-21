@@ -65,8 +65,6 @@ class NewsFragment : BaseFragment(R.layout.fragment_news), INewsFragment {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(context)
         }
-        binding.rvNews.adapter = newsAdapter
-        binding.rvNews.layoutManager = LinearLayoutManager(context)
         presenter.getNews()
     }
 
