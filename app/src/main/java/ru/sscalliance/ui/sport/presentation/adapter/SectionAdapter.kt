@@ -12,8 +12,8 @@ import ru.sscalliance.domain.sport.model.SectionBusinessModel
 import ru.sscalliance.ui.base.adapter.BaseAdapter
 import ru.sscalliance.ui.base.adapter.BaseViewHolder
 
-class SectionAdapter(private val onItemClicked : (SectionBusinessModel) -> Unit)
-    : BaseAdapter<SectionBusinessModel>() {
+class SectionAdapter(private val onItemClicked: (SectionBusinessModel) -> Unit) :
+    BaseAdapter<SectionBusinessModel>() {
 
     var onItemClick: (SectionBusinessModel) -> Unit = {}
 
@@ -23,26 +23,26 @@ class SectionAdapter(private val onItemClicked : (SectionBusinessModel) -> Unit)
         return SectionViewHolder(binding)
     }
 
-    inner class SectionViewHolder(private val itemBinding: ItemSectionBinding)
-        : BaseViewHolder(itemBinding.root) {
+    inner class SectionViewHolder(private val itemBinding: ItemSectionBinding) :
+        BaseViewHolder(itemBinding.root) {
 
         override fun bind(position: Int) {
             val sectionItem = data[position]
             itemBinding.itemSectionTitle.text = sectionItem.title
             Glide.with(itemBinding.root)
-                    .load(sectionItem.logo)
-                    .transform(
-                            MultiTransformation(
-                                    CenterCrop()
-                            )
+                .load(sectionItem.logo)
+                .transform(
+                    MultiTransformation(
+                        CenterCrop()
                     )
-                    .error(
-                            Glide
-                                    .with(itemBinding.root)
-                                    .load(R.drawable.photo_tect_1)
-                                    .apply(RequestOptions().centerCrop())
-                    )
-                    .into(itemBinding.itemSectionLogo)
+                )
+                .error(
+                    Glide
+                        .with(itemBinding.root)
+                        .load(R.drawable.photo_tect_1)
+                        .apply(RequestOptions().centerCrop())
+                )
+                .into(itemBinding.itemSectionLogo)
 
             itemBinding.root.setOnClickListener {
                 onItemClicked.invoke(sectionItem)

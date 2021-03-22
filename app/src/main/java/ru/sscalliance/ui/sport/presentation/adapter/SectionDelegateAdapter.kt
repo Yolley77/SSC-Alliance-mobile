@@ -10,7 +10,7 @@ import ru.sscalliance.databinding.ItemSectionBinding
 import ru.sscalliance.domain.sport.model.SectionBusinessModel
 
 class SectionDelegateAdapter(action: (SectionBusinessModel) -> Unit) :
-        ViewBindingDelegateAdapter<SectionBusinessModel, ItemSectionBinding>(ItemSectionBinding::inflate) {
+    ViewBindingDelegateAdapter<SectionBusinessModel, ItemSectionBinding>(ItemSectionBinding::inflate) {
 
     override fun ItemSectionBinding.onBind(item: SectionBusinessModel) {
         itemSectionTitle.text = item.title
@@ -18,19 +18,19 @@ class SectionDelegateAdapter(action: (SectionBusinessModel) -> Unit) :
 
         }
         Glide.with(root)
-                .load(item.logo)
-                .transform(
-                        MultiTransformation(
-                                CenterCrop()
-                        )
+            .load(item.logo)
+            .transform(
+                MultiTransformation(
+                    CenterCrop()
                 )
-                .error(
-                        Glide
-                                .with(root)
-                                .load(R.drawable.photo_tect_1)
-                                .apply(RequestOptions().centerCrop())
-                )
-                .into(itemSectionLogo)
+            )
+            .error(
+                Glide
+                    .with(root)
+                    .load(R.drawable.photo_tect_1)
+                    .apply(RequestOptions().centerCrop())
+            )
+            .into(itemSectionLogo)
     }
 
     override fun isForViewType(item: Any): Boolean = item is SectionBusinessModel
