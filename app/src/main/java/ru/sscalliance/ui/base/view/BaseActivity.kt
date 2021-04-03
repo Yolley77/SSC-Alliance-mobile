@@ -17,7 +17,7 @@ abstract class BaseActivity(private val layoutId: Int) : AppCompatActivity(), IM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layoutId)
+        //setContentView(layoutId)
     }
 
     override fun hideProgress() {

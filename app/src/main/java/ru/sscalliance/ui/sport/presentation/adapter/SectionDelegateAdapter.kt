@@ -1,5 +1,6 @@
 package ru.sscalliance.ui.sport.presentation.adapter
 
+/*
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
@@ -36,4 +37,4 @@ class SectionDelegateAdapter(action: (SectionBusinessModel) -> Unit) :
     override fun isForViewType(item: Any): Boolean = item is SectionBusinessModel
 
     override fun SectionBusinessModel.getItemId(): Any = title
-}
+}*/

@@ -8,15 +8,18 @@ import javax.inject.Inject
 
 class SportRepository @Inject constructor(
 
-): ISportRepository {
+) : ISportRepository {
     override fun getSections(): Observable<List<SectionBusinessModel>> {
         val model1 = SectionBusinessModel("Футбол", "image")
         val model2 = SectionBusinessModel("Баскетбол", "image")
         val model3 = SectionBusinessModel("Волейбол", "image")
+        val model4 = SectionBusinessModel("Настольный теннис", "image")
+        val model5 = SectionBusinessModel("Бадминтон", "image")
+        val model6 = SectionBusinessModel("Шахматы", "image")
         return Observable.just(
-                listOf(
-                        model1, model2, model3, model3, model3, model3
-                )
+            listOf(
+                model1, model2, model3, model4, model5, model6
+            )
         )
     }
 
@@ -25,9 +28,9 @@ class SportRepository @Inject constructor(
         val model2 = EventBusinessModel("Секция по баскетболу", "image", "25/05/2021")
         val model3 = EventBusinessModel("Секция по волейболу", "image", "30/06/2021")
         return Observable.just(
-                listOf(
-                        model1, model2, model3
-                )
+            listOf(
+                model1, model2, model3
+            )
         )
     }
 }

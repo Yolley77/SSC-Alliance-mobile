@@ -14,7 +14,7 @@ interface IMainSectionActivity : IMvpView {
 }
 
 @AndroidEntryPoint
-class MainSectionActivity : BaseActivity(R.layout.activity_main_section), IMainSectionActivity {
+class MainSectionActivity : BaseActivity(R.layout.activity_main), IMainSectionActivity {
 
     private lateinit var binding: ActivityMainSectionBinding
 
@@ -28,6 +28,9 @@ class MainSectionActivity : BaseActivity(R.layout.activity_main_section), IMainS
             when (position) {
                 0 -> tab.text = "Football"
                 1 -> tab.text = "Basketball"
+                2 -> tab.text = "Basketball"
+                3 -> tab.text = "Basketball"
+                4 -> tab.text = "Basketball"
                 else -> tab.text = "Gaming"
             }
         }.attach()

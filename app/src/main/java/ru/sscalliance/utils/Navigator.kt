@@ -23,8 +23,6 @@ class Navigator @Inject constructor(
 
     override fun openMainSectionScreen() = context.startActivity(
         Intent(context, MainSectionActivity::class.java)
-            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
     )
 
 }

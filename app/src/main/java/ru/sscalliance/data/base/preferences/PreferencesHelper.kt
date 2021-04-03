@@ -5,13 +5,15 @@ import android.content.SharedPreferences
 import javax.inject.Inject
 
 interface IPreferencesHelper {
+
     fun clearToken()
     fun getToken(): String?
     fun setToken(accessToken: String)
+
 }
 
 class PreferencesHelper @Inject constructor(
-        context: Context
+    context: Context
 ) : IPreferencesHelper {
 
     private companion object {

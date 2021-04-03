@@ -26,8 +26,8 @@ class NewsFragment : BaseFragment(R.layout.fragment_news), INewsFragment {
     @Inject
     lateinit var presenter: NewsPresenter<INewsFragment, INewsInteractor>
 
-    private lateinit var binding: FragmentNewsBinding
-    private lateinit var newsAdapter: NewsAdapter<NewsBusinessModel>
+    private var binding: FragmentNewsBinding? = null
+    private var newsAdapter: NewsAdapter<NewsBusinessModel>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,29 +39,33 @@ class NewsFragment : BaseFragment(R.layout.fragment_news), INewsFragment {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentNewsBinding.inflate(inflater, container, false)
+        val fragmentBinding = FragmentNewsBinding.inflate(inflater, container, false)
+        binding = fragmentBinding
         // IMPORTANT
         // to work with binding - must return binding.root in onCreate/onCreateView
-        return binding.root
+        return fragmentBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = FragmentNewsBinding.bind(view)
         setUpNewsRv()
     }
 
     override fun onDestroyView() {
         presenter.unbindView()
+        binding = null
+        newsAdapter = null
         super.onDestroyView()
     }
 
     override fun showNews(items: List<NewsBusinessModel>) {
-        newsAdapter.updateAdapter(items)
+        newsAdapter?.updateAdapter(items)
     }
 
     private fun setUpNewsRv() {
         newsAdapter = NewsAdapter()
-        binding.rvNews.apply {
+        binding?.rvNews?.apply {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(context)
         }

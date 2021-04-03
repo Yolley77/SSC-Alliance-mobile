@@ -34,10 +34,11 @@ class SportPresenter<V : ISportFragment, I : ISportInteractor> @Inject construct
                     .compose(scheduleProvider.ioToMainObservableScheduler())
                     .doOnSubscribe { view.showProgress() }
                     .doFinally { view.hideProgress() }
-                    .subscribe({ items ->
-                        view.showSections(items)
-                    }, { error ->
-                    })
+                    .subscribe(
+                        { items ->
+                            view.showSections(items)
+                        }, ::handleError
+                    )
             )
         }
     }
@@ -49,10 +50,11 @@ class SportPresenter<V : ISportFragment, I : ISportInteractor> @Inject construct
                     .compose(scheduleProvider.ioToMainObservableScheduler())
                     .doOnSubscribe { view.showProgress() }
                     .doFinally { view.hideProgress() }
-                    .subscribe({ items ->
-                        view.showEvents(items)
-                    }, { error ->
-                    })
+                    .subscribe(
+                        { items ->
+                            view.showEvents(items)
+                        }, ::handleError
+                    )
             )
         }
     }
