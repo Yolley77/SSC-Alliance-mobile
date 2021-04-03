@@ -9,7 +9,7 @@ import ru.sscalliance.domain.sport.model.SectionBusinessModel
 import ru.sscalliance.domain.sport.repository.ISportRepository
 import javax.inject.Inject
 
-interface ISportInteractor: IMvpInteractor {
+interface ISportInteractor : IMvpInteractor {
     fun getSections(): Observable<List<SectionBusinessModel>>
     fun getEvents(): Observable<List<EventBusinessModel>>
 }
@@ -17,7 +17,7 @@ interface ISportInteractor: IMvpInteractor {
 class SportInteractor @Inject constructor(
     preferencesHelper: PreferencesHelper,
     private val repository: ISportRepository
-): ISportInteractor, BaseInteractor() {
+) : ISportInteractor, BaseInteractor() {
 
     override fun getSections(): Observable<List<SectionBusinessModel>> {
         return repository.getSections()

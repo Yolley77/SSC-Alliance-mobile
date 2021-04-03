@@ -1,20 +1,21 @@
-package ru.sscalliance.data.news.repository
+package ru.sscalliance.data.news.cloud.source
 
 import io.reactivex.rxjava3.core.Observable
+import ru.sscalliance.data.base.BaseCloudDataSource
+import ru.sscalliance.data.news.cloud.mapper.NewsNetToUIMapper
 import ru.sscalliance.data.news.cloud.model.NewsRequest
-import ru.sscalliance.data.news.database.source.INewsStorageDataSource
-import ru.sscalliance.data.news.cloud.source.INewsCloudDataSource
 import ru.sscalliance.domain.news.model.NewsBusinessModel
-import ru.sscalliance.domain.news.repository.INewsRepository
 import javax.inject.Inject
 
-class NewsRepository @Inject constructor(
-    private val newsCloud: INewsCloudDataSource,
-    private val newsCache: INewsStorageDataSource
-) : INewsRepository {
+interface INewsCloudDataSource {
+    fun getNews(request: NewsRequest): Observable<List<NewsBusinessModel>>
+}
 
-    override fun getNews(): Observable<List<NewsBusinessModel>> {
-        newsCloud.getNews(NewsRequest(0))
+class NewsCloudDataSource @Inject constructor(
+
+) : INewsCloudDataSource, BaseCloudDataSource() {
+    override fun getNews(request: NewsRequest): Observable<List<NewsBusinessModel>> {
+        api.getNews(request).map { it.data.map { NewsNetToUIMapper::map } }
 
         val model1 = NewsBusinessModel(
             "1",

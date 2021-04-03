@@ -8,7 +8,7 @@ import ru.sscalliance.domain.news.model.NewsBusinessModel
 import ru.sscalliance.domain.news.repository.INewsRepository
 import javax.inject.Inject
 
-interface INewsInteractor: IMvpInteractor {
+interface INewsInteractor : IMvpInteractor {
     fun getNews(): Observable<List<NewsBusinessModel>>
 }
 
@@ -17,7 +17,7 @@ interface INewsInteractor: IMvpInteractor {
 class NewsInteractor @Inject constructor(
     preferencesHelper: PreferencesHelper,
     private val repository: INewsRepository
-): INewsInteractor, BaseInteractor() {
+) : INewsInteractor, BaseInteractor() {
 
     override fun getNews(): Observable<List<NewsBusinessModel>> {
         return repository.getNews()

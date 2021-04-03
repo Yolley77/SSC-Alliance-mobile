@@ -5,13 +5,14 @@ import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.viewbinding.ViewBinding
 import ru.sscalliance.utils.CommonUtil
 
 abstract class BaseFragment(private var layoutId: Int) : Fragment(), IMvpView {
 
     private var parentActivity: BaseActivity? = null
     private var progressBar: ProgressBar? = null
-    //private var binding: ViewBinding? = null
+    //open var binding: ViewBinding? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -30,6 +31,11 @@ abstract class BaseFragment(private var layoutId: Int) : Fragment(), IMvpView {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(layoutId, container, false)*/
+
+    override fun onDestroyView() {
+        //binding = null
+        super.onDestroyView()
+    }
 
     override fun hideProgress() {
         progressBar?.let { if (it.isVisible) it.isVisible = false }

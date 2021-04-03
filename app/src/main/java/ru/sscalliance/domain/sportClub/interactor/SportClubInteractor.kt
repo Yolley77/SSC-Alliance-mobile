@@ -8,14 +8,14 @@ import ru.sscalliance.domain.sportClub.model.SportClubBusinessModel
 import ru.sscalliance.domain.sportClub.repository.ISportClubRepository
 import javax.inject.Inject
 
-interface ISportClubInteractor: IMvpInteractor {
+interface ISportClubInteractor : IMvpInteractor {
     fun getSportClub(): Observable<List<SportClubBusinessModel>>
 }
 
 class SportClubInteractor @Inject constructor(
     preferencesHelper: PreferencesHelper,
     private val repository: ISportClubRepository
-): ISportClubInteractor, BaseInteractor(){
+) : ISportClubInteractor, BaseInteractor() {
     override fun getSportClub(): Observable<List<SportClubBusinessModel>> {
         return repository.getSportClub()
     }
