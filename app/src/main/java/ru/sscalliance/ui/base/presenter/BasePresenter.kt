@@ -23,11 +23,12 @@ abstract class BasePresenter<V : IMvpView, I : IMvpInteractor> internal construc
     private val isViewAttached: Boolean
         get() = view != null
 
-    override fun bindView(view: V) {
+    override fun onAttach(view: V) {
         this.view = view
     }
 
-    override fun unbindView() {
+    override fun onDetach() {
+        compositeDisposable.clear()
         view?.hideProgress()
         view = null
     }

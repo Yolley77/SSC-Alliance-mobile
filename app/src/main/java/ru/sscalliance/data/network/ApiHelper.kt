@@ -2,8 +2,8 @@ package ru.sscalliance.data.network
 
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.HttpException
-import ru.sscalliance.data.news.cloud.model.NewsRequest
-import ru.sscalliance.data.news.cloud.model.NewsResponse
+import ru.sscalliance.data.news.remote.model.NewsRequest
+import ru.sscalliance.data.news.remote.model.NewsResponse
 import javax.inject.Inject
 
 interface IApiHelper {

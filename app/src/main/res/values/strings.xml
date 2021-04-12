@@ -15,6 +15,15 @@
     <string name="no_internet_error">Проблемы с соединением.</string>
 
 
+    <!--==================================== Sections =================================-->
+    <string name="section_football">Футбол</string>
+    <string name="section_volleyball">Волейбол</string>
+    <string name="section_basketball">Баскетбол</string>
+    <string name="section_chess">Шахматы</string>
+    <string name="section_ping_pong">НАстольный теннис</string>
+    <string name="section_badminton">Бадминтон</string>
+
+
     <string name="tv_current_events">Актуальные мероприятия</string>
     <string name="tv_sections">Секции</string>
     <string name="find_players">Поиск Игроков</string>

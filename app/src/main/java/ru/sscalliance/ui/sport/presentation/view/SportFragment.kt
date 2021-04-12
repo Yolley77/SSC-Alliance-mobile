@@ -11,7 +11,7 @@ import ru.sscalliance.R
 import ru.sscalliance.databinding.FragmentSportBinding
 import ru.sscalliance.domain.sport.interactor.ISportInteractor
 import ru.sscalliance.domain.sport.model.EventBusinessModel
-import ru.sscalliance.domain.sport.model.SectionBusinessModel
+import ru.sscalliance.domain.sport.model.SectionPreviewBusinessModel
 import ru.sscalliance.ui.base.view.BaseActivity
 import ru.sscalliance.ui.base.view.BaseFragment
 import ru.sscalliance.ui.base.view.IMvpView
@@ -21,7 +21,7 @@ import ru.sscalliance.ui.sport.presentation.presenter.SportPresenter
 import javax.inject.Inject
 
 interface ISportFragment : IMvpView {
-    fun showSections(items: List<SectionBusinessModel>)
+    fun showSections(items: List<SectionPreviewBusinessModel>)
     fun showEvents(items: List<EventBusinessModel>)
     fun openMainSectionsScreen()
 }
@@ -38,7 +38,7 @@ class SportFragment : BaseFragment(R.layout.fragment_sport), ISportFragment {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        presenter.bindView(this)
+        presenter.onAttach(this)
     }
 
     override fun onCreateView(
@@ -57,11 +57,11 @@ class SportFragment : BaseFragment(R.layout.fragment_sport), ISportFragment {
     }
 
     override fun onDestroyView() {
-        presenter.unbindView()
+        presenter.onDetach()
         super.onDestroyView()
     }
 
-    override fun showSections(items: List<SectionBusinessModel>) {
+    override fun showSections(items: List<SectionPreviewBusinessModel>) {
         sectionAdapter?.updateAdapter(items)
     }
 

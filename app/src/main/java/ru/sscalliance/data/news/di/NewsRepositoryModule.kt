@@ -4,19 +4,19 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
-import ru.sscalliance.data.news.database.source.INewsStorageDataSource
-import ru.sscalliance.data.news.database.source.NewsStorageDataSource
-import ru.sscalliance.data.news.cloud.source.INewsCloudDataSource
-import ru.sscalliance.data.news.cloud.source.NewsCloudDataSource
+import ru.sscalliance.data.news.local.source.INewsLocalDataSource
+import ru.sscalliance.data.news.local.source.NewsLocalDataSource
+import ru.sscalliance.data.news.remote.source.INewsRemoteDataSource
+import ru.sscalliance.data.news.remote.source.NewsRemoteDataSource
 
 @Module
 @InstallIn(FragmentComponent::class)
 abstract class NewsRepositoryModule {
 
     @Binds
-    abstract fun bindNewsCacheDataSource(impl: NewsStorageDataSource): INewsStorageDataSource
+    abstract fun bindNewsCacheDataSource(impl: NewsLocalDataSource): INewsLocalDataSource
 
     @Binds
-    abstract fun bindsNewsCloudDataSource(impl: NewsCloudDataSource): INewsCloudDataSource
+    abstract fun bindsNewsCloudDataSource(impl: NewsRemoteDataSource): INewsRemoteDataSource
 
 }

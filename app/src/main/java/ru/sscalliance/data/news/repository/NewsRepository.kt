@@ -1,16 +1,16 @@
 package ru.sscalliance.data.news.repository
 
 import io.reactivex.rxjava3.core.Observable
-import ru.sscalliance.data.news.cloud.model.NewsRequest
-import ru.sscalliance.data.news.database.source.INewsStorageDataSource
-import ru.sscalliance.data.news.cloud.source.INewsCloudDataSource
+import ru.sscalliance.data.news.remote.model.NewsRequest
+import ru.sscalliance.data.news.local.source.INewsLocalDataSource
+import ru.sscalliance.data.news.remote.source.INewsRemoteDataSource
 import ru.sscalliance.domain.news.model.NewsBusinessModel
 import ru.sscalliance.domain.news.repository.INewsRepository
 import javax.inject.Inject
 
 class NewsRepository @Inject constructor(
-    private val newsCloud: INewsCloudDataSource,
-    private val newsCache: INewsStorageDataSource
+    private val newsCloud: INewsRemoteDataSource,
+    private val newsCache: INewsLocalDataSource
 ) : INewsRepository {
 
     override fun getNews(): Observable<List<NewsBusinessModel>> {

@@ -22,11 +22,11 @@ class TeamFragment: BaseFragment(R.layout.fragment_teams), ITeamFragment {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        presenter.bindView(this)
+        presenter.onAttach(this)
     }
 
     override fun onDestroyView() {
-        presenter.unbindView()
+        presenter.onDetach()
         super.onDestroyView()
     }
     override fun getTeam(items: List<TeamBusinessModel>) {

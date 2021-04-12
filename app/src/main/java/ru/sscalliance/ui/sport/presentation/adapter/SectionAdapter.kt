@@ -8,14 +8,15 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
 import ru.sscalliance.R
 import ru.sscalliance.databinding.ItemSectionBinding
-import ru.sscalliance.domain.sport.model.SectionBusinessModel
+import ru.sscalliance.domain.section.model.SectionType
+import ru.sscalliance.domain.sport.model.SectionPreviewBusinessModel
 import ru.sscalliance.ui.base.adapter.BaseAdapter
 import ru.sscalliance.ui.base.adapter.BaseViewHolder
 
-class SectionAdapter(private val onItemClicked: (SectionBusinessModel) -> Unit) :
-    BaseAdapter<SectionBusinessModel>() {
+class SectionAdapter(private val onItemClicked: (SectionType) -> Unit) :
+    BaseAdapter<SectionPreviewBusinessModel>() {
 
-    var onItemClick: (SectionBusinessModel) -> Unit = {}
+    var onItemClick: (SectionPreviewBusinessModel) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -45,7 +46,7 @@ class SectionAdapter(private val onItemClicked: (SectionBusinessModel) -> Unit) 
                 .into(itemBinding.itemSectionLogo)
 
             itemBinding.root.setOnClickListener {
-                onItemClicked.invoke(sectionItem)
+                onItemClicked.invoke(sectionItem.type)
             }
         }
 

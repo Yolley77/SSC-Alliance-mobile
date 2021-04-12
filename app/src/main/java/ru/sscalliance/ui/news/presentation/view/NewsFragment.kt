@@ -13,7 +13,7 @@ import ru.sscalliance.domain.news.model.NewsBusinessModel
 import ru.sscalliance.ui.base.view.BaseFragment
 import ru.sscalliance.ui.base.view.IMvpView
 import ru.sscalliance.ui.news.presentation.adapter.NewsAdapter
-import ru.sscalliance.ui.news.presentation.presenter.NewsPresenter
+import ru.sscalliance.ui.news.presentation.viewModel.NewsViewModel
 import javax.inject.Inject
 
 interface INewsFragment : IMvpView {
@@ -24,14 +24,14 @@ interface INewsFragment : IMvpView {
 class NewsFragment : BaseFragment(R.layout.fragment_news), INewsFragment {
 
     @Inject
-    lateinit var presenter: NewsPresenter<INewsFragment, INewsInteractor>
+    lateinit var presenter: NewsViewModel<INewsFragment, INewsInteractor>
 
     private var binding: FragmentNewsBinding? = null
     private var newsAdapter: NewsAdapter<NewsBusinessModel>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        presenter.bindView(this)
+        presenter.onAttach(this)
     }
 
     override fun onCreateView(
@@ -53,7 +53,7 @@ class NewsFragment : BaseFragment(R.layout.fragment_news), INewsFragment {
     }
 
     override fun onDestroyView() {
-        presenter.unbindView()
+        presenter.onDetach()
         binding = null
         newsAdapter = null
         super.onDestroyView()
