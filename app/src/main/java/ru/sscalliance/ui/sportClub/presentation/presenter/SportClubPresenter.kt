@@ -31,9 +31,7 @@ class SportClubPresenter<V: ISportClubFragment, I: ISportClubInteractor> @Inject
                     .doFinally { view.hideProgress() }
                     .subscribe({ items ->
                         view.getSportClub(items)
-                    }, { error->
-
-                    })
+                    }, ::handleError)
             )
         }
     }

@@ -22,11 +22,11 @@ class SportClubFragment: BaseFragment(R.layout.fragment_sport_club), ISportClubF
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        presenter.bindView(this)
+        presenter.onAttach(this)
     }
 
     override fun onDestroyView() {
-        presenter.unbindView()
+        presenter.onDetach()
         super.onDestroyView()
     }
     override fun getSportClub(items: List<SportClubBusinessModel>) {

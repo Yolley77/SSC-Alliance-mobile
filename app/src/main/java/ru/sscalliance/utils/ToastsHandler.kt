@@ -11,8 +11,8 @@ interface IToastsHandler {
 }
 
 class ToastsHandler @Inject constructor(
-        private val context: Context
-        ) : IToastsHandler {
+    private val context: Context
+) : IToastsHandler {
     override fun showError(errorCode: Int?, httpErrorCode: Int?) {
         when (errorCode) {
             AppConstants.ERROR -> makeToast(context.getString(R.string.error_occurred_short))
@@ -24,7 +24,7 @@ class ToastsHandler @Inject constructor(
 
     override fun showMessage(message: String?) {
         when (message.isNullOrEmpty()) {
-            true  -> makeToast(context.getString(R.string.error_occurred_long))
+            true -> makeToast(context.getString(R.string.error_occurred_long))
             false -> makeToast("${context.getString(R.string.error_occurred_short)}\n$message")
         }
     }
@@ -32,7 +32,7 @@ class ToastsHandler @Inject constructor(
     private fun makeToast(message: String?, code: Int? = null) {
         val text = if (code == null) "$message" else "$message $code"
         Toast.makeText(context, text, Toast.LENGTH_SHORT)
-                .show()
+            .show()
     }
 
 }

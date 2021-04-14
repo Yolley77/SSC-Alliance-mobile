@@ -22,8 +22,8 @@ class EventAdapter<EventBusinessModel>
         return EventViewHolder(binding)
     }
 
-    inner class EventViewHolder(private val itemBinding: ItemEventBinding)
-        : BaseViewHolder(itemBinding.root) {
+    inner class EventViewHolder(private val itemBinding: ItemEventBinding) :
+        BaseViewHolder(itemBinding.root) {
 
         override fun bind(position: Int) {
             val eventItem = data[position]
@@ -31,19 +31,19 @@ class EventAdapter<EventBusinessModel>
             itemBinding.itemEventPublicationDate.text = eventItem.publicationDate
 
             Glide.with(itemBinding.root)
-                    .load(eventItem.image)
-                    .transform(
-                            MultiTransformation(
-                                    CenterCrop()
-                            )
+                .load(eventItem.image)
+                .transform(
+                    MultiTransformation(
+                        CenterCrop()
                     )
-                    .error(
-                            Glide
-                                    .with(itemBinding.root)
-                                    .load(R.drawable.photo_tect_1)
-                                    .apply(RequestOptions().centerCrop())
-                    )
-                    .into(itemBinding.itemEventImage)
+                )
+                .error(
+                    Glide
+                        .with(itemBinding.root)
+                        .load(R.drawable.photo_tect_1)
+                        .apply(RequestOptions().centerCrop())
+                )
+                .into(itemBinding.itemEventImage)
         }
 
     }

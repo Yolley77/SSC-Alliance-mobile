@@ -7,7 +7,7 @@ import dagger.hilt.android.components.FragmentComponent
 import ru.sscalliance.domain.news.interactor.INewsInteractor
 import ru.sscalliance.domain.news.interactor.NewsInteractor
 import ru.sscalliance.ui.base.presenter.IMvpPresenter
-import ru.sscalliance.ui.news.presentation.presenter.NewsPresenter
+import ru.sscalliance.ui.news.presentation.viewModel.NewsViewModel
 import ru.sscalliance.ui.news.presentation.view.INewsFragment
 
 @Module
@@ -18,7 +18,7 @@ abstract class NewsFragmentModule {
     abstract fun bindNewsInteractor(impl: NewsInteractor): INewsInteractor
 
     @Binds
-    abstract fun bindNewsPresenter(impl: NewsPresenter<INewsFragment, INewsInteractor>):
+    abstract fun bindNewsPresenter(impl: NewsViewModel<INewsFragment, INewsInteractor>):
             IMvpPresenter<INewsFragment, INewsInteractor>
 
 }
