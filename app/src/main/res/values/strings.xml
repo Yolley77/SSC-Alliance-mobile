@@ -38,5 +38,13 @@
     <string name="tv_address">Адрес</string>
     <string name="event_address">проспект вернадского 78</string>
     <string name="event_partners">Партнеры</string>
+    <string name="show_all">Показать все</string>
+    <string name="quantity">182</string>
+    <string name="photo_albums">Фото Альбомы</string>
+    <string name="all_photos">Все Фотографии</string>
+    <string name="video_album">Видео Альбомы</string>
+    <string name="video">Видео</string>
+    <string name="title">Кубок ректора 2021</string>
+    <string name="views">1000 просмотров</string>
 
 </resources>
