@@ -1,12 +1,12 @@
 package ru.sscalliance.ui.news.presentation.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import ru.sscalliance.R
 import ru.sscalliance.databinding.ItemNewsBinding
 import ru.sscalliance.ui.base.adapter.BaseAdapter
@@ -36,7 +36,7 @@ class NewsAdapter<NewsBusinessModel>
                 .load(newsItem.image)
                 .transform(
                     MultiTransformation(
-                        CenterCrop()
+                        CenterCrop(), RoundedCornersTransformation(40, 0)
                     )
                 )
                 .error(

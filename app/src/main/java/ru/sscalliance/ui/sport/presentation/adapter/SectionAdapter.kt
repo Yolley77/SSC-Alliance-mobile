@@ -6,6 +6,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import ru.sscalliance.R
 import ru.sscalliance.databinding.ItemSectionBinding
 import ru.sscalliance.domain.section.model.SectionType
@@ -34,7 +35,7 @@ class SectionAdapter(private val onItemClicked: (SectionType) -> Unit) :
                 .load(sectionItem.logo)
                 .transform(
                     MultiTransformation(
-                        CenterCrop()
+                        CenterCrop(), RoundedCornersTransformation(40, 0)
                     )
                 )
                 .error(

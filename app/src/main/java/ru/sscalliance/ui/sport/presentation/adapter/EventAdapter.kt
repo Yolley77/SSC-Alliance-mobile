@@ -6,10 +6,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import ru.sscalliance.R
 import ru.sscalliance.databinding.ItemEventBinding
 import ru.sscalliance.ui.base.adapter.BaseAdapter
 import ru.sscalliance.ui.base.adapter.BaseViewHolder
+
 
 class EventAdapter<EventBusinessModel>
     : BaseAdapter<ru.sscalliance.domain.sport.model.EventBusinessModel>() {
@@ -34,7 +36,7 @@ class EventAdapter<EventBusinessModel>
                 .load(eventItem.image)
                 .transform(
                     MultiTransformation(
-                        CenterCrop()
+                        CenterCrop(), RoundedCornersTransformation(40, 0)
                     )
                 )
                 .error(
