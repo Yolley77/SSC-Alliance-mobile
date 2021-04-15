@@ -4,7 +4,6 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import ru.sscalliance.domain.section.model.SectionType
 import ru.sscalliance.domain.sport.interactor.ISportInteractor
 import ru.sscalliance.domain.sport.model.EventBusinessModel
-import ru.sscalliance.domain.sport.model.SectionPreviewBusinessModel
 import ru.sscalliance.ui.base.presenter.BasePresenter
 import ru.sscalliance.ui.base.presenter.IMvpPresenter
 import ru.sscalliance.ui.section.main.presentation.eventBus.SectionEventBus
@@ -20,28 +19,28 @@ interface ISportPresenter<V : ISportFragment, I : ISportInteractor> : IMvpPresen
 }
 
 class SportPresenter<V : ISportFragment, I : ISportInteractor> @Inject constructor(
-    disposable: CompositeDisposable,
-    scheduleProvider: IScheduleProvider,
-    interactor: I,
-    private val sectionEventBus: SectionEventBus
+        disposable: CompositeDisposable,
+        scheduleProvider: IScheduleProvider,
+        interactor: I,
+        private val sectionEventBus: SectionEventBus
 ) : BasePresenter<V, I>(
-    compositeDisposable = disposable,
-    scheduleProvider = scheduleProvider,
-    interactor = interactor
+        compositeDisposable = disposable,
+        scheduleProvider = scheduleProvider,
+        interactor = interactor
 ), ISportPresenter<V, I> {
 
     override fun getSections(): Any? = getView()?.let { view ->
         interactor.let {
             compositeDisposable.add(
-                interactor.getSections()
-                    .compose(scheduleProvider.ioToMainObservableScheduler())
-                    .doOnSubscribe { view.showProgress() }
-                    .doFinally { view.hideProgress() }
-                    .subscribe(
-                        { items ->
-                            view.showSections(items)
-                        }, ::handleError
-                    )
+                    interactor.getSections()
+                            .compose(scheduleProvider.ioToMainObservableScheduler())
+                            .doOnSubscribe { view.showProgress() }
+                            .doFinally { view.hideProgress() }
+                            .subscribe(
+                                    { items ->
+                                        view.showSections(items)
+                                    }, ::handleError
+                            )
             )
         }
     }
@@ -49,15 +48,15 @@ class SportPresenter<V : ISportFragment, I : ISportInteractor> @Inject construct
     override fun getEvents(): Any? = getView()?.let { view ->
         interactor.let {
             compositeDisposable.add(
-                interactor.getEvents()
-                    .compose(scheduleProvider.ioToMainObservableScheduler())
-                    .doOnSubscribe { view.showProgress() }
-                    .doFinally { view.hideProgress() }
-                    .subscribe(
-                        { items ->
-                            view.showEvents(items)
-                        }, ::handleError
-                    )
+                    interactor.getEvents()
+                            .compose(scheduleProvider.ioToMainObservableScheduler())
+                            .doOnSubscribe { view.showProgress() }
+                            .doFinally { view.hideProgress() }
+                            .subscribe(
+                                    { items ->
+                                        view.showEvents(items)
+                                    }, ::handleError
+                            )
             )
         }
     }
