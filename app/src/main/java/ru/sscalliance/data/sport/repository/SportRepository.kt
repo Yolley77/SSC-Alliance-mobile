@@ -2,9 +2,9 @@ package ru.sscalliance.data.sport.repository
 
 import io.reactivex.rxjava3.core.Observable
 import ru.sscalliance.domain.section.model.SectionType
-import ru.sscalliance.domain.sport.model.EventBusinessModel
-import ru.sscalliance.domain.sport.model.SectionPreviewBusinessModel
-import ru.sscalliance.domain.sport.repository.ISportRepository
+import ru.sscalliance.domain.sport.main.model.EventBusinessModel
+import ru.sscalliance.domain.sport.main.model.SectionPreviewBusinessModel
+import ru.sscalliance.domain.sport.main.repository.ISportRepository
 import javax.inject.Inject
 
 class SportRepository @Inject constructor(

@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import ru.sscalliance.domain.base.IMvpInteractor
+import ru.sscalliance.ui.base.presenter.IMvpPresenter
 import ru.sscalliance.utils.CommonUtil
 import ru.sscalliance.utils.Navigator
 import javax.inject.Inject

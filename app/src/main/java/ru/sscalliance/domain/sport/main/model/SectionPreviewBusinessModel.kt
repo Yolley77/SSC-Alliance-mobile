@@ -1,4 +1,4 @@
-package ru.sscalliance.domain.sport.model
+package ru.sscalliance.domain.sport.main.model
 
 import ru.sscalliance.domain.section.model.SectionType
 

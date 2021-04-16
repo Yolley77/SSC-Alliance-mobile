@@ -1,13 +1,13 @@
-package ru.sscalliance.domain.sport.interactor
+package ru.sscalliance.domain.sport.main.interactor
 
 import io.reactivex.rxjava3.core.Observable
 import ru.sscalliance.data.base.preferences.PreferencesHelper
 import ru.sscalliance.domain.base.BaseInteractor
 import ru.sscalliance.domain.base.IMvpInteractor
 import ru.sscalliance.domain.section.model.SectionType
-import ru.sscalliance.domain.sport.model.EventBusinessModel
-import ru.sscalliance.domain.sport.model.SectionPreviewBusinessModel
-import ru.sscalliance.domain.sport.repository.ISportRepository
+import ru.sscalliance.domain.sport.main.model.EventBusinessModel
+import ru.sscalliance.domain.sport.main.model.SectionPreviewBusinessModel
+import ru.sscalliance.domain.sport.main.repository.ISportRepository
 import javax.inject.Inject
 
 interface ISportInteractor : IMvpInteractor {

@@ -1,4 +1,4 @@
-package ru.sscalliance.ui.sport.presentation.adapter
+package ru.sscalliance.ui.sport.main.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,12 +9,12 @@ import com.bumptech.glide.request.RequestOptions
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import ru.sscalliance.R
 import ru.sscalliance.databinding.ItemEventBinding
+import ru.sscalliance.domain.sport.main.model.EventBusinessModel
 import ru.sscalliance.ui.base.adapter.BaseAdapter
 import ru.sscalliance.ui.base.adapter.BaseViewHolder
 
-
-class EventAdapter<EventBusinessModel>
-    : BaseAdapter<ru.sscalliance.domain.sport.model.EventBusinessModel>() {
+class EventAdapter(private val onItemClicked: (EventBusinessModel) -> Unit) :
+    BaseAdapter<EventBusinessModel>() {
 
     var onItemClick: (EventBusinessModel) -> Unit = {}
 

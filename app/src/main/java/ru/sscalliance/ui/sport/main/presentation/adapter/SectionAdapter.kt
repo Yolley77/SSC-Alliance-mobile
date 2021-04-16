@@ -1,4 +1,4 @@
-package ru.sscalliance.ui.sport.presentation.adapter
+package ru.sscalliance.ui.sport.main.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,7 +10,7 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import ru.sscalliance.R
 import ru.sscalliance.databinding.ItemSectionBinding
 import ru.sscalliance.domain.section.model.SectionType
-import ru.sscalliance.domain.sport.model.SectionPreviewBusinessModel
+import ru.sscalliance.domain.sport.main.model.SectionPreviewBusinessModel
 import ru.sscalliance.ui.base.adapter.BaseAdapter
 import ru.sscalliance.ui.base.adapter.BaseViewHolder
 
