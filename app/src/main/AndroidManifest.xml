@@ -25,6 +25,11 @@
             android:name=".ui.section.main.presentation.view.MainSectionActivity">
 
         </activity>
+
+        <activity
+            android:name=".ui.sport.eventDetails.presentation.view.EventDetailsActivity">
+
+        </activity>
     </application>
 
 </manifest>

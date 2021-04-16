@@ -13,7 +13,7 @@ import ru.sscalliance.domain.news.model.NewsBusinessModel
 import ru.sscalliance.ui.base.view.BaseFragment
 import ru.sscalliance.ui.base.view.IMvpView
 import ru.sscalliance.ui.news.presentation.adapter.NewsAdapter
-import ru.sscalliance.ui.news.presentation.viewModel.NewsViewModel
+import ru.sscalliance.ui.news.presentation.presenter.NewsPresenter
 import javax.inject.Inject
 
 interface INewsFragment : IMvpView {
@@ -24,7 +24,7 @@ interface INewsFragment : IMvpView {
 class NewsFragment : BaseFragment(R.layout.fragment_news), INewsFragment {
 
     @Inject
-    lateinit var presenter: NewsViewModel<INewsFragment, INewsInteractor>
+    lateinit var presenter: NewsPresenter<INewsFragment, INewsInteractor>
 
     private var binding: FragmentNewsBinding? = null
     private var newsAdapter: NewsAdapter<NewsBusinessModel>? = null

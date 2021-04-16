@@ -1,4 +1,4 @@
-package ru.sscalliance.ui.news.presentation.viewModel
+package ru.sscalliance.ui.news.presentation.presenter
 
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import retrofit2.HttpException
@@ -15,7 +15,7 @@ interface INewsPresenter<V : INewsFragment, I : INewsInteractor> : IMvpPresenter
     fun getNews(): Any?
 }
 
-class NewsViewModel<V : INewsFragment, I : INewsInteractor> @Inject constructor(
+class NewsPresenter<V : INewsFragment, I : INewsInteractor> @Inject constructor(
     disposable: CompositeDisposable,
     scheduleProvider: IScheduleProvider,
     interactor: I

@@ -46,6 +46,10 @@ class EventAdapter(private val onItemClicked: (EventBusinessModel) -> Unit) :
                         .apply(RequestOptions().centerCrop())
                 )
                 .into(itemBinding.itemEventImage)
+
+            itemBinding.root.setOnClickListener {
+                onItemClicked.invoke(eventItem)
+            }
         }
 
     }
