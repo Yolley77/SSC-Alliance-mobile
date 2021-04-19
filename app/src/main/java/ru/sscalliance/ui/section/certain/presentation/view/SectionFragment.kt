@@ -20,17 +20,11 @@ interface ISectionFragment : IMvpView {
 }
 
 @AndroidEntryPoint
-class SectionFragment(private val sectionType: SectionType) : BaseFragment(R.layout.fragment_section),
-    ISectionFragment {
+class SectionFragment(private val sectionType: SectionType) :
+    BaseFragment<FragmentSectionBinding>(), ISectionFragment {
 
     @Inject
     lateinit var presenter: SectionPresenter<ISectionFragment, ISectionInteractor>
-
-    private var _binding: FragmentSectionBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,23 +35,22 @@ class SectionFragment(private val sectionType: SectionType) : BaseFragment(R.lay
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentSectionBinding.inflate(inflater, container, false)
+    ): View? {
+        binding = FragmentSectionBinding.inflate(inflater, container, false)
         presenter.configureViews(sectionType)
-        return binding.root
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onDestroyView() {
         presenter.onDetach()
-        _binding = null
         super.onDestroyView()
     }
 
     override fun setInfo(sectionInfo: SectionBusinessModel) {
         // init all views here
         // binding.smth = ...
-        binding.sectionTitle.text = sectionInfo.title
-        binding.sectionDescription.text = sectionInfo.description
+        binding?.sectionTitle?.text = sectionInfo.title
+        binding?.sectionDescription?.text = sectionInfo.description
     }
 
 }

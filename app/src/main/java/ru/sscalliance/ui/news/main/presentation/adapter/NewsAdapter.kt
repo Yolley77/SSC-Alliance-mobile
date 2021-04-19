@@ -1,4 +1,4 @@
-package ru.sscalliance.ui.news.presentation.adapter
+package ru.sscalliance.ui.news.main.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,7 +13,7 @@ import ru.sscalliance.ui.base.adapter.BaseAdapter
 import ru.sscalliance.ui.base.adapter.BaseViewHolder
 
 class NewsAdapter<NewsBusinessModel>
-    : BaseAdapter<ru.sscalliance.domain.news.model.NewsBusinessModel>() {
+    : BaseAdapter<ru.sscalliance.domain.news.main.model.NewsBusinessModel>() {
 
     var onItemClick: (NewsBusinessModel) -> Unit = {}
 

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewbinding.ViewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.R
 import ru.sscalliance.databinding.FragmentSportBinding
@@ -28,12 +29,11 @@ interface ISportFragment : IMvpView {
 }
 
 @AndroidEntryPoint
-class SportFragment : BaseFragment(R.layout.fragment_sport), ISportFragment {
+class SportFragment : BaseFragment<FragmentSportBinding>(), ISportFragment {
 
     @Inject
     lateinit var presenter: SportPresenter<ISportFragment, ISportInteractor>
 
-    private lateinit var binding: FragmentSportBinding
     private var sectionAdapter: SectionAdapter? = null
     private var eventAdapter: EventAdapter? = null
 
@@ -46,10 +46,9 @@ class SportFragment : BaseFragment(R.layout.fragment_sport), ISportFragment {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         binding = FragmentSportBinding.inflate(inflater, container, false)
-        // to work with binding - must return binding.root in onCreate/onCreateView
-        return binding.root
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -71,18 +70,18 @@ class SportFragment : BaseFragment(R.layout.fragment_sport), ISportFragment {
     }
 
     override fun openMainSectionsScreen() {
-        val parent = activity as BaseActivity
+        val parent = activity as BaseActivity<*>
         parent.navigator.openMainSectionScreen()
     }
 
     override fun openEventDetailsScreen(item: EventBusinessModel) {
-        val parent = activity as BaseActivity
+        val parent = activity as BaseActivity<*>
         parent.navigator.openEventDetailsScreen(item)
     }
 
     private fun setUpRVs() {
         sectionAdapter = SectionAdapter(presenter::onSectionClicked)
-        binding.listSections.apply {
+        binding?.listSections?.apply {
             adapter = sectionAdapter
             layoutManager = GridLayoutManager(
                 context,
@@ -94,7 +93,7 @@ class SportFragment : BaseFragment(R.layout.fragment_sport), ISportFragment {
         presenter.getSections()
 
         eventAdapter = EventAdapter(presenter::onEventClicked)
-        binding.listEvents.apply {
+        binding?.listEvents?.apply {
             adapter = eventAdapter
             layoutManager = LinearLayoutManager(
                 context,

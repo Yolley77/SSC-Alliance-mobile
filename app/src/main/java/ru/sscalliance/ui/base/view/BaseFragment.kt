@@ -1,39 +1,33 @@
 package ru.sscalliance.ui.base.view
 
-import android.content.Context
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import ru.sscalliance.utils.CommonUtil
 
-abstract class BaseFragment(private var layoutId: Int) : Fragment(), IMvpView {
+abstract class BaseFragment<T : ViewBinding> : Fragment(), IMvpView {
 
-    private var parentActivity: BaseActivity? = null
     private var progressBar: ProgressBar? = null
-    //open var binding: ViewBinding? = null
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is BaseActivity) {
-            parentActivity = context
-        }
-    }
+    var binding: T? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(false)
     }
 
-/*    override fun onCreateView(
+    override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(layoutId, container, false)*/
+    ): View? = binding?.root
 
     override fun onDestroyView() {
-        //binding = null
+        binding = null
         super.onDestroyView()
     }
 
@@ -45,8 +39,6 @@ abstract class BaseFragment(private var layoutId: Int) : Fragment(), IMvpView {
         hideProgress()
         progressBar = CommonUtil.showLoadingDialog(requireContext())
     }
-
-    fun getParentActivity() = parentActivity
 
     interface CallBack {
         fun onFragmentAttached()

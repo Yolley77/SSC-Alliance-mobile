@@ -1,11 +1,11 @@
-package ru.sscalliance.ui.news.presentation.presenter
+package ru.sscalliance.ui.news.main.presentation.presenter
 
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import retrofit2.HttpException
-import ru.sscalliance.domain.news.interactor.INewsInteractor
+import ru.sscalliance.domain.news.main.interactor.INewsInteractor
 import ru.sscalliance.ui.base.presenter.BasePresenter
 import ru.sscalliance.ui.base.presenter.IMvpPresenter
-import ru.sscalliance.ui.news.presentation.view.INewsFragment
+import ru.sscalliance.ui.news.main.presentation.view.INewsFragment
 import ru.sscalliance.utils.AppConstants
 import ru.sscalliance.utils.IScheduleProvider
 import java.net.ConnectException

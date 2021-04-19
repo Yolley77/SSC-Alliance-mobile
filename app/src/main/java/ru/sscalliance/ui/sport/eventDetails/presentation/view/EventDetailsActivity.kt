@@ -3,6 +3,7 @@ package ru.sscalliance.ui.sport.eventDetails.presentation.view
 import android.os.Bundle
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.databinding.ActivityEventBinding
+import ru.sscalliance.databinding.ActivityEventDetailsBinding
 import ru.sscalliance.databinding.FragmentEventInformationBinding
 import ru.sscalliance.domain.sport.main.interactor.ISportInteractor
 import ru.sscalliance.domain.sport.main.model.EventBusinessModel
@@ -17,18 +18,18 @@ interface IEventDetailsActivity : IMvpView {
 }
 
 @AndroidEntryPoint
-class EventDetailsActivity : BaseActivity(0), IEventDetailsActivity {
+class EventDetailsActivity : BaseActivity<ActivityEventDetailsBinding>(),
+    IEventDetailsActivity {
 
     @Inject
     lateinit var presenter: IEventDetailsPresenter<IEventDetailsActivity, ISportInteractor>
 
-    lateinit var binding: FragmentEventInformationBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presenter.onAttach(this)
-        binding = FragmentEventInformationBinding.inflate(layoutInflater)
+        binding = ActivityEventDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         initViews()
     }
 

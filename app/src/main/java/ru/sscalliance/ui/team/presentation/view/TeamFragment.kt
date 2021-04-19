@@ -3,6 +3,7 @@ package ru.sscalliance.ui.team.presentation.view
 import android.os.Bundle
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.R
+import ru.sscalliance.databinding.FragmentTeamsBinding
 import ru.sscalliance.domain.team.interactor.ITeamInteractor
 import ru.sscalliance.domain.team.model.TeamBusinessModel
 import ru.sscalliance.ui.base.view.BaseFragment
@@ -15,13 +16,14 @@ interface ITeamFragment: IMvpView{
 }
 
 @AndroidEntryPoint
-class TeamFragment: BaseFragment(R.layout.fragment_teams), ITeamFragment {
+class TeamFragment : BaseFragment<FragmentTeamsBinding>(), ITeamFragment {
 
     @Inject
     lateinit var presenter: TeamPresenter<ITeamFragment, ITeamInteractor>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = FragmentTeamsBinding.inflate(layoutInflater)
         presenter.onAttach(this)
     }
 
@@ -29,6 +31,7 @@ class TeamFragment: BaseFragment(R.layout.fragment_teams), ITeamFragment {
         presenter.onDetach()
         super.onDestroyView()
     }
+
     override fun getTeam(items: List<TeamBusinessModel>) {
         TODO("Not yet implemented")
     }

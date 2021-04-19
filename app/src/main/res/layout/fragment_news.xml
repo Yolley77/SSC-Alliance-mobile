@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.news.presentation.view.NewsFragment">
+    tools:context=".ui.news.main.presentation.view.NewsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvNews"

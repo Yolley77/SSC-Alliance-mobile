@@ -30,10 +30,12 @@ class Navigator @Inject constructor(
 
     override fun openMainSectionScreen() = context.startActivity(
         Intent(context, MainSectionActivity::class.java)
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     )
 
     override fun openEventDetailsScreen(item: EventBusinessModel) {
         val intent = Intent(context, EventDetailsActivity::class.java)
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             .putExtra(EVENT_DETAILS, item)
         context.startActivity(intent)
     }

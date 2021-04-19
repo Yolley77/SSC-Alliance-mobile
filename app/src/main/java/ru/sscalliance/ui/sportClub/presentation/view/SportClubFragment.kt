@@ -3,6 +3,7 @@ package ru.sscalliance.ui.sportClub.presentation.view
 import android.os.Bundle
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.R
+import ru.sscalliance.databinding.FragmentSportClubBinding
 import ru.sscalliance.domain.sportClub.interactor.ISportClubInteractor
 import ru.sscalliance.domain.sportClub.model.SportClubBusinessModel
 import ru.sscalliance.ui.base.view.BaseFragment
@@ -15,13 +16,14 @@ interface ISportClubFragment: IMvpView {
 }
 
 @AndroidEntryPoint
-class SportClubFragment: BaseFragment(R.layout.fragment_sport_club), ISportClubFragment {
+class SportClubFragment : BaseFragment<FragmentSportClubBinding>(), ISportClubFragment {
 
     @Inject
     lateinit var presenter: SportClubPresenter<ISportClubFragment, ISportClubInteractor>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = FragmentSportClubBinding.inflate(layoutInflater)
         presenter.onAttach(this)
     }
 
@@ -29,6 +31,7 @@ class SportClubFragment: BaseFragment(R.layout.fragment_sport_club), ISportClubF
         presenter.onDetach()
         super.onDestroyView()
     }
+
     override fun getSportClub(items: List<SportClubBusinessModel>) {
         TODO("Not yet implemented")
     }

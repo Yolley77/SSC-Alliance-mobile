@@ -4,8 +4,8 @@ import io.reactivex.rxjava3.core.Observable
 import ru.sscalliance.data.news.remote.model.NewsRequest
 import ru.sscalliance.data.news.local.source.INewsLocalDataSource
 import ru.sscalliance.data.news.remote.source.INewsRemoteDataSource
-import ru.sscalliance.domain.news.model.NewsBusinessModel
-import ru.sscalliance.domain.news.repository.INewsRepository
+import ru.sscalliance.domain.news.main.model.NewsBusinessModel
+import ru.sscalliance.domain.news.main.repository.INewsRepository
 import javax.inject.Inject
 
 class NewsRepository @Inject constructor(

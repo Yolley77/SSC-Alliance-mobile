@@ -1,4 +1,4 @@
-package ru.sscalliance.ui.news.presentation.view
+package ru.sscalliance.ui.news.main.presentation.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.R
 import ru.sscalliance.databinding.FragmentNewsBinding
-import ru.sscalliance.domain.news.interactor.INewsInteractor
-import ru.sscalliance.domain.news.model.NewsBusinessModel
+import ru.sscalliance.domain.news.main.interactor.INewsInteractor
+import ru.sscalliance.domain.news.main.model.NewsBusinessModel
 import ru.sscalliance.ui.base.view.BaseFragment
 import ru.sscalliance.ui.base.view.IMvpView
-import ru.sscalliance.ui.news.presentation.adapter.NewsAdapter
-import ru.sscalliance.ui.news.presentation.presenter.NewsPresenter
+import ru.sscalliance.ui.news.main.presentation.adapter.NewsAdapter
+import ru.sscalliance.ui.news.main.presentation.presenter.NewsPresenter
 import javax.inject.Inject
 
 interface INewsFragment : IMvpView {
@@ -21,12 +21,11 @@ interface INewsFragment : IMvpView {
 }
 
 @AndroidEntryPoint
-class NewsFragment : BaseFragment(R.layout.fragment_news), INewsFragment {
+class NewsFragment : BaseFragment<FragmentNewsBinding>(), INewsFragment {
 
     @Inject
     lateinit var presenter: NewsPresenter<INewsFragment, INewsInteractor>
 
-    private var binding: FragmentNewsBinding? = null
     private var newsAdapter: NewsAdapter<NewsBusinessModel>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,12 +37,9 @@ class NewsFragment : BaseFragment(R.layout.fragment_news), INewsFragment {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        val fragmentBinding = FragmentNewsBinding.inflate(inflater, container, false)
-        binding = fragmentBinding
-        // IMPORTANT
-        // to work with binding - must return binding.root in onCreate/onCreateView
-        return fragmentBinding.root
+    ): View? {
+        binding = FragmentNewsBinding.inflate(inflater, container, false)
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,7 +50,6 @@ class NewsFragment : BaseFragment(R.layout.fragment_news), INewsFragment {
 
     override fun onDestroyView() {
         presenter.onDetach()
-        binding = null
         newsAdapter = null
         super.onDestroyView()
     }

@@ -19,12 +19,10 @@ interface IMainSectionActivity : IMvpView {
 }
 
 @AndroidEntryPoint
-class MainSectionActivity : BaseActivity(R.layout.activity_main), IMainSectionActivity {
+class MainSectionActivity : BaseActivity<ActivityMainSectionBinding>(), IMainSectionActivity {
 
     @Inject
     lateinit var presenter: IMainSectionPresenter<IMainSectionActivity, IMainSectionInteractor>
-
-    private lateinit var binding: ActivityMainSectionBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

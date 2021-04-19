@@ -1,4 +1,4 @@
-package ru.sscalliance.domain.news.model
+package ru.sscalliance.domain.news.main.model
 
 data class NewsBusinessModel(
     var id: String = "",

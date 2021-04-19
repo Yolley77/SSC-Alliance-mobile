@@ -4,7 +4,7 @@ import io.reactivex.rxjava3.core.Observable
 import ru.sscalliance.data.base.BaseCloudDataSource
 import ru.sscalliance.data.news.remote.mapper.NewsNetToUIMapper
 import ru.sscalliance.data.news.remote.model.NewsRequest
-import ru.sscalliance.domain.news.model.NewsBusinessModel
+import ru.sscalliance.domain.news.main.model.NewsBusinessModel
 import javax.inject.Inject
 
 interface INewsRemoteDataSource {

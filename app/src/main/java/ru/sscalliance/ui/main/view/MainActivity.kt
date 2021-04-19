@@ -18,9 +18,7 @@ interface IMainActivity : IMvpView {
 }
 
 @AndroidEntryPoint
-class MainActivity : BaseActivity(R.layout.activity_main), IMainActivity {
-
-    private lateinit var binding: ActivityMainBinding
+class MainActivity : BaseActivity<ActivityMainBinding>(), IMainActivity {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
