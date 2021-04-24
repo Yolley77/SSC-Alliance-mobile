@@ -4,5 +4,6 @@ data class SectionBusinessModel(
     val id: String = "",
     val title: String = "",
     val description: String = "",
-    val organizers: String = ""
+    val organizers: String = "",
+    val type: SectionType
 )

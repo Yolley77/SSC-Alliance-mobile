@@ -30,6 +30,11 @@
             android:name=".ui.sport.eventDetails.presentation.view.EventDetailsActivity">
 
         </activity>
+
+        <activity
+            android:name=".ui.news.details.presentation.NewsDetailsActivity">
+
+        </activity>
     </application>
 
 </manifest>

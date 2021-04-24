@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import ru.sscalliance.R
 import ru.sscalliance.databinding.FragmentNewsBinding
-import ru.sscalliance.domain.news.main.interactor.INewsInteractor
-import ru.sscalliance.domain.news.main.model.NewsBusinessModel
+import ru.sscalliance.domain.news.interactor.INewsInteractor
+import ru.sscalliance.domain.news.model.NewsBusinessModel
+import ru.sscalliance.ui.base.view.BaseActivity
 import ru.sscalliance.ui.base.view.BaseFragment
 import ru.sscalliance.ui.base.view.IMvpView
 import ru.sscalliance.ui.news.main.presentation.adapter.NewsAdapter
@@ -18,6 +18,7 @@ import javax.inject.Inject
 
 interface INewsFragment : IMvpView {
     fun showNews(items: List<NewsBusinessModel>)
+    fun openNewsDetailsScreen(item: NewsBusinessModel)
 }
 
 @AndroidEntryPoint
@@ -26,7 +27,7 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>(), INewsFragment {
     @Inject
     lateinit var presenter: NewsPresenter<INewsFragment, INewsInteractor>
 
-    private var newsAdapter: NewsAdapter<NewsBusinessModel>? = null
+    private var newsAdapter: NewsAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +45,6 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>(), INewsFragment {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentNewsBinding.bind(view)
         setUpNewsRv()
     }
 
@@ -58,8 +58,13 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>(), INewsFragment {
         newsAdapter?.updateAdapter(items)
     }
 
+    override fun openNewsDetailsScreen(item: NewsBusinessModel) {
+        val parent = activity as BaseActivity<*>
+        parent.navigator.openNewsDetailsScreen(item)
+    }
+
     private fun setUpNewsRv() {
-        newsAdapter = NewsAdapter()
+        newsAdapter = NewsAdapter(presenter::onItemClicked)
         binding?.rvNews?.apply {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(context)

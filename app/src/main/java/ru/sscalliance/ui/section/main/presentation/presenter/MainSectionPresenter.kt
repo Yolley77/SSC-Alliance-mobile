@@ -32,7 +32,7 @@ class MainSectionPresenter<V : IMainSectionActivity, I : IMainSectionInteractor>
             sectionEventBus.listenSectionType()
                 .subscribe({ type ->
                     val index = SectionUtils.getSectionPositionByType(type)
-                    getView()?.setCurrentSection(index)
+                    view?.setCurrentSection(index)
                 }, this::handleError)
         )
     }

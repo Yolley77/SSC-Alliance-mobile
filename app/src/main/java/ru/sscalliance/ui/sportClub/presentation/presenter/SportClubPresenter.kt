@@ -22,7 +22,7 @@ class SportClubPresenter<V: ISportClubFragment, I: ISportClubInteractor> @Inject
     interactor = interactor
 ), ISportClubPresenter<V, I> {
 
-    override fun getSportClub(): Any? = getView()?.let { view ->
+    override fun getSportClub(): Any? = view?.let { view ->
         interactor.let {
             compositeDisposable.add(
                 interactor.getSportClub()

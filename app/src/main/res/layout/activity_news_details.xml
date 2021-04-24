@@ -5,8 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/fragment_event_information" />
+    <include
+        android:id="@+id/fmtEventInfo"
+        layout="@layout/fragment_event_information" />
 
-    <include layout="@layout/fragment_event_organizers"/>
+    <include
+        android:id="@+id/fmtEventOrganizers"
+        layout="@layout/fragment_event_organizers"/>
 
 </LinearLayout>

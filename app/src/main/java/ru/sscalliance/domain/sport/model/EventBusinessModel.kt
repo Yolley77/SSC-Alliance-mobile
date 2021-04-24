@@ -1,4 +1,4 @@
-package ru.sscalliance.domain.sport.main.model
+package ru.sscalliance.domain.sport.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

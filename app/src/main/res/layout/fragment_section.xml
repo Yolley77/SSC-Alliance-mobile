@@ -10,23 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listSectionsTitles"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@+id/sectionLogo"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <ImageView
             android:id="@+id/sectionLogo"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:background="@drawable/ic_football"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/listSectionsTitles"
-            app:srcCompat="@drawable/football" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/sectionTitle"
@@ -40,7 +32,7 @@
             android:textColor="@color/black"
             android:textSize="25sp"
             app:layout_constraintStart_toEndOf="@+id/sectionLogo"
-            app:layout_constraintTop_toBottomOf="@+id/listSectionsTitles" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/sectionRegistration"
@@ -94,7 +86,6 @@
             android:fontFamily="@font/roboto_medium"
             android:textSize="16sp"
             android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@+id/listSectionsTitles"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_description" />
 
@@ -122,7 +113,6 @@
             android:text="@string/section_schedule"
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/listSectionsTitles"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_schedule" />
 

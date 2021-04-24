@@ -13,6 +13,7 @@ interface IToastsHandler {
 class ToastsHandler @Inject constructor(
     private val context: Context
 ) : IToastsHandler {
+
     override fun showError(errorCode: Int?, httpErrorCode: Int?) {
         when (errorCode) {
             AppConstants.ERROR -> makeToast(context.getString(R.string.error_occurred_short))

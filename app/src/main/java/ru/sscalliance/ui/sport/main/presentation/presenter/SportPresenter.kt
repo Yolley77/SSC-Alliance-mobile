@@ -2,8 +2,8 @@ package ru.sscalliance.ui.sport.main.presentation.presenter
 
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import ru.sscalliance.domain.section.model.SectionType
-import ru.sscalliance.domain.sport.main.interactor.ISportInteractor
-import ru.sscalliance.domain.sport.main.model.EventBusinessModel
+import ru.sscalliance.domain.sport.interactor.ISportInteractor
+import ru.sscalliance.domain.sport.model.EventBusinessModel
 import ru.sscalliance.ui.base.presenter.BasePresenter
 import ru.sscalliance.ui.base.presenter.IMvpPresenter
 import ru.sscalliance.ui.section.main.presentation.eventBus.SectionEventBus
@@ -29,7 +29,7 @@ class SportPresenter<V : ISportFragment, I : ISportInteractor> @Inject construct
     interactor = interactor
 ), ISportPresenter<V, I> {
 
-    override fun getSections(): Any? = getView()?.let { view ->
+    override fun getSections(): Any? = view?.let { view ->
         interactor.let {
             compositeDisposable.add(
                 interactor.getSections()
@@ -45,7 +45,7 @@ class SportPresenter<V : ISportFragment, I : ISportInteractor> @Inject construct
         }
     }
 
-    override fun getEvents(): Any? = getView()?.let { view ->
+    override fun getEvents(): Any? = view?.let { view ->
         interactor.let {
             compositeDisposable.add(
                 interactor.getEvents()
@@ -63,10 +63,10 @@ class SportPresenter<V : ISportFragment, I : ISportInteractor> @Inject construct
 
     override fun onSectionClicked(itemType: SectionType) {
         sectionEventBus.sendSectionType(itemType)
-        getView()?.openMainSectionsScreen()
+        view?.openMainSectionsScreen()
     }
 
     override fun onEventClicked(item: EventBusinessModel) {
-        getView()?.openEventDetailsScreen(item)
+        view?.openEventDetailsScreen(item)
     }
 }

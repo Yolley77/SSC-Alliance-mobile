@@ -21,7 +21,7 @@ class TeamPresenter<V : ITeamFragment, I : ITeamInteractor> @Inject constructor(
     scheduleProvider = scheduleProvider,
     interactor = interactor
 ), ITeamPresenter<V, I> {
-    override fun getTeam(): Any? = getView()?.let { view ->
+    override fun getTeam(): Any? = view?.let { view ->
         interactor.let {
             compositeDisposable.add(
                 interactor.getTeam()

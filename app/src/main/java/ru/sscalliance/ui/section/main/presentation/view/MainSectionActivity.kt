@@ -1,6 +1,7 @@
 package ru.sscalliance.ui.section.main.presentation.view
 
 import android.os.Bundle
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.R
@@ -34,6 +35,7 @@ class MainSectionActivity : BaseActivity<ActivityMainSectionBinding>(), IMainSec
         TabLayoutMediator(binding.tlSections, binding.vpSectionsPager) { tab, position ->
             tab.text = SectionUtils.getSectionNameByPosition(position, baseContext)
         }.attach()
+        binding.vpSectionsPager.isUserInputEnabled = false
         presenter.configureViews()
     }
 

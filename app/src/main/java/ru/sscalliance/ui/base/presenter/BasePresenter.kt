@@ -19,7 +19,7 @@ abstract class BasePresenter<V : IMvpView, I : IMvpInteractor> internal construc
     @Inject
     lateinit var toastsHandler: ToastsHandler
 
-    private var view: V? = null
+    protected var view: V? = null
     private val isViewAttached: Boolean
         get() = view != null
 
@@ -32,8 +32,6 @@ abstract class BasePresenter<V : IMvpView, I : IMvpInteractor> internal construc
         view?.hideProgress()
         view = null
     }
-
-    override fun getView(): V? = view
 
     override fun handleError(error: Throwable) {
         when (error) {

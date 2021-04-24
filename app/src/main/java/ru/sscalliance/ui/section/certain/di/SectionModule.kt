@@ -6,9 +6,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
 import ru.sscalliance.domain.section.certain.interactor.ISectionInteractor
 import ru.sscalliance.domain.section.certain.interactor.SectionInteractor
-import ru.sscalliance.ui.section.certain.presentation.presenter.ISectionPresenter
-import ru.sscalliance.ui.section.certain.presentation.presenter.SectionPresenter
-import ru.sscalliance.ui.section.certain.presentation.view.ISectionFragment
+import ru.sscalliance.ui.section.certain.presentation.ISectionPresenter
+import ru.sscalliance.ui.section.certain.presentation.SectionPresenter
+import ru.sscalliance.ui.section.certain.presentation.ISectionFragment
 
 @Module
 @InstallIn(FragmentComponent::class)

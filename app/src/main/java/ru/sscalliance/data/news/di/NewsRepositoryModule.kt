@@ -4,13 +4,12 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
-import dagger.hilt.android.components.FragmentComponent
 import ru.sscalliance.data.news.local.source.INewsLocalDataSource
 import ru.sscalliance.data.news.local.source.NewsLocalDataSource
 import ru.sscalliance.data.news.remote.source.INewsRemoteDataSource
 import ru.sscalliance.data.news.remote.source.NewsRemoteDataSource
 import ru.sscalliance.data.news.repository.NewsRepository
-import ru.sscalliance.domain.news.main.repository.INewsRepository
+import ru.sscalliance.domain.news.repository.INewsRepository
 
 @Module
 @InstallIn(ActivityComponent::class)

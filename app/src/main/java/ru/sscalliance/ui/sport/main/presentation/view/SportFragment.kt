@@ -6,25 +6,27 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewbinding.ViewBinding
 import dagger.hilt.android.AndroidEntryPoint
-import ru.sscalliance.R
 import ru.sscalliance.databinding.FragmentSportBinding
-import ru.sscalliance.domain.sport.main.interactor.ISportInteractor
-import ru.sscalliance.domain.sport.main.model.EventBusinessModel
-import ru.sscalliance.domain.sport.main.model.SectionPreviewBusinessModel
+import ru.sscalliance.domain.sport.interactor.ISportInteractor
+import ru.sscalliance.domain.sport.model.EventBusinessModel
+import ru.sscalliance.domain.sport.model.SectionPreviewBusinessModel
 import ru.sscalliance.ui.base.view.BaseActivity
 import ru.sscalliance.ui.base.view.BaseFragment
 import ru.sscalliance.ui.base.view.IMvpView
 import ru.sscalliance.ui.sport.main.presentation.adapter.EventAdapter
-import ru.sscalliance.ui.sport.main.presentation.adapter.SectionAdapter
+import ru.sscalliance.ui.sport.main.presentation.adapter.SectionPreviewAdapter
 import ru.sscalliance.ui.sport.main.presentation.presenter.SportPresenter
 import javax.inject.Inject
 
 interface ISportFragment : IMvpView {
     fun showSections(items: List<SectionPreviewBusinessModel>)
     fun showEvents(items: List<EventBusinessModel>)
+
+    // by eventBus
     fun openMainSectionsScreen()
+
+    // by extras
     fun openEventDetailsScreen(item: EventBusinessModel)
 }
 
@@ -34,7 +36,7 @@ class SportFragment : BaseFragment<FragmentSportBinding>(), ISportFragment {
     @Inject
     lateinit var presenter: SportPresenter<ISportFragment, ISportInteractor>
 
-    private var sectionAdapter: SectionAdapter? = null
+    private var sectionAdapter: SectionPreviewAdapter? = null
     private var eventAdapter: EventAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,7 +82,7 @@ class SportFragment : BaseFragment<FragmentSportBinding>(), ISportFragment {
     }
 
     private fun setUpRVs() {
-        sectionAdapter = SectionAdapter(presenter::onSectionClicked)
+        sectionAdapter = SectionPreviewAdapter(presenter::onSectionClicked, context)
         binding?.listSections?.apply {
             adapter = sectionAdapter
             layoutManager = GridLayoutManager(

@@ -9,13 +9,12 @@ import com.bumptech.glide.request.RequestOptions
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import ru.sscalliance.R
 import ru.sscalliance.databinding.ItemNewsBinding
+import ru.sscalliance.domain.news.model.NewsBusinessModel
 import ru.sscalliance.ui.base.adapter.BaseAdapter
 import ru.sscalliance.ui.base.adapter.BaseViewHolder
 
-class NewsAdapter<NewsBusinessModel>
-    : BaseAdapter<ru.sscalliance.domain.news.main.model.NewsBusinessModel>() {
-
-    var onItemClick: (NewsBusinessModel) -> Unit = {}
+class NewsAdapter(private val onItemClicked: (NewsBusinessModel) -> Unit) :
+    BaseAdapter<NewsBusinessModel>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -42,12 +41,15 @@ class NewsAdapter<NewsBusinessModel>
                 .error(
                     Glide
                         .with(itemBinding.root)
-                        .load(R.drawable.photo_tect_1)
+                        .load(R.drawable.photo_test_1)
                         .apply(RequestOptions().centerCrop())
                 )
                 .into(itemBinding.itemNewsImage)
-        }
 
+            itemBinding.root.setOnClickListener {
+                onItemClicked.invoke(newsItem)
+            }
+        }
     }
 
 }

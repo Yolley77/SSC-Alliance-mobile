@@ -1,20 +1,19 @@
 package ru.sscalliance.ui.sport.main.presentation.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.MultiTransformation
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.request.RequestOptions
-import jp.wasabeef.glide.transformations.RoundedCornersTransformation
-import ru.sscalliance.R
 import ru.sscalliance.databinding.ItemSectionBinding
 import ru.sscalliance.domain.section.model.SectionType
-import ru.sscalliance.domain.sport.main.model.SectionPreviewBusinessModel
+import ru.sscalliance.domain.sport.model.SectionPreviewBusinessModel
 import ru.sscalliance.ui.base.adapter.BaseAdapter
 import ru.sscalliance.ui.base.adapter.BaseViewHolder
+import ru.sscalliance.utils.SectionUtils
 
-class SectionAdapter(private val onItemClicked: (SectionType) -> Unit) :
+class SectionPreviewAdapter(
+    private val onItemClicked: (SectionType) -> Unit,
+    private val context: Context?
+) :
     BaseAdapter<SectionPreviewBusinessModel>() {
 
     var onItemClick: (SectionPreviewBusinessModel) -> Unit = {}
@@ -31,20 +30,8 @@ class SectionAdapter(private val onItemClicked: (SectionType) -> Unit) :
         override fun bind(position: Int) {
             val sectionItem = data[position]
             itemBinding.itemSectionTitle.text = sectionItem.title
-            Glide.with(itemBinding.root)
-                .load(sectionItem.logo)
-                .transform(
-                    MultiTransformation(
-                        CenterCrop(), RoundedCornersTransformation(40, 0)
-                    )
-                )
-                .error(
-                    Glide
-                        .with(itemBinding.root)
-                        .load(R.drawable.photo_tect_1)
-                        .apply(RequestOptions().centerCrop())
-                )
-                .into(itemBinding.itemSectionLogo)
+            itemBinding.itemSectionLogo.background =
+                SectionUtils.getSectionLogoByType(sectionItem.type, context)
 
             itemBinding.root.setOnClickListener {
                 onItemClicked.invoke(sectionItem.type)

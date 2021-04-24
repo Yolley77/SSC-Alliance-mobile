@@ -1,11 +1,11 @@
-package ru.sscalliance.domain.news.main.interactor
+package ru.sscalliance.domain.news.interactor
 
 import io.reactivex.rxjava3.core.Observable
 import ru.sscalliance.data.base.preferences.PreferencesHelper
 import ru.sscalliance.domain.base.BaseInteractor
 import ru.sscalliance.domain.base.IMvpInteractor
-import ru.sscalliance.domain.news.main.model.NewsBusinessModel
-import ru.sscalliance.domain.news.main.repository.INewsRepository
+import ru.sscalliance.domain.news.model.NewsBusinessModel
+import ru.sscalliance.domain.news.repository.INewsRepository
 import javax.inject.Inject
 
 interface INewsInteractor : IMvpInteractor {

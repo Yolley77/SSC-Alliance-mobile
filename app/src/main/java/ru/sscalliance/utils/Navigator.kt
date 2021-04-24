@@ -2,8 +2,10 @@ package ru.sscalliance.utils
 
 import android.content.Context
 import android.content.Intent
-import ru.sscalliance.domain.sport.main.model.EventBusinessModel
+import ru.sscalliance.domain.news.model.NewsBusinessModel
+import ru.sscalliance.domain.sport.model.EventBusinessModel
 import ru.sscalliance.ui.main.view.MainActivity
+import ru.sscalliance.ui.news.details.presentation.NewsDetailsActivity
 import ru.sscalliance.ui.section.main.presentation.view.MainSectionActivity
 import ru.sscalliance.ui.sport.eventDetails.presentation.view.EventDetailsActivity
 import javax.inject.Inject
@@ -12,6 +14,7 @@ interface INavigator {
     fun openMainScreen()
     fun openMainSectionScreen()
     fun openEventDetailsScreen(item: EventBusinessModel)
+    fun openNewsDetailsScreen(item: NewsBusinessModel)
 }
 
 class Navigator @Inject constructor(
@@ -20,6 +23,7 @@ class Navigator @Inject constructor(
 
     companion object {
         const val EVENT_DETAILS = "event_details"
+        const val NEWS_DETAILS = "news_details"
     }
 
     override fun openMainScreen() = context.startActivity(
@@ -33,11 +37,18 @@ class Navigator @Inject constructor(
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     )
 
-    override fun openEventDetailsScreen(item: EventBusinessModel) {
-        val intent = Intent(context, EventDetailsActivity::class.java)
+    override fun openEventDetailsScreen(item: EventBusinessModel) = context.startActivity(
+        Intent(context, EventDetailsActivity::class.java)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             .putExtra(EVENT_DETAILS, item)
-        context.startActivity(intent)
-    }
+    )
+
+    override fun openNewsDetailsScreen(item: NewsBusinessModel) = context.startActivity(
+        Intent(context, NewsDetailsActivity::class.java)
+            .putExtra(EVENT_DETAILS, item)
+            .apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+    )
 
 }
