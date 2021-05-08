@@ -56,5 +56,11 @@
     <string name="title">Кубок ректора 2021</string>
     <string name="views">1000 просмотров</string>
     <string name="title_news_details">Девушки из сборной по волейболу совсем скоро начнут свои первые матчи в МССИ</string>
+    <string name="mirea_football">Сборная по футболу РТУ МИРЭА</string>
+    <string name="_00">00</string>
+    <string name="days">дней</string>
+    <string name="hour">час</string>
+    <string name="minute">мин</string>
+    <string name="second">сек</string>
 
 </resources>
