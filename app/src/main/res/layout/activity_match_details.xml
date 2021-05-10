@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white">
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
 
     <ImageView
         android:id="@+id/firstTeamLogo"
@@ -16,7 +20,8 @@
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvStageName"
-        app:srcCompat="@drawable/mirea_football" />
+        app:srcCompat="@drawable/mirea_football"
+        android:contentDescription="@string/title_team" />
 
     <ImageView
         android:id="@+id/secondTeamLogo"
@@ -26,7 +31,8 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvStageName"
-        app:srcCompat="@drawable/mai" />
+        app:srcCompat="@drawable/mai"
+        android:contentDescription="@string/title_team" />
 
     <TextView
         android:id="@+id/matchDate"
@@ -235,7 +241,7 @@
         android:layout_marginTop="62dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/roboto_medium"
-        android:text="До начала игры"
+        android:text="@string/start_game"
         android:textColor="@color/open_black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -249,7 +255,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="Групповой этап"
+        android:text="@string/group_stage"
         android:textColor="@color/open_black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -265,7 +271,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mcci" />
+        app:srcCompat="@drawable/mcci"
+        android:contentDescription="@string/group_stage" />
 
     <TextView
         android:id="@+id/tvMatchInfo"
@@ -314,7 +321,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/roboto_regular"
-        android:text="text"
+        android:text="@string/text_match"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -353,3 +360,4 @@
         app:layout_constraintTop_toBottomOf="@+id/tvMatchStats" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
