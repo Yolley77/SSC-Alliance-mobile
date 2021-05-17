@@ -1,0 +1,24 @@
+package ru.sscalliance.ui.sport.mainScreen.di
+
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
+import ru.sscalliance.domain.sport.mainScreen.interactor.ISportInteractor
+import ru.sscalliance.domain.sport.mainScreen.interactor.SportInteractor
+import ru.sscalliance.ui.base.presenter.IMvpPresenter
+import ru.sscalliance.ui.sport.mainScreen.presentation.presenter.SportPresenter
+import ru.sscalliance.ui.sport.mainScreen.presentation.view.ISportFragment
+
+@Module
+@InstallIn(ActivityComponent::class)
+abstract class SportFragmentModule {
+
+    @Binds
+    abstract fun bindSportInteractor(impl: SportInteractor): ISportInteractor
+
+    @Binds
+    abstract fun bindSportPresenter(impl: SportPresenter<ISportFragment, ISportInteractor>):
+            IMvpPresenter<ISportFragment, ISportInteractor>
+}
+

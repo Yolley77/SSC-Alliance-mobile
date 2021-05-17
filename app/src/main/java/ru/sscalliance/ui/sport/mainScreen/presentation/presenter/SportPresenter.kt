@@ -1,0 +1,72 @@
+package ru.sscalliance.ui.sport.mainScreen.presentation.presenter
+
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import ru.sscalliance.domain.sport.sectionScreen.model.SectionType
+import ru.sscalliance.domain.sport.mainScreen.interactor.ISportInteractor
+import ru.sscalliance.domain.sport.mainScreen.model.EventBusinessModel
+import ru.sscalliance.ui.base.presenter.BasePresenter
+import ru.sscalliance.ui.base.presenter.IMvpPresenter
+import ru.sscalliance.ui.sport.sectionScreen.main.presentation.eventBus.SectionEventBus
+import ru.sscalliance.ui.sport.mainScreen.presentation.view.ISportFragment
+import ru.sscalliance.utils.IScheduleProvider
+import javax.inject.Inject
+
+interface ISportPresenter<V : ISportFragment, I : ISportInteractor> : IMvpPresenter<V, I> {
+    fun getSections(): Any?
+    fun onSectionClicked(itemType: SectionType)
+    fun getEvents(): Any?
+    fun onEventClicked(item: EventBusinessModel)
+}
+
+class SportPresenter<V : ISportFragment, I : ISportInteractor> @Inject constructor(
+    disposable: CompositeDisposable,
+    scheduleProvider: IScheduleProvider,
+    interactor: I,
+    private val sectionEventBus: SectionEventBus
+) : BasePresenter<V, I>(
+    compositeDisposable = disposable,
+    scheduleProvider = scheduleProvider,
+    interactor = interactor
+), ISportPresenter<V, I> {
+
+    override fun getSections(): Any? = view?.let { view ->
+        interactor.let {
+            compositeDisposable.add(
+                interactor.getSections()
+                    .compose(scheduleProvider.ioToMainObservableScheduler())
+                    .doOnSubscribe { view.showProgress() }
+                    .doFinally { view.hideProgress() }
+                    .subscribe(
+                        { items ->
+                            view.showSections(items)
+                        }, ::handleError
+                    )
+            )
+        }
+    }
+
+    override fun getEvents(): Any? = view?.let { view ->
+        interactor.let {
+            compositeDisposable.add(
+                interactor.getEvents()
+                    .compose(scheduleProvider.ioToMainObservableScheduler())
+                    .doOnSubscribe { view.showProgress() }
+                    .doFinally { view.hideProgress() }
+                    .subscribe(
+                        { items ->
+                            view.showEvents(items)
+                        }, ::handleError
+                    )
+            )
+        }
+    }
+
+    override fun onSectionClicked(itemType: SectionType) {
+        sectionEventBus.sendSectionType(itemType)
+        view?.openMainSectionsScreen()
+    }
+
+    override fun onEventClicked(item: EventBusinessModel) {
+        view?.openEventDetailsScreen(item)
+    }
+}
