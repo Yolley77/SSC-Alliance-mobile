@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.R
 import ru.sscalliance.databinding.ActivityMainBinding
@@ -39,6 +40,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IMainActivity {
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
-        binding.navView.setupWithNavController(navController)
+        binding.navInfoView.setupWithNavController(navController)
     }
 }

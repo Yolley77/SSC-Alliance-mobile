@@ -1,20 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/text_notifications"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivSportClub"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:background="@drawable/photo_test_4"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/text_notifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:text="Благодаря инициативным студентам МИРЭА - Российского технологического университета - Монахову Семёну, Меньшенину Алексею, Рузановой Алевтине, Кириллову Ярославу и Шитову Константину - в августе 2017 года произошло создание единого Спортивного клуба, объединившего все кампусы нашего большого университета.
+
+
+25 ноября 2017 года мы вступили в Общероссийскую молодёжную общественную организацию «Ассоциация студенческих спортивных клубов России». И с этого момента носим название Студенческого спортивного клуба «Альянс» МИРЭА - Российского технологического университета.
+
+
+Клуб нацелен на привлечение студентов к систематическим занятиям физической культурой и спортом, проведение массовых оздоровительных, физкультурных и спортивных мероприятий, участие в соревнованиях между высшими учебными заведениями, развитие спорта в стенах МИРЭА - Российского технологического университета.
+
+
+ССК «Альянс» проводит регулярные Кубки Ректора по индивидуальным и командным видам спорта, а также ежегодную Университетскую Спартакиаду, наборы в сборные университета, спортивные секции. Второй год подряд клуб открывает набор активистов – «Школа Альянса», желающие могут обучится по различным направлениям работы в спортклубе.
+
+
+С каждым годом идет развитие уже существующих сборных, но также открываются и новые. Например, недавно появилась сборная по гандболу, с этого года также открылся беговой клуб «MIREA Run Club», Клуб единоборств объединил в себе самые разные виды боевых искусств.
+
+
+ССК «Альянс» приглашает присоединится активных студентов, которые любят спорт и желают совмещать общественную деятельность со спортивной."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivSportClub" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
