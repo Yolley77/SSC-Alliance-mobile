@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
 import ru.sscalliance.R
-import ru.sscalliance.domain.section.model.SectionType
+import ru.sscalliance.domain.sport.sectionScreen.model.SectionType
 
 object SectionUtils {
 

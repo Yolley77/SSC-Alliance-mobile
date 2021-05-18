@@ -3,8 +3,8 @@ package ru.sscalliance.ui.sport.eventDetails.presentation.view
 import android.os.Bundle
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.databinding.ActivityEventDetailsBinding
-import ru.sscalliance.domain.sport.interactor.ISportInteractor
-import ru.sscalliance.domain.sport.model.EventBusinessModel
+import ru.sscalliance.domain.sport.mainScreen.interactor.ISportInteractor
+import ru.sscalliance.domain.sport.mainScreen.model.EventBusinessModel
 import ru.sscalliance.ui.base.view.BaseActivity
 import ru.sscalliance.ui.base.view.IMvpView
 import ru.sscalliance.ui.sport.eventDetails.presentation.presenter.IEventDetailsPresenter

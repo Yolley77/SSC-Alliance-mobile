@@ -26,7 +26,8 @@ class ToastsHandler @Inject constructor(
     override fun showMessage(message: String?) {
         when (message.isNullOrEmpty()) {
             true -> makeToast(context.getString(R.string.error_occurred_long))
-            false -> makeToast("${context.getString(R.string.error_occurred_short)}\n$message")
+            //false -> makeToast("${context.getString(R.string.error_occurred_short)}\n$message")
+            false -> makeToast(message)
         }
     }
 

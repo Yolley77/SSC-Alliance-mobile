@@ -5,7 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import ru.sscalliance.ui.section.main.presentation.eventBus.SectionEventBus
+import ru.sscalliance.ui.sport.sectionScreen.main.presentation.eventBus.SectionEventBus
 import ru.sscalliance.utils.IScheduleProvider
 import ru.sscalliance.utils.ScheduleProvider
 import javax.inject.Singleton

@@ -1,7 +1,7 @@
 package ru.sscalliance.ui.sport.eventDetails.presentation.presenter
 
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import ru.sscalliance.domain.sport.interactor.ISportInteractor
+import ru.sscalliance.domain.sport.mainScreen.interactor.ISportInteractor
 import ru.sscalliance.ui.base.presenter.BasePresenter
 import ru.sscalliance.ui.base.presenter.IMvpPresenter
 import ru.sscalliance.ui.sport.eventDetails.presentation.view.IEventDetailsActivity
