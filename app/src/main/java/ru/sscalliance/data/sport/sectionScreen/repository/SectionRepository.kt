@@ -19,41 +19,41 @@ class SectionRepository @Inject constructor(
                 SectionBusinessModel(
                     id = "1",
                     title = "Футбол",
-                    description = "DESCRIPTION",
+                    description = "Описание секции по футболу",
                     type = SectionType.FOOTBALL,
                 )
             AppConstants.VOLLEYBALL_REQUEST ->
                 SectionBusinessModel(
                     id = "2",
-                    title = "волейбол",
-                    description = "DESCRIPTION",
+                    title = "Волейбол",
+                    description = "Описание секции по волейболу",
                     type = SectionType.VOLLEYBALL,
                 )
             AppConstants.BASKETBALL_REQUEST ->
                 SectionBusinessModel(
                     id = "3",
-                    title = "баскетбол",
-                    description = "DESCRIPTION",
+                    title = "Баскетбол",
+                    description = "Описание секции по баскетболу",
                     type = SectionType.BASKETBALL,
                 )
             AppConstants.CHESS_REQUEST ->
                 SectionBusinessModel(
                     id = "4",
-                    title = "шахматы",
-                    description = "шахматы",
+                    title = "Шахматы",
+                    description = "Описание секции по шахматам",
                     type = SectionType.CHESS,
                 )
             AppConstants.PING_PONG_REQUEST ->
                 SectionBusinessModel(
                     id = "5",
-                    title = "теннис",
-                    description = "натольный теннис",
+                    title = "Теннис",
+                    description = "Описание секции по настольному теннису",
                     type = SectionType.PING_PONG,
                 )
             else -> SectionBusinessModel(
                 id = "6",
-                title = "бадминтон",
-                description = "бадминтон",
+                title = "Бадминтон",
+                description = "Описание секции по бадминтону",
                 type = SectionType.BADMINTON,
             )
         }

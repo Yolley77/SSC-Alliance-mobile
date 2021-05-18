@@ -67,6 +67,10 @@ class SectionFragment(private val sectionType: SectionType) :
         binding?.tvSectionNews?.setOnClickListener {
             // TODO: maybe open news screen?
         }
+
+        binding?.sectionRegistration?.setOnClickListener {
+            presenter.toastsHandler.showMessage("Выполнено действие: Вступление в секцию")
+        }
     }
 
     override fun onDestroyView() {

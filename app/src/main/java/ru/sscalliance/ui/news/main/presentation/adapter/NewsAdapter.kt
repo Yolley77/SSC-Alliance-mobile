@@ -33,11 +33,12 @@ class NewsAdapter(private val onItemClicked: (NewsBusinessModel) -> Unit) :
 
             Glide.with(itemBinding.root)
                 .load(newsItem.image)
-                .transform(
+                .apply(RequestOptions().centerCrop())
+                /*.transform(
                     MultiTransformation(
                         CenterCrop(), RoundedCornersTransformation(40, 0)
                     )
-                )
+                )*/
                 .error(
                     Glide
                         .with(itemBinding.root)

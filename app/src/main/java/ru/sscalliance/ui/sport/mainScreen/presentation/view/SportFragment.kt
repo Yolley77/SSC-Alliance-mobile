@@ -56,6 +56,10 @@ class SportFragment : BaseFragment<FragmentSportBinding>(), ISportFragment {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpRVs()
+
+        binding?.findPlayer?.setOnClickListener {
+            presenter.toastsHandler.showMessage("Выполнено действие: Поиск игроков")
+        }
     }
 
     override fun onDestroyView() {
