@@ -1,4 +1,4 @@
-package ru.sscalliance.ui.news.main.presentation.adapter
+package ru.sscalliance.ui.news.main.presentation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

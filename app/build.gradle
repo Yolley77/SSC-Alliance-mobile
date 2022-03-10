@@ -86,7 +86,8 @@ dependencies {
     implementation 'jp.wasabeef:glide-transformations:4.1.0'
 
 
-    // Reactive
+    // TODO move to Coroutines
+    // Coroutines
     implementation "io.reactivex.rxjava3:rxandroid:$rootProject.rxJava3Version"
     implementation "io.reactivex.rxjava3:rxjava:$rootProject.rxJava3Version"
 

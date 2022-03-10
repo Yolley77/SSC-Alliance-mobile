@@ -1,5 +1,6 @@
 package ru.sscalliance
 
+import android.os.StrictMode
 import androidx.multidex.MultiDexApplication
 import dagger.hilt.android.HiltAndroidApp
 import io.realm.Realm
@@ -18,12 +19,23 @@ import io.realm.Realm
 @HiltAndroidApp
 class SSCAllianceApp : MultiDexApplication() {
 
-    companion object {
-
-    }
-
     override fun onCreate() {
         super.onCreate()
         Realm.init(this)
+
+        // Strict Mode for DEBUG
+        if (BuildConfig.DEBUG) {
+            val threadPolicy = StrictMode.ThreadPolicy.Builder()
+                .detectAll()
+                .penaltyLog()
+                .build()
+            StrictMode.setThreadPolicy(threadPolicy)
+
+            val vmPolicy = StrictMode.VmPolicy.Builder()
+                .detectAll()
+                .penaltyLog()
+                .build()
+            StrictMode.setVmPolicy(vmPolicy)
+        }
     }
 }

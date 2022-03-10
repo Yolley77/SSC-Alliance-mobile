@@ -1,4 +1,4 @@
-package ru.sscalliance.ui.news.main.presentation.view
+package ru.sscalliance.ui.news.main.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,8 +12,6 @@ import ru.sscalliance.domain.news.model.NewsBusinessModel
 import ru.sscalliance.ui.base.view.BaseActivity
 import ru.sscalliance.ui.base.view.BaseFragment
 import ru.sscalliance.ui.base.view.IMvpView
-import ru.sscalliance.ui.news.main.presentation.adapter.NewsAdapter
-import ru.sscalliance.ui.news.main.presentation.presenter.NewsPresenter
 import javax.inject.Inject
 
 interface INewsFragment : IMvpView {

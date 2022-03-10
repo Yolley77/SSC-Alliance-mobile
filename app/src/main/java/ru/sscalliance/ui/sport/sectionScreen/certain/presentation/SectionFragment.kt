@@ -14,7 +14,7 @@ import ru.sscalliance.domain.sport.sectionScreen.model.SectionType
 import ru.sscalliance.ui.base.view.BaseActivity
 import ru.sscalliance.ui.base.view.BaseFragment
 import ru.sscalliance.ui.base.view.IMvpView
-import ru.sscalliance.ui.news.main.presentation.adapter.NewsAdapter
+import ru.sscalliance.ui.news.main.presentation.NewsAdapter
 import ru.sscalliance.utils.SectionUtils
 import javax.inject.Inject
 
