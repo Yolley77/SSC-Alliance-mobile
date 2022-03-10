@@ -1,7 +1,5 @@
 package ru.sscalliance.domain.sport.sectionScreen.certain.interactor
 
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.core.Single
 import ru.sscalliance.domain.base.BaseInteractor
 import ru.sscalliance.domain.base.IMvpInteractor
 import ru.sscalliance.domain.news.model.NewsBusinessModel
@@ -13,15 +11,15 @@ import ru.sscalliance.utils.SectionUtils
 import javax.inject.Inject
 
 interface ISectionInteractor : IMvpInteractor {
-    fun getSectionInfo(type: SectionType): Single<SectionBusinessModel>
-    fun getNews(): Observable<List<NewsBusinessModel>>
+    fun getSectionInfo(type: SectionType): SectionBusinessModel
+    fun getNews(): List<NewsBusinessModel>
 }
 
 class SectionInteractor @Inject constructor(
     private val repository: ISectionRepository
 ) : BaseInteractor(), ISectionInteractor {
 
-    override fun getSectionInfo(type: SectionType): Single<SectionBusinessModel> {
+    override fun getSectionInfo(type: SectionType): SectionBusinessModel {
         val sectionRequestPath = SectionUtils.getSectionRequestByType(type)
         return repository.getSectionsInfo(
             SectionRequestParams(
@@ -30,7 +28,7 @@ class SectionInteractor @Inject constructor(
         )
     }
 
-    override fun getNews(): Observable<List<NewsBusinessModel>> {
+    override fun getNews(): List<NewsBusinessModel> {
         return repository.getNews()
     }
 

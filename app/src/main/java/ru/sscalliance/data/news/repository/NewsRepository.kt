@@ -1,6 +1,5 @@
 package ru.sscalliance.data.news.repository
 
-import io.reactivex.rxjava3.core.Observable
 import ru.sscalliance.data.news.remote.model.NewsRequest
 import ru.sscalliance.data.news.local.source.INewsLocalDataSource
 import ru.sscalliance.data.news.remote.source.INewsRemoteDataSource
@@ -13,7 +12,7 @@ class NewsRepository @Inject constructor(
     private val newsCache: INewsLocalDataSource
 ) : INewsRepository {
 
-    override fun getNews(): Observable<List<NewsBusinessModel>> {
+    override fun getNews(): List<NewsBusinessModel> {
         return newsCloud.getNews(NewsRequest(0))
     }
 

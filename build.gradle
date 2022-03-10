@@ -32,7 +32,6 @@ task clean(type: Delete) {
 ext {
     gsonVersion = '2.8.6'
     glideVersion = '4.11.0'
-    rxJava3Version = '3.0.0'
     leakCanaryVersion = '2.5'
     mockitoVersion = '3.5.13'
     okHttpBOMVersion = '4.9.0'

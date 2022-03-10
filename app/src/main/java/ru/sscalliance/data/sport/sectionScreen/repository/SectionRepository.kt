@@ -1,7 +1,5 @@
 package ru.sscalliance.data.sport.sectionScreen.repository
 
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.core.Single
 import ru.sscalliance.domain.news.model.NewsBusinessModel
 import ru.sscalliance.domain.sport.sectionScreen.certain.repository.ISectionRepository
 import ru.sscalliance.domain.sport.sectionScreen.model.SectionBusinessModel
@@ -13,7 +11,7 @@ import javax.inject.Inject
 class SectionRepository @Inject constructor(
 
 ) : ISectionRepository {
-    override fun getSectionsInfo(sectionRequest: SectionRequestParams): Single<SectionBusinessModel> {
+    override fun getSectionsInfo(sectionRequest: SectionRequestParams): SectionBusinessModel {
         val section: SectionBusinessModel = when (sectionRequest.request) {
             AppConstants.FOOTBALL_REQUEST ->
                 SectionBusinessModel(
@@ -58,12 +56,10 @@ class SectionRepository @Inject constructor(
             )
         }
 
-        return Single.just(
-            section
-        )
+        return section
     }
 
-    override fun getNews(): Observable<List<NewsBusinessModel>> {
+    override fun getNews(): List<NewsBusinessModel> {
         val model1 = NewsBusinessModel(
             "1",
             "Секция по футболу",
@@ -85,10 +81,8 @@ class SectionRepository @Inject constructor(
             "30/06/2021",
             "#волейбол"
         )
-        return Observable.just(
-            listOf(
-                model1, model2, model3
-            )
+        return listOf(
+            model1, model2, model3
         )
     }
 }

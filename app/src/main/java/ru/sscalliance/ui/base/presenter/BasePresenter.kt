@@ -1,18 +1,14 @@
 package ru.sscalliance.ui.base.presenter
 
-import io.reactivex.rxjava3.disposables.CompositeDisposable
 import retrofit2.HttpException
 import ru.sscalliance.domain.base.IMvpInteractor
 import ru.sscalliance.ui.base.view.IMvpView
 import ru.sscalliance.utils.AppConstants
-import ru.sscalliance.utils.IScheduleProvider
 import ru.sscalliance.utils.ToastsHandler
 import java.net.ConnectException
 import javax.inject.Inject
 
 abstract class BasePresenter<V : IMvpView, I : IMvpInteractor> internal constructor(
-    var compositeDisposable: CompositeDisposable,
-    var scheduleProvider: IScheduleProvider,
     var interactor: I
 ) : IMvpPresenter<V, I> {
 
@@ -27,8 +23,11 @@ abstract class BasePresenter<V : IMvpView, I : IMvpInteractor> internal construc
         this.view = view
     }
 
+    override fun onViewReady() {
+        // Empty implementation
+    }
+
     override fun onDetach() {
-        compositeDisposable.clear()
         view?.hideProgress()
         view = null
     }

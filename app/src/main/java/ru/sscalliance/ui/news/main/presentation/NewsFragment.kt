@@ -27,16 +27,12 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>(), INewsFragment {
 
     private var newsAdapter: NewsAdapter? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        presenter.onAttach(this)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        presenter.onAttach(this)
         binding = FragmentNewsBinding.inflate(inflater, container, false)
         return super.onCreateView(inflater, container, savedInstanceState)
     }

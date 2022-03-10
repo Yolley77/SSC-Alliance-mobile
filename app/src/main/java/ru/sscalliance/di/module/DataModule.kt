@@ -4,13 +4,11 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import io.reactivex.rxjava3.schedulers.Schedulers
 import io.realm.Realm
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import ru.sscalliance.BuildConfig
 import ru.sscalliance.data.network.ApiService
@@ -39,7 +37,6 @@ object DataModule {
     @Singleton
     fun provideRetrofit(): Retrofit = Retrofit.Builder()
         .baseUrl(AppConstants.BASE_URL)
-        .addCallAdapterFactory(RxJava3CallAdapterFactory.createWithScheduler(Schedulers.io()))
         .addConverterFactory(MoshiConverterFactory.create())
         .client(provideOkHttpClient())
         .build()
