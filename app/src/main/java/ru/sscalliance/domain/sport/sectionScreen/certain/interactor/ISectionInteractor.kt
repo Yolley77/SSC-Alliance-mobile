@@ -2,7 +2,7 @@ package ru.sscalliance.domain.sport.sectionScreen.certain.interactor
 
 import ru.sscalliance.domain.base.BaseInteractor
 import ru.sscalliance.domain.base.IMvpInteractor
-import ru.sscalliance.domain.news.model.NewsBusinessModel
+import ru.sscalliance.domain.news.NewsBusinessModel
 import ru.sscalliance.domain.sport.sectionScreen.certain.repository.ISectionRepository
 import ru.sscalliance.domain.sport.sectionScreen.model.SectionBusinessModel
 import ru.sscalliance.domain.sport.sectionScreen.model.SectionRequestParams

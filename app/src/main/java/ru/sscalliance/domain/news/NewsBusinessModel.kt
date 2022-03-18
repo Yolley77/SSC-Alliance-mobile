@@ -1,4 +1,4 @@
-package ru.sscalliance.domain.news.model
+package ru.sscalliance.domain.news
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

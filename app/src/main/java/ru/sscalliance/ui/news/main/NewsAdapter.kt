@@ -1,4 +1,4 @@
-package ru.sscalliance.ui.news.main.presentation
+package ru.sscalliance.ui.news.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import ru.sscalliance.R
 import ru.sscalliance.databinding.ItemNewsBinding
-import ru.sscalliance.domain.news.model.NewsBusinessModel
+import ru.sscalliance.domain.news.NewsBusinessModel
 import ru.sscalliance.ui.base.adapter.BaseAdapter
 import ru.sscalliance.ui.base.adapter.BaseViewHolder
 

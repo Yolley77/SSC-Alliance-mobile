@@ -6,12 +6,12 @@ import ru.sscalliance.databinding.ActivityEventDetailsBinding
 import ru.sscalliance.domain.sport.mainScreen.interactor.ISportInteractor
 import ru.sscalliance.domain.sport.mainScreen.model.EventBusinessModel
 import ru.sscalliance.ui.base.view.BaseActivity
-import ru.sscalliance.ui.base.view.IMvpView
+import ru.sscalliance.ui.base.view.IView
 import ru.sscalliance.ui.sport.eventDetails.presentation.presenter.IEventDetailsPresenter
 import ru.sscalliance.utils.Navigator
 import javax.inject.Inject
 
-interface IEventDetailsActivity : IMvpView {
+interface IEventDetailsActivity : IView {
 
 }
 
@@ -25,8 +25,8 @@ class EventDetailsActivity : BaseActivity<ActivityEventDetailsBinding>(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presenter.onAttach(this)
-        binding = ActivityEventDetailsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        viewBinding = ActivityEventDetailsBinding.inflate(layoutInflater)
+        setContentView(viewBinding.root)
 
         initViews()
     }

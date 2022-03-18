@@ -1,4 +1,4 @@
-package ru.sscalliance.ui.news.main.presentation
+package ru.sscalliance.ui.news.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.databinding.FragmentNewsBinding
-import ru.sscalliance.domain.news.interactor.INewsInteractor
-import ru.sscalliance.domain.news.model.NewsBusinessModel
+import ru.sscalliance.domain.news.INewsInteractor
+import ru.sscalliance.domain.news.NewsBusinessModel
 import ru.sscalliance.ui.base.view.BaseActivity
 import ru.sscalliance.ui.base.view.BaseFragment
-import ru.sscalliance.ui.base.view.IMvpView
+import ru.sscalliance.ui.base.view.IView
 import javax.inject.Inject
 
-interface INewsFragment : IMvpView {
+interface INewsFragment : IView {
     fun showNews(items: List<NewsBusinessModel>)
     fun openNewsDetailsScreen(item: NewsBusinessModel)
 }
@@ -33,7 +33,7 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>(), INewsFragment {
         savedInstanceState: Bundle?
     ): View? {
         presenter.onAttach(this)
-        binding = FragmentNewsBinding.inflate(inflater, container, false)
+        viewBinding = FragmentNewsBinding.inflate(inflater, container, false)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
@@ -59,7 +59,7 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>(), INewsFragment {
 
     private fun setUpNewsRv() {
         newsAdapter = NewsAdapter(presenter::onItemClicked)
-        binding?.rvNews?.apply {
+        viewBinding?.rvNews?.apply {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(context)
         }

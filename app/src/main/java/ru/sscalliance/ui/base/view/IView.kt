@@ -1,6 +1,6 @@
 package ru.sscalliance.ui.base.view
 
-interface IMvpView {
+interface IView {
     fun showProgress()
     fun hideProgress()
 }

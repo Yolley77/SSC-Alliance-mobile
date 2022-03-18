@@ -1,9 +1,8 @@
-package ru.sscalliance.data.news.remote.source
+package ru.sscalliance.data.news.remote
 
 import ru.sscalliance.data.base.BaseCloudDataSource
-import ru.sscalliance.data.news.remote.mapper.NewsNetToUIMapper
 import ru.sscalliance.data.news.remote.model.NewsRequest
-import ru.sscalliance.domain.news.model.NewsBusinessModel
+import ru.sscalliance.domain.news.NewsBusinessModel
 import javax.inject.Inject
 
 interface INewsRemoteDataSource {

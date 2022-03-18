@@ -10,10 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import ru.sscalliance.utils.CommonUtil
 
-abstract class BaseFragment<T : ViewBinding> : Fragment(), IMvpView {
+abstract class BaseFragment<T : ViewBinding> : Fragment(), IView {
 
     private var progressBar: ProgressBar? = null
-    var binding: T? = null
+    var viewBinding: T? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,10 +24,10 @@ abstract class BaseFragment<T : ViewBinding> : Fragment(), IMvpView {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = binding?.root
+    ): View? = viewBinding?.root
 
     override fun onDestroyView() {
-        binding = null
+        viewBinding = null
         super.onDestroyView()
     }
 

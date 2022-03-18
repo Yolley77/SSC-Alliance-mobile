@@ -1,19 +1,29 @@
 package ru.sscalliance.ui.base.presenter
 
+import android.util.Log
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 import retrofit2.HttpException
 import ru.sscalliance.domain.base.IMvpInteractor
-import ru.sscalliance.ui.base.view.IMvpView
+import ru.sscalliance.ui.base.coroutine.mainCoroutineContext
+import ru.sscalliance.ui.base.view.IView
 import ru.sscalliance.utils.AppConstants
 import ru.sscalliance.utils.ToastsHandler
 import java.net.ConnectException
 import javax.inject.Inject
+import kotlin.coroutines.CoroutineContext
 
-abstract class BasePresenter<V : IMvpView, I : IMvpInteractor> internal constructor(
+abstract class BasePresenter<V : IView, I : IMvpInteractor> internal constructor(
     var interactor: I
-) : IMvpPresenter<V, I> {
+) : IPresenter<V, I>, CoroutineScope {
 
     @Inject
     lateinit var toastsHandler: ToastsHandler
+
+    private val job = SupervisorJob()
+
+    override val coroutineContext: CoroutineContext
+        get() = mainCoroutineContext(job, ::handleError)
 
     protected var view: V? = null
     private val isViewAttached: Boolean
@@ -33,6 +43,7 @@ abstract class BasePresenter<V : IMvpView, I : IMvpInteractor> internal construc
     }
 
     override fun handleError(error: Throwable) {
+        Log.e("Presenter", error.message, error)
         when (error) {
             is ConnectException -> toastsHandler.showError(
                 AppConstants.NO_INTERNET_ERROR,

@@ -1,13 +1,10 @@
-package ru.sscalliance.ui.news.details.di
+package ru.sscalliance.ui.news.details
 
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
-import ru.sscalliance.domain.news.interactor.INewsInteractor
-import ru.sscalliance.ui.news.details.presentation.INewsDetailsActivity
-import ru.sscalliance.ui.news.details.presentation.INewsDetailsPresenter
-import ru.sscalliance.ui.news.details.presentation.NewsDetailsPresenter
+import ru.sscalliance.domain.news.INewsInteractor
 
 @Module
 @InstallIn(ActivityComponent::class)

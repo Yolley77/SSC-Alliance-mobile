@@ -7,18 +7,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.databinding.FragmentSectionBinding
-import ru.sscalliance.domain.news.model.NewsBusinessModel
+import ru.sscalliance.domain.news.NewsBusinessModel
 import ru.sscalliance.domain.sport.sectionScreen.certain.interactor.ISectionInteractor
 import ru.sscalliance.domain.sport.sectionScreen.model.SectionBusinessModel
 import ru.sscalliance.domain.sport.sectionScreen.model.SectionType
 import ru.sscalliance.ui.base.view.BaseActivity
 import ru.sscalliance.ui.base.view.BaseFragment
-import ru.sscalliance.ui.base.view.IMvpView
-import ru.sscalliance.ui.news.main.presentation.NewsAdapter
+import ru.sscalliance.ui.base.view.IView
+import ru.sscalliance.ui.news.main.NewsAdapter
 import ru.sscalliance.utils.SectionUtils
 import javax.inject.Inject
 
-interface ISectionFragment : IMvpView {
+interface ISectionFragment : IView {
     fun setInfo(sectionInfo: SectionBusinessModel)
 
     // [Organizers Region]
@@ -55,7 +55,7 @@ class SectionFragment(private val sectionType: SectionType) :
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSectionBinding.inflate(inflater, container, false)
+        viewBinding = FragmentSectionBinding.inflate(inflater, container, false)
         presenter.configureViews(sectionType)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
@@ -63,12 +63,12 @@ class SectionFragment(private val sectionType: SectionType) :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupNewsRv()
-        binding?.sectionRegistration?.setOnClickListener { presenter.onRegisterButtonClicked() }
-        binding?.tvSectionNews?.setOnClickListener {
+        viewBinding?.sectionRegistration?.setOnClickListener { presenter.onRegisterButtonClicked() }
+        viewBinding?.tvSectionNews?.setOnClickListener {
             // TODO: maybe open news screen?
         }
 
-        binding?.sectionRegistration?.setOnClickListener {
+        viewBinding?.sectionRegistration?.setOnClickListener {
             presenter.toastsHandler.showMessage("Выполнено действие: Вступление в секцию")
         }
     }
@@ -79,9 +79,9 @@ class SectionFragment(private val sectionType: SectionType) :
     }
 
     override fun setInfo(sectionInfo: SectionBusinessModel) {
-        binding?.sectionTitle?.text = sectionInfo.title
-        binding?.sectionDescription?.text = sectionInfo.description
-        binding?.sectionLogo?.background = SectionUtils.getSectionLogoByType(sectionType, context)
+        viewBinding?.sectionTitle?.text = sectionInfo.title
+        viewBinding?.sectionDescription?.text = sectionInfo.description
+        viewBinding?.sectionLogo?.background = SectionUtils.getSectionLogoByType(sectionType, context)
     }
 
     override fun setOrganizersInfo(list: List<NewsBusinessModel>) {
@@ -113,7 +113,7 @@ class SectionFragment(private val sectionType: SectionType) :
 
     private fun setupNewsRv() {
         newsAdapter = NewsAdapter(presenter::onNewsItemClicked)
-        binding?.sectionNews?.apply {
+        viewBinding?.sectionNews?.apply {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }

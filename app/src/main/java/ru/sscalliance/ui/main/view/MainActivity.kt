@@ -9,9 +9,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.R
 import ru.sscalliance.databinding.ActivityMainBinding
 import ru.sscalliance.ui.base.view.BaseActivity
-import ru.sscalliance.ui.base.view.IMvpView
+import ru.sscalliance.ui.base.view.IView
 
-interface IMainActivity : IMvpView {
+interface IMainActivity : IView {
 
 }
 
@@ -20,8 +20,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IMainActivity {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        viewBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(viewBinding.root)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_info_fragment) as NavHostFragment
@@ -36,6 +36,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IMainActivity {
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
-        binding.navInfoView.setupWithNavController(navController)
+        viewBinding.navInfoView.setupWithNavController(navController)
     }
 }

@@ -2,11 +2,11 @@ package ru.sscalliance.ui.team.presentation.presenter
 
 import ru.sscalliance.domain.team.interactor.ITeamInteractor
 import ru.sscalliance.ui.base.presenter.BasePresenter
-import ru.sscalliance.ui.base.presenter.IMvpPresenter
+import ru.sscalliance.ui.base.presenter.IPresenter
 import ru.sscalliance.ui.team.presentation.view.ITeamFragment
 import javax.inject.Inject
 
-interface ITeamPresenter<V : ITeamFragment, I : ITeamInteractor> : IMvpPresenter<V, I> {
+interface ITeamPresenter<V : ITeamFragment, I : ITeamInteractor> : IPresenter<V, I> {
     fun getTeam(): Any?
 }
 

@@ -1,9 +1,9 @@
 package ru.sscalliance.ui.base.presenter
 
 import ru.sscalliance.domain.base.IMvpInteractor
-import ru.sscalliance.ui.base.view.IMvpView
+import ru.sscalliance.ui.base.view.IView
 
-interface IMvpPresenter<V : IMvpView, I : IMvpInteractor> {
+interface IPresenter<V : IView, I : IMvpInteractor> {
 
     fun onAttach(view: V)
     fun onViewReady()

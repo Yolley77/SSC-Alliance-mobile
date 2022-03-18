@@ -4,11 +4,11 @@ import ru.sscalliance.domain.sport.sectionScreen.model.SectionType
 import ru.sscalliance.domain.sport.mainScreen.interactor.ISportInteractor
 import ru.sscalliance.domain.sport.mainScreen.model.EventBusinessModel
 import ru.sscalliance.ui.base.presenter.BasePresenter
-import ru.sscalliance.ui.base.presenter.IMvpPresenter
+import ru.sscalliance.ui.base.presenter.IPresenter
 import ru.sscalliance.ui.sport.mainScreen.presentation.view.ISportFragment
 import javax.inject.Inject
 
-interface ISportPresenter<V : ISportFragment, I : ISportInteractor> : IMvpPresenter<V, I> {
+interface ISportPresenter<V : ISportFragment, I : ISportInteractor> : IPresenter<V, I> {
     fun getSections(): Any?
     fun onSectionClicked(itemType: SectionType)
     fun getEvents(): Any?

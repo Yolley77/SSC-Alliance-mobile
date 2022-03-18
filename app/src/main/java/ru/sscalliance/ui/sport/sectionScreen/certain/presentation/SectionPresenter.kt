@@ -1,6 +1,6 @@
 package ru.sscalliance.ui.sport.sectionScreen.certain.presentation
 
-import ru.sscalliance.domain.news.model.NewsBusinessModel
+import ru.sscalliance.domain.news.NewsBusinessModel
 import ru.sscalliance.domain.sport.sectionScreen.certain.interactor.ISectionInteractor
 import ru.sscalliance.domain.sport.sectionScreen.model.SectionType
 import ru.sscalliance.ui.base.presenter.BasePresenter

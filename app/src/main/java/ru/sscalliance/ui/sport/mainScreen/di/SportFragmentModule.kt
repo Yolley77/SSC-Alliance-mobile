@@ -6,7 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import ru.sscalliance.domain.sport.mainScreen.interactor.ISportInteractor
 import ru.sscalliance.domain.sport.mainScreen.interactor.SportInteractor
-import ru.sscalliance.ui.base.presenter.IMvpPresenter
+import ru.sscalliance.ui.base.presenter.IPresenter
 import ru.sscalliance.ui.sport.mainScreen.presentation.presenter.SportPresenter
 import ru.sscalliance.ui.sport.mainScreen.presentation.view.ISportFragment
 
@@ -19,6 +19,6 @@ abstract class SportFragmentModule {
 
     @Binds
     abstract fun bindSportPresenter(impl: SportPresenter<ISportFragment, ISportInteractor>):
-            IMvpPresenter<ISportFragment, ISportInteractor>
+            IPresenter<ISportFragment, ISportInteractor>
 }
 

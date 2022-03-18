@@ -6,13 +6,13 @@ import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.databinding.ActivityMainSectionBinding
 import ru.sscalliance.domain.sport.sectionScreen.main.interactor.IMainSectionInteractor
 import ru.sscalliance.ui.base.view.BaseActivity
-import ru.sscalliance.ui.base.view.IMvpView
+import ru.sscalliance.ui.base.view.IView
 import ru.sscalliance.ui.sport.sectionScreen.main.presentation.adapter.SectionPagerAdapter
 import ru.sscalliance.ui.sport.sectionScreen.main.presentation.presenter.IMainSectionPresenter
 import ru.sscalliance.utils.SectionUtils
 import javax.inject.Inject
 
-interface IMainSectionActivity : IMvpView {
+interface IMainSectionActivity : IView {
     fun setCurrentSection(number: Int)
 }
 
@@ -25,14 +25,14 @@ class MainSectionActivity : BaseActivity<ActivityMainSectionBinding>(), IMainSec
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presenter.onAttach(this)
-        binding = ActivityMainSectionBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        viewBinding = ActivityMainSectionBinding.inflate(layoutInflater)
+        setContentView(viewBinding.root)
 
-        binding.vpSectionsPager.adapter = SectionPagerAdapter(this)
-        TabLayoutMediator(binding.tlSections, binding.vpSectionsPager) { tab, position ->
+        viewBinding.vpSectionsPager.adapter = SectionPagerAdapter(this)
+        TabLayoutMediator(viewBinding.tlSections, viewBinding.vpSectionsPager) { tab, position ->
             tab.text = SectionUtils.getSectionNameByPosition(position, baseContext)
         }.attach()
-        binding.vpSectionsPager.isUserInputEnabled = false
+        viewBinding.vpSectionsPager.isUserInputEnabled = false
         presenter.configureViews()
     }
 
@@ -42,7 +42,7 @@ class MainSectionActivity : BaseActivity<ActivityMainSectionBinding>(), IMainSec
     }
 
     override fun setCurrentSection(number: Int) {
-        binding.vpSectionsPager.currentItem = number
+        viewBinding.vpSectionsPager.currentItem = number
     }
 
 }

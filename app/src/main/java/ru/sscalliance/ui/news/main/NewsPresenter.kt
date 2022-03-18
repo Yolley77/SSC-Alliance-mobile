@@ -1,12 +1,12 @@
-package ru.sscalliance.ui.news.main.presentation
+package ru.sscalliance.ui.news.main
 
-import ru.sscalliance.domain.news.interactor.INewsInteractor
-import ru.sscalliance.domain.news.model.NewsBusinessModel
+import ru.sscalliance.domain.news.INewsInteractor
+import ru.sscalliance.domain.news.NewsBusinessModel
 import ru.sscalliance.ui.base.presenter.BasePresenter
-import ru.sscalliance.ui.base.presenter.IMvpPresenter
+import ru.sscalliance.ui.base.presenter.IPresenter
 import javax.inject.Inject
 
-interface INewsPresenter<V : INewsFragment, I : INewsInteractor> : IMvpPresenter<V, I> {
+interface INewsPresenter<V : INewsFragment, I : INewsInteractor> : IPresenter<V, I> {
     fun getNews(): Any?
     fun onItemClicked(item: NewsBusinessModel)
 }

@@ -13,13 +13,13 @@ import ru.sscalliance.domain.sport.mainScreen.model.EventBusinessModel
 import ru.sscalliance.domain.sport.mainScreen.model.SectionPreviewBusinessModel
 import ru.sscalliance.ui.base.view.BaseActivity
 import ru.sscalliance.ui.base.view.BaseFragment
-import ru.sscalliance.ui.base.view.IMvpView
+import ru.sscalliance.ui.base.view.IView
 import ru.sscalliance.ui.sport.mainScreen.presentation.adapter.EventAdapter
 import ru.sscalliance.ui.sport.mainScreen.presentation.adapter.SectionPreviewAdapter
 import ru.sscalliance.ui.sport.mainScreen.presentation.presenter.SportPresenter
 import javax.inject.Inject
 
-interface ISportFragment : IMvpView {
+interface ISportFragment : IView {
     fun showSections(items: List<SectionPreviewBusinessModel>)
     fun showEvents(items: List<EventBusinessModel>)
 
@@ -49,7 +49,7 @@ class SportFragment : BaseFragment<FragmentSportBinding>(), ISportFragment {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSportBinding.inflate(inflater, container, false)
+        viewBinding = FragmentSportBinding.inflate(inflater, container, false)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
@@ -57,7 +57,7 @@ class SportFragment : BaseFragment<FragmentSportBinding>(), ISportFragment {
         super.onViewCreated(view, savedInstanceState)
         setUpRVs()
 
-        binding?.findPlayer?.setOnClickListener {
+        viewBinding?.findPlayer?.setOnClickListener {
             presenter.toastsHandler.showMessage("Выполнено действие: Поиск игроков")
         }
     }
@@ -87,7 +87,7 @@ class SportFragment : BaseFragment<FragmentSportBinding>(), ISportFragment {
 
     private fun setUpRVs() {
         sectionAdapter = SectionPreviewAdapter(presenter::onSectionClicked, context)
-        binding?.listSections?.apply {
+        viewBinding?.listSections?.apply {
             adapter = sectionAdapter
             layoutManager = GridLayoutManager(
                 context,
@@ -99,7 +99,7 @@ class SportFragment : BaseFragment<FragmentSportBinding>(), ISportFragment {
         presenter.getSections()
 
         eventAdapter = EventAdapter(presenter::onEventClicked)
-        binding?.listEvents?.apply {
+        viewBinding?.listEvents?.apply {
             adapter = eventAdapter
             layoutManager = LinearLayoutManager(
                 context,

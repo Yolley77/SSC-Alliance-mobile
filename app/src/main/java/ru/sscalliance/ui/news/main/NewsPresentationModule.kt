@@ -1,14 +1,12 @@
-package ru.sscalliance.ui.news.main.di
+package ru.sscalliance.ui.news.main
 
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
-import ru.sscalliance.domain.news.interactor.INewsInteractor
-import ru.sscalliance.domain.news.interactor.NewsInteractor
-import ru.sscalliance.ui.base.presenter.IMvpPresenter
-import ru.sscalliance.ui.news.main.presentation.NewsPresenter
-import ru.sscalliance.ui.news.main.presentation.INewsFragment
+import ru.sscalliance.domain.news.INewsInteractor
+import ru.sscalliance.domain.news.NewsInteractor
+import ru.sscalliance.ui.base.presenter.IPresenter
 
 @Module
 @InstallIn(ActivityComponent::class)
@@ -19,6 +17,6 @@ abstract class NewsPresentationModule {
 
     @Binds
     abstract fun bindNewsPresenter(impl: NewsPresenter<INewsFragment, INewsInteractor>):
-            IMvpPresenter<INewsFragment, INewsInteractor>
+            IPresenter<INewsFragment, INewsInteractor>
 
 }

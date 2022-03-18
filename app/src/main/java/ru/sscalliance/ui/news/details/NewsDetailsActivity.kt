@@ -1,16 +1,16 @@
-package ru.sscalliance.ui.news.details.presentation
+package ru.sscalliance.ui.news.details
 
 import android.os.Bundle
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.databinding.ActivityNewsDetailsBinding
-import ru.sscalliance.domain.news.interactor.INewsInteractor
-import ru.sscalliance.domain.news.model.NewsBusinessModel
+import ru.sscalliance.domain.news.INewsInteractor
+import ru.sscalliance.domain.news.NewsBusinessModel
 import ru.sscalliance.ui.base.view.BaseActivity
-import ru.sscalliance.ui.base.view.IMvpView
+import ru.sscalliance.ui.base.view.IView
 import ru.sscalliance.utils.Navigator
 import javax.inject.Inject
 
-interface INewsDetailsActivity : IMvpView {
+interface INewsDetailsActivity : IView {
 
 }
 
@@ -23,8 +23,8 @@ class NewsDetailsActivity : BaseActivity<ActivityNewsDetailsBinding>(), INewsDet
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presenter.onAttach(this)
-        binding = ActivityNewsDetailsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        viewBinding = ActivityNewsDetailsBinding.inflate(layoutInflater)
+        setContentView(viewBinding.root)
 
         initViews()
     }

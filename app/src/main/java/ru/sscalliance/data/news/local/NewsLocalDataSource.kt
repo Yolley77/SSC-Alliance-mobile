@@ -1,4 +1,4 @@
-package ru.sscalliance.data.news.local.source
+package ru.sscalliance.data.news.local
 
 import ru.sscalliance.data.base.BaseCacheDataSource
 import ru.sscalliance.data.news.local.model.NewsStorageModel

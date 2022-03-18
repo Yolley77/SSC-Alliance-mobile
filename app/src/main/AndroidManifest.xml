@@ -32,7 +32,7 @@
         </activity>
 
         <activity
-            android:name=".ui.news.details.presentation.NewsDetailsActivity">
+            android:name=".ui.news.details.NewsDetailsActivity">
 
         </activity>
     </application>

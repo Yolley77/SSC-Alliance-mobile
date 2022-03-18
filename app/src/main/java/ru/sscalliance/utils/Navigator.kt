@@ -2,10 +2,10 @@ package ru.sscalliance.utils
 
 import android.content.Context
 import android.content.Intent
-import ru.sscalliance.domain.news.model.NewsBusinessModel
+import ru.sscalliance.domain.news.NewsBusinessModel
 import ru.sscalliance.domain.sport.mainScreen.model.EventBusinessModel
 import ru.sscalliance.ui.main.view.MainActivity
-import ru.sscalliance.ui.news.details.presentation.NewsDetailsActivity
+import ru.sscalliance.ui.news.details.NewsDetailsActivity
 import ru.sscalliance.ui.sport.sectionScreen.main.presentation.view.MainSectionActivity
 import ru.sscalliance.ui.sport.eventDetails.presentation.view.EventDetailsActivity
 import javax.inject.Inject
