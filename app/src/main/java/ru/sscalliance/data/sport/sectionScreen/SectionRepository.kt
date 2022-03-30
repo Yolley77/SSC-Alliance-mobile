@@ -1,4 +1,4 @@
-package ru.sscalliance.data.sport.sectionScreen.repository
+package ru.sscalliance.data.sport.sectionScreen
 
 import ru.sscalliance.domain.news.NewsBusinessModel
 import ru.sscalliance.domain.sport.sectionScreen.certain.repository.ISectionRepository

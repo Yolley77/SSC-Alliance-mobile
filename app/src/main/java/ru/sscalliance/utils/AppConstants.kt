@@ -3,7 +3,7 @@ package ru.sscalliance.utils
 object AppConstants {
 
     //------------------------- API --------------------------------
-    const val BASE_URL = "http://base-url.com/"
+    const val BASE_URL = "https://alliance-server.herokuapp.com/"
     const val FOOTBALL_REQUEST = "football"
     const val VOLLEYBALL_REQUEST = "VOLLEYBALL_REQUEST"
     const val BASKETBALL_REQUEST = "BASKETBALL_REQUEST"

@@ -9,7 +9,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import ru.sscalliance.BuildConfig
 import ru.sscalliance.data.network.ApiService
 import ru.sscalliance.utils.AppConstants
@@ -28,22 +28,21 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient() = OkHttpClient.Builder()
-        .addInterceptor(provideHttpLoggingInterceptor())
-        .retryOnConnectionFailure(true)
+    fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor) = OkHttpClient.Builder()
+        .addInterceptor(loggingInterceptor)
         .build()
 
     @Provides
     @Singleton
-    fun provideRetrofit(): Retrofit = Retrofit.Builder()
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
         .baseUrl(AppConstants.BASE_URL)
-        .addConverterFactory(MoshiConverterFactory.create())
-        .client(provideOkHttpClient())
+        .addConverterFactory(GsonConverterFactory.create())
+        .client(okHttpClient)
         .build()
 
     @Provides
     @Singleton
-    fun provideApiService(): ApiService = provideRetrofit().create(ApiService::class.java)
+    fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
 
     @Provides
     @Singleton

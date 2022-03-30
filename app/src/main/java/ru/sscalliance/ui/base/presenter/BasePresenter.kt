@@ -26,8 +26,6 @@ abstract class BasePresenter<V : IView, I : IMvpInteractor> internal constructor
         get() = mainCoroutineContext(job, ::handleError)
 
     protected var view: V? = null
-    private val isViewAttached: Boolean
-        get() = view != null
 
     override fun onAttach(view: V) {
         this.view = view

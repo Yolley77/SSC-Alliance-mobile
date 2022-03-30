@@ -1,5 +1,5 @@
 package ru.sscalliance.domain.news
 
 interface INewsRepository {
-    fun getNews(): List<NewsBusinessModel>
+    suspend fun getNews(): List<NewsBusinessModel>
 }

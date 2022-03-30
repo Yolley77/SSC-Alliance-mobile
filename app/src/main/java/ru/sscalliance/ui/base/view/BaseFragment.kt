@@ -8,7 +8,7 @@ import android.widget.ProgressBar
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import ru.sscalliance.utils.CommonUtil
+import ru.sscalliance.R
 
 abstract class BaseFragment<T : ViewBinding> : Fragment(), IView {
 
@@ -32,17 +32,13 @@ abstract class BaseFragment<T : ViewBinding> : Fragment(), IView {
     }
 
     override fun hideProgress() {
-        progressBar?.let { if (it.isVisible) it.isVisible = false }
+        activity?.findViewById<ProgressBar>(R.id.pbLoading)?.isVisible = false
+
     }
 
     override fun showProgress() {
         hideProgress()
-        progressBar = CommonUtil.showLoadingDialog(requireContext())
-    }
-
-    interface CallBack {
-        fun onFragmentAttached()
-        fun onFragmentDetached(tag: String)
+        activity?.findViewById<ProgressBar>(R.id.pbLoading)?.isVisible = true
     }
 
 }

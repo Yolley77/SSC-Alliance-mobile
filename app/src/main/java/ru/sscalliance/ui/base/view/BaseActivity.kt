@@ -4,7 +4,7 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.viewbinding.ViewBinding
-import ru.sscalliance.utils.CommonUtil
+import ru.sscalliance.R
 import ru.sscalliance.utils.Navigator
 import javax.inject.Inject
 
@@ -16,12 +16,12 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity(), IView {
     private var progressBar: ProgressBar? = null
 
     override fun hideProgress() {
-        progressBar?.let { if (it.isVisible) it.isVisible = false }
+        findViewById<ProgressBar>(R.id.pbLoading)?.isVisible = false
     }
 
     override fun showProgress() {
         hideProgress()
-        progressBar = CommonUtil.showLoadingDialog(this)
+        findViewById<ProgressBar>(R.id.pbLoading)?.isVisible = true
     }
 
 }

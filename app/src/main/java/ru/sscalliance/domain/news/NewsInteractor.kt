@@ -6,7 +6,7 @@ import ru.sscalliance.domain.base.IMvpInteractor
 import javax.inject.Inject
 
 interface INewsInteractor : IMvpInteractor {
-    fun getNews(): List<NewsBusinessModel>
+    suspend fun getNews(): List<NewsBusinessModel>
 }
 
 // TODO move preferences helper to domain
@@ -16,7 +16,7 @@ class NewsInteractor @Inject constructor(
     private val repository: INewsRepository
 ) : INewsInteractor, BaseInteractor() {
 
-    override fun getNews(): List<NewsBusinessModel> {
+    override suspend fun getNews(): List<NewsBusinessModel> {
         return repository.getNews()
     }
 

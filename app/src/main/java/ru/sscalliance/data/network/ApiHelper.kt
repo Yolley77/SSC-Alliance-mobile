@@ -1,17 +1,23 @@
 package ru.sscalliance.data.network
 
-import ru.sscalliance.data.news.remote.model.NewsItemResponse
+import retrofit2.Response
 import ru.sscalliance.data.news.remote.model.NewsRequest
 import ru.sscalliance.data.news.remote.model.NewsResponse
 import javax.inject.Inject
 
 interface IApiHelper {
-    fun getNews(request: NewsRequest): NewsResponse?
+    suspend fun getNews(request: NewsRequest): List<NewsResponse>?
 }
 
 class ApiHelper @Inject constructor(private val service: ApiService) : IApiHelper {
 
-    override fun getNews(request: NewsRequest): NewsResponse? = NewsResponse("status", listOf(NewsItemResponse()))
-        //service.getNews(request.start)
+    override suspend fun getNews(request: NewsRequest): List<NewsResponse>? {
+        return handleResponse(service.getNews())
+    }
+
+    private fun <T> handleResponse(response: Response<T>): T? {
+        return if (response.isSuccessful) response.body()
+        else null
+    }
 
 }

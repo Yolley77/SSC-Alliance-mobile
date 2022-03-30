@@ -17,6 +17,7 @@ import javax.inject.Inject
 interface INewsFragment : IView {
     fun showNews(items: List<NewsBusinessModel>)
     fun openNewsDetailsScreen(item: NewsBusinessModel)
+    fun stopRefreshing()
 }
 
 @AndroidEntryPoint
@@ -32,13 +33,14 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>(), INewsFragment {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        presenter.onAttach(this)
         viewBinding = FragmentNewsBinding.inflate(inflater, container, false)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        presenter.onAttach(this)
+        initViews()
         setUpNewsRv()
     }
 
@@ -55,6 +57,17 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>(), INewsFragment {
     override fun openNewsDetailsScreen(item: NewsBusinessModel) {
         val parent = activity as BaseActivity<*>
         parent.navigator.openNewsDetailsScreen(item)
+    }
+
+    override fun stopRefreshing() {
+        viewBinding?.srlRefresh?.isRefreshing = false
+    }
+
+    private fun initViews() {
+        viewBinding?.srlRefresh?.setOnRefreshListener {
+            newsAdapter?.updateAdapter(emptyList())
+            presenter.getNews()
+        }
     }
 
     private fun setUpNewsRv() {

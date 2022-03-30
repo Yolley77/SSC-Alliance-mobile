@@ -1,6 +1,7 @@
 package ru.sscalliance.ui.news.details
 
 import android.os.Bundle
+import android.view.MenuItem
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.databinding.ActivityNewsDetailsBinding
 import ru.sscalliance.domain.news.INewsInteractor
@@ -35,10 +36,16 @@ class NewsDetailsActivity : BaseActivity<ActivityNewsDetailsBinding>(), INewsDet
     }
 
     private fun initViews() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val item = intent.getParcelableExtra<NewsBusinessModel>(Navigator.EVENT_DETAILS)
         item?.let {
             showNewsDetails(it)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) onBackPressed()
+        return super.onOptionsItemSelected(item)
     }
 
     private fun showNewsDetails(item: NewsBusinessModel) {

@@ -1,7 +1,7 @@
 package ru.sscalliance
 
+import android.app.Application
 import android.os.StrictMode
-import androidx.multidex.MultiDexApplication
 import dagger.hilt.android.HiltAndroidApp
 import io.realm.Realm
 
@@ -17,7 +17,7 @@ import io.realm.Realm
  */
 
 @HiltAndroidApp
-class SSCAllianceApp : MultiDexApplication() {
+class SSCAllianceApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
