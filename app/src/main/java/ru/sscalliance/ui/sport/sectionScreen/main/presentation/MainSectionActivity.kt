@@ -1,14 +1,11 @@
-package ru.sscalliance.ui.sport.sectionScreen.main.presentation.view
+package ru.sscalliance.ui.sport.sectionScreen.main.presentation
 
 import android.os.Bundle
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.databinding.ActivityMainSectionBinding
-import ru.sscalliance.domain.sport.sectionScreen.main.interactor.IMainSectionInteractor
 import ru.sscalliance.ui.base.view.BaseActivity
 import ru.sscalliance.ui.base.view.IView
-import ru.sscalliance.ui.sport.sectionScreen.main.presentation.adapter.SectionPagerAdapter
-import ru.sscalliance.ui.sport.sectionScreen.main.presentation.presenter.IMainSectionPresenter
 import ru.sscalliance.utils.SectionUtils
 import javax.inject.Inject
 
@@ -20,7 +17,7 @@ interface IMainSectionActivity : IView {
 class MainSectionActivity : BaseActivity<ActivityMainSectionBinding>(), IMainSectionActivity {
 
     @Inject
-    lateinit var presenter: IMainSectionPresenter<IMainSectionActivity, IMainSectionInteractor>
+    lateinit var presenter: IMainSectionPresenter<IMainSectionActivity>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +30,7 @@ class MainSectionActivity : BaseActivity<ActivityMainSectionBinding>(), IMainSec
             tab.text = SectionUtils.getSectionNameByPosition(position, baseContext)
         }.attach()
         viewBinding.vpSectionsPager.isUserInputEnabled = false
+
         presenter.configureViews()
     }
 

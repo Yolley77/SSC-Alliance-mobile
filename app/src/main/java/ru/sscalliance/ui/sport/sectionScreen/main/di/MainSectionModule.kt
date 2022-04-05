@@ -6,9 +6,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import ru.sscalliance.domain.sport.sectionScreen.main.interactor.IMainSectionInteractor
 import ru.sscalliance.domain.sport.sectionScreen.main.interactor.MainSectionInteractor
-import ru.sscalliance.ui.sport.sectionScreen.main.presentation.presenter.IMainSectionPresenter
-import ru.sscalliance.ui.sport.sectionScreen.main.presentation.presenter.MainSectionPresenter
-import ru.sscalliance.ui.sport.sectionScreen.main.presentation.view.IMainSectionActivity
+import ru.sscalliance.ui.sport.sectionScreen.main.presentation.IMainSectionPresenter
+import ru.sscalliance.ui.sport.sectionScreen.main.presentation.MainSectionPresenter
+import ru.sscalliance.ui.sport.sectionScreen.main.presentation.IMainSectionActivity
 
 @Module
 @InstallIn(ActivityComponent::class)
@@ -18,7 +18,7 @@ abstract class MainSectionModule {
     abstract fun bindMainSectionInteractor(impl: MainSectionInteractor): IMainSectionInteractor
 
     @Binds
-    abstract fun bindMainSectionPresenter(impl: MainSectionPresenter<IMainSectionActivity, IMainSectionInteractor>)
-            : IMainSectionPresenter<IMainSectionActivity, IMainSectionInteractor>
+    abstract fun bindMainSectionPresenter(impl: MainSectionPresenter<IMainSectionActivity>)
+            : IMainSectionPresenter<IMainSectionActivity>
 
 }

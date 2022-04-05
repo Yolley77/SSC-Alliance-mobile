@@ -18,8 +18,8 @@ abstract class TeamFragmentModule {
     abstract fun bindTeamInteractor(impl: TeamInteractor): ITeamInteractor
 
     @Binds
-    abstract fun bindTeamPresenter(impl: TeamPresenter<ITeamFragment, ITeamInteractor>):
-            IPresenter<ITeamFragment, ITeamInteractor>
+    abstract fun bindTeamPresenter(impl: TeamPresenter<ITeamFragment>): IPresenter<ITeamFragment>
+
 }
 
 

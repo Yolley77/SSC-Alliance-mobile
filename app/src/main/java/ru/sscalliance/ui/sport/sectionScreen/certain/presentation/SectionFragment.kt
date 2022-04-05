@@ -39,7 +39,7 @@ class SectionFragment(private val sectionType: SectionType) :
     BaseFragment<FragmentSectionBinding>(), ISectionFragment {
 
     @Inject
-    lateinit var presenter: SectionPresenter<ISectionFragment, ISectionInteractor>
+    lateinit var presenter: SectionPresenter<ISectionFragment>
 
     //private var organizersAdapter: NewsAdapter? = null
     //private var photosAdapter: NewsAdapter? = null

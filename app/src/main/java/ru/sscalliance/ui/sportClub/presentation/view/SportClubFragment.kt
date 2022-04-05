@@ -18,7 +18,7 @@ interface ISportClubFragment: IView {
 class SportClubFragment : BaseFragment<FragmentSportClubBinding>(), ISportClubFragment {
 
     @Inject
-    lateinit var presenter: SportClubPresenter<ISportClubFragment, ISportClubInteractor>
+    lateinit var presenter: SportClubPresenter<ISportClubFragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

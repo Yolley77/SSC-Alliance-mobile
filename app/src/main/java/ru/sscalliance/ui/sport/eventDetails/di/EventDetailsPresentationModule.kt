@@ -14,6 +14,6 @@ import ru.sscalliance.ui.sport.eventDetails.presentation.view.IEventDetailsActiv
 abstract class EventDetailsPresentationModule {
 
     @Binds
-    abstract fun bindEventDetailsPresenter(impl: EventDetailsPresenter<IEventDetailsActivity, ISportInteractor>)
-            : IEventDetailsPresenter<IEventDetailsActivity, ISportInteractor>
+    abstract fun bindEventDetailsPresenter(impl: EventDetailsPresenter<IEventDetailsActivity>)
+            : IEventDetailsPresenter<IEventDetailsActivity>
 }

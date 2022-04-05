@@ -12,22 +12,20 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ProgressBar
-            android:id="@+id/pbLoading"
-            android:scaleX="0.3"
-            android:scaleY="0.3"
-            android:indeterminateTint="@color/blue"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <include
+            android:id="@+id/incLoader"
+            layout="@layout/inc_loader"
+            android:visibility="gone" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvNews"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layoutManager="LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layoutManager="LinearLayoutManager" />
+            tools:listitem="@layout/item_news" />
 
     </LinearLayout>
 

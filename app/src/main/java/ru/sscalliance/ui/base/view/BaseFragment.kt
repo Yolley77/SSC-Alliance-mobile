@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ProgressBar
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -32,13 +33,12 @@ abstract class BaseFragment<T : ViewBinding> : Fragment(), IView {
     }
 
     override fun hideProgress() {
-        activity?.findViewById<ProgressBar>(R.id.pbLoading)?.isVisible = false
+        activity?.findViewById<FrameLayout>(R.id.incLoader)?.isVisible = false
 
     }
 
     override fun showProgress() {
-        hideProgress()
-        activity?.findViewById<ProgressBar>(R.id.pbLoading)?.isVisible = true
+        activity?.findViewById<FrameLayout>(R.id.incLoader)?.isVisible = true
     }
 
 }

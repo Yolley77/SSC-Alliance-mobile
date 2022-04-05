@@ -11,6 +11,6 @@ import ru.sscalliance.domain.news.INewsInteractor
 abstract class NewsDetailsPresentationModule {
 
     @Binds
-    abstract fun bindNewsDetailsPresenter(impl: NewsDetailsPresenter<INewsDetailsActivity, INewsInteractor>): INewsDetailsPresenter<INewsDetailsActivity, INewsInteractor>
+    abstract fun bindNewsDetailsPresenter(impl: NewsDetailsPresenter<INewsDetailsActivity>): INewsDetailsPresenter<INewsDetailsActivity>
 
 }

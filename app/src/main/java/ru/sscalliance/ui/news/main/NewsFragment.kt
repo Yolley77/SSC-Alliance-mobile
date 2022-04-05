@@ -24,7 +24,7 @@ interface INewsFragment : IView {
 class NewsFragment : BaseFragment<FragmentNewsBinding>(), INewsFragment {
 
     @Inject
-    lateinit var presenter: NewsPresenter<INewsFragment, INewsInteractor>
+    lateinit var presenter: NewsPresenter<INewsFragment>
 
     private var newsAdapter: NewsAdapter? = null
 

@@ -6,15 +6,13 @@ import ru.sscalliance.ui.base.presenter.IPresenter
 import ru.sscalliance.ui.sportClub.presentation.view.ISportClubFragment
 import javax.inject.Inject
 
-interface ISportClubPresenter<V: ISportClubFragment, I: ISportClubInteractor> : IPresenter<V,I> {
+interface ISportClubPresenter<V: ISportClubFragment> : IPresenter<V> {
     fun getSportClub(): Any?
 }
 
-class SportClubPresenter<V: ISportClubFragment, I: ISportClubInteractor> @Inject constructor(
-    interactor: I
-) : BasePresenter<V, I>(
-    interactor = interactor
-), ISportClubPresenter<V, I> {
+class SportClubPresenter<V: ISportClubFragment> @Inject constructor(
+    private val interactor: ISportClubInteractor
+) : BasePresenter<V>(), ISportClubPresenter<V> {
 
     override fun getSportClub(): Any? = view?.let { view ->
         interactor.let {

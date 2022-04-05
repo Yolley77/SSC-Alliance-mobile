@@ -1,4 +1,4 @@
-package ru.sscalliance.ui.sport.mainScreen.presentation.adapter
+package ru.sscalliance.ui.sport.mainScreen.presentation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -15,8 +15,6 @@ import ru.sscalliance.ui.base.adapter.BaseViewHolder
 
 class EventAdapter(private val onItemClicked: (EventBusinessModel) -> Unit) :
     BaseAdapter<EventBusinessModel>() {
-
-    var onItemClick: (EventBusinessModel) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)

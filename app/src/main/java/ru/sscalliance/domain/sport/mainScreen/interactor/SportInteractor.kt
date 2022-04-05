@@ -11,11 +11,10 @@ import javax.inject.Inject
 
 interface ISportInteractor : IMvpInteractor {
     fun getSections(): List<SectionPreviewBusinessModel>
-    fun getEvents(): List<EventBusinessModel>
+    suspend fun getEvents(): List<EventBusinessModel>
 }
 
 class SportInteractor @Inject constructor(
-    preferencesHelper: PreferencesHelper,
     private val repository: ISportRepository
 ) : ISportInteractor, BaseInteractor() {
 
@@ -33,7 +32,7 @@ class SportInteractor @Inject constructor(
         )
     }
 
-    override fun getEvents(): List<EventBusinessModel> {
+    override suspend fun getEvents(): List<EventBusinessModel> {
         return repository.getEvents()
     }
 }

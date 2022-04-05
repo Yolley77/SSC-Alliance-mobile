@@ -19,7 +19,7 @@ interface INewsDetailsActivity : IView {
 class NewsDetailsActivity : BaseActivity<ActivityNewsDetailsBinding>(), INewsDetailsActivity {
 
     @Inject
-    lateinit var presenter: INewsDetailsPresenter<INewsDetailsActivity, INewsInteractor>
+    lateinit var presenter: INewsDetailsPresenter<INewsDetailsActivity>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +37,7 @@ class NewsDetailsActivity : BaseActivity<ActivityNewsDetailsBinding>(), INewsDet
 
     private fun initViews() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        val item = intent.getParcelableExtra<NewsBusinessModel>(Navigator.EVENT_DETAILS)
+        val item = intent.getParcelableExtra<NewsBusinessModel>(Navigator.NEWS_DETAILS)
         item?.let {
             showNewsDetails(it)
         }

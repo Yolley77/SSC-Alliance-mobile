@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat
 import ru.sscalliance.R
 import ru.sscalliance.domain.sport.sectionScreen.model.SectionType
 
+// TODO move to DI
 object SectionUtils {
 
     fun getSectionsArray() = SectionType.values()

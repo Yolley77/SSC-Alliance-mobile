@@ -4,7 +4,6 @@ import android.util.Log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import retrofit2.HttpException
-import ru.sscalliance.domain.base.IMvpInteractor
 import ru.sscalliance.ui.base.coroutine.mainCoroutineContext
 import ru.sscalliance.ui.base.view.IView
 import ru.sscalliance.utils.AppConstants
@@ -13,9 +12,7 @@ import java.net.ConnectException
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-abstract class BasePresenter<V : IView, I : IMvpInteractor> internal constructor(
-    var interactor: I
-) : IPresenter<V, I>, CoroutineScope {
+abstract class BasePresenter<V : IView> internal constructor() : IPresenter<V>, CoroutineScope {
 
     @Inject
     lateinit var toastsHandler: ToastsHandler

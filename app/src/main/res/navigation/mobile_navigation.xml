@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_sport"
-        android:name="ru.sscalliance.ui.sport.mainScreen.presentation.view.SportFragment"
+        android:name="ru.sscalliance.ui.sport.mainScreen.presentation.SportFragment"
         android:label="@string/title_sport"
         tools:layout="@layout/fragment_sport" />
 

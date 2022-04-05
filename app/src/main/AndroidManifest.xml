@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ru.sscalliance.ui.sport.sectionScreen.main.presentation.view.MainSectionActivity">
+            android:name="ru.sscalliance.ui.sport.sectionScreen.main.presentation.MainSectionActivity">
 
         </activity>
 

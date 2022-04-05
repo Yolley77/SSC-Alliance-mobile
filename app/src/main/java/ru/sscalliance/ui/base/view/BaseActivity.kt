@@ -1,5 +1,6 @@
 package ru.sscalliance.ui.base.view
 
+import android.widget.FrameLayout
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -16,12 +17,11 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity(), IView {
     private var progressBar: ProgressBar? = null
 
     override fun hideProgress() {
-        findViewById<ProgressBar>(R.id.pbLoading)?.isVisible = false
+        findViewById<FrameLayout>(R.id.incLoader)?.isVisible = false
     }
 
     override fun showProgress() {
-        hideProgress()
-        findViewById<ProgressBar>(R.id.pbLoading)?.isVisible = true
+        findViewById<FrameLayout>(R.id.incLoader)?.isVisible = true
     }
 
 }

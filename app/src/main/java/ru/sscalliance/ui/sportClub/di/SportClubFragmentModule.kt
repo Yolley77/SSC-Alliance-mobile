@@ -18,7 +18,6 @@ abstract class SportClubFragmentModule {
     abstract fun bindSportClubInteractor(impl: SportClubInteractor): ISportClubInteractor
 
     @Binds
-    abstract fun bindSportClubPresenter(impl: SportClubPresenter<ISportClubFragment
-            , ISportClubInteractor>): IPresenter<ISportClubFragment, ISportClubInteractor>
+    abstract fun bindSportClubPresenter(impl: SportClubPresenter<ISportClubFragment>): IPresenter<ISportClubFragment>
 }
 

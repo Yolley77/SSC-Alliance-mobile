@@ -20,7 +20,7 @@ class EventDetailsActivity : BaseActivity<ActivityEventDetailsBinding>(),
     IEventDetailsActivity {
 
     @Inject
-    lateinit var presenter: IEventDetailsPresenter<IEventDetailsActivity, ISportInteractor>
+    lateinit var presenter: IEventDetailsPresenter<IEventDetailsActivity>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

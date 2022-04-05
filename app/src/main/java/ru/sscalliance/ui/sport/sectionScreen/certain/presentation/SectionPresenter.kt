@@ -6,7 +6,7 @@ import ru.sscalliance.domain.sport.sectionScreen.model.SectionType
 import ru.sscalliance.ui.base.presenter.BasePresenter
 import javax.inject.Inject
 
-interface ISectionPresenter<V : ISectionFragment, I : ISectionInteractor> {
+interface ISectionPresenter<V : ISectionFragment> {
     fun configureViews(type: SectionType): Any?
     fun onRegisterButtonClicked()
 
@@ -26,9 +26,9 @@ interface ISectionPresenter<V : ISectionFragment, I : ISectionInteractor> {
     // [End News Region]
 }
 
-class SectionPresenter<V : ISectionFragment, I : ISectionInteractor> @Inject constructor(
-    interactor: I,
-) : BasePresenter<V, I>(interactor), ISectionPresenter<V, I> {
+class SectionPresenter<V : ISectionFragment> @Inject constructor(
+    private val interactor: ISectionInteractor,
+) : BasePresenter<V>(), ISectionPresenter<V> {
 
     override fun configureViews(type: SectionType): Any? = view?.let { view ->
         view.setInfo(interactor.getSectionInfo(type))

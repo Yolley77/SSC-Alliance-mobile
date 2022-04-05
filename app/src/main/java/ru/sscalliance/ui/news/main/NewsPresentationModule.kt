@@ -16,7 +16,6 @@ abstract class NewsPresentationModule {
     abstract fun bindNewsInteractor(impl: NewsInteractor): INewsInteractor
 
     @Binds
-    abstract fun bindNewsPresenter(impl: NewsPresenter<INewsFragment, INewsInteractor>):
-            IPresenter<INewsFragment, INewsInteractor>
+    abstract fun bindNewsPresenter(impl: NewsPresenter<INewsFragment>): IPresenter<INewsFragment>
 
 }

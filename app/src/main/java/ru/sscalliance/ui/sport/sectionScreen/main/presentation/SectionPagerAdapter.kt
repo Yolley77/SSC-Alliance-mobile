@@ -1,4 +1,4 @@
-package ru.sscalliance.ui.sport.sectionScreen.main.presentation.adapter
+package ru.sscalliance.ui.sport.sectionScreen.main.presentation
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

@@ -1,4 +1,4 @@
-package ru.sscalliance.ui.sport.mainScreen.presentation.view
+package ru.sscalliance.ui.sport.mainScreen.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,15 +8,11 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.databinding.FragmentSportBinding
-import ru.sscalliance.domain.sport.mainScreen.interactor.ISportInteractor
 import ru.sscalliance.domain.sport.mainScreen.model.EventBusinessModel
 import ru.sscalliance.domain.sport.mainScreen.model.SectionPreviewBusinessModel
 import ru.sscalliance.ui.base.view.BaseActivity
 import ru.sscalliance.ui.base.view.BaseFragment
 import ru.sscalliance.ui.base.view.IView
-import ru.sscalliance.ui.sport.mainScreen.presentation.adapter.EventAdapter
-import ru.sscalliance.ui.sport.mainScreen.presentation.adapter.SectionPreviewAdapter
-import ru.sscalliance.ui.sport.mainScreen.presentation.presenter.SportPresenter
 import javax.inject.Inject
 
 interface ISportFragment : IView {
@@ -34,7 +30,7 @@ interface ISportFragment : IView {
 class SportFragment : BaseFragment<FragmentSportBinding>(), ISportFragment {
 
     @Inject
-    lateinit var presenter: SportPresenter<ISportFragment, ISportInteractor>
+    lateinit var presenter: SportPresenter<ISportFragment>
 
     private var sectionAdapter: SectionPreviewAdapter? = null
     private var eventAdapter: EventAdapter? = null
@@ -57,7 +53,7 @@ class SportFragment : BaseFragment<FragmentSportBinding>(), ISportFragment {
         super.onViewCreated(view, savedInstanceState)
         setUpRVs()
 
-        viewBinding?.findPlayer?.setOnClickListener {
+        viewBinding?.btnFindPlayer?.setOnClickListener {
             presenter.toastsHandler.showMessage("Выполнено действие: Поиск игроков")
         }
     }
@@ -87,7 +83,7 @@ class SportFragment : BaseFragment<FragmentSportBinding>(), ISportFragment {
 
     private fun setUpRVs() {
         sectionAdapter = SectionPreviewAdapter(presenter::onSectionClicked, context)
-        viewBinding?.listSections?.apply {
+        viewBinding?.rvSections?.apply {
             adapter = sectionAdapter
             layoutManager = GridLayoutManager(
                 context,
@@ -99,7 +95,7 @@ class SportFragment : BaseFragment<FragmentSportBinding>(), ISportFragment {
         presenter.getSections()
 
         eventAdapter = EventAdapter(presenter::onEventClicked)
-        viewBinding?.listEvents?.apply {
+        viewBinding?.rvEvents?.apply {
             adapter = eventAdapter
             layoutManager = LinearLayoutManager(
                 context,

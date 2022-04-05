@@ -18,7 +18,7 @@ interface ITeamFragment: IView{
 class TeamFragment : BaseFragment<FragmentTeamsBinding>(), ITeamFragment {
 
     @Inject
-    lateinit var presenter: TeamPresenter<ITeamFragment, ITeamInteractor>
+    lateinit var presenter: TeamPresenter<ITeamFragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

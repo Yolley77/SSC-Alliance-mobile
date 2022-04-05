@@ -7,24 +7,24 @@ import ru.sscalliance.ui.base.presenter.BasePresenter
 import ru.sscalliance.ui.base.presenter.IPresenter
 import javax.inject.Inject
 
-interface INewsPresenter<V : INewsFragment, I : INewsInteractor> : IPresenter<V, I> {
+interface INewsPresenter<V : INewsFragment> : IPresenter<V> {
     fun getNews()
     fun onItemClicked(item: NewsBusinessModel)
 }
 
-class NewsPresenter<V : INewsFragment, I : INewsInteractor> @Inject constructor(
-    interactor: I
-) : BasePresenter<V, I>(
-    interactor = interactor
-), INewsPresenter<V, I> {
+class NewsPresenter<V : INewsFragment> @Inject constructor(
+    private val interactor: INewsInteractor,
+) : BasePresenter<V>(), INewsPresenter<V> {
 
     override fun getNews() {
         launch {
-            view?.showProgress()
-            val result = interactor.getNews()
-            view?.showNews(result)
-            view?.stopRefreshing()
-            view?.hideProgress()
+            view?.run {
+                showProgress()
+                val result = interactor.getNews()
+                showNews(result)
+                stopRefreshing()
+                hideProgress()
+            }
         }
     }
 

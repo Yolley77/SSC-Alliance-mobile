@@ -1,4 +1,4 @@
-package ru.sscalliance.ui.sport.mainScreen.presentation.adapter
+package ru.sscalliance.ui.sport.mainScreen.presentation
 
 import android.content.Context
 import android.view.LayoutInflater

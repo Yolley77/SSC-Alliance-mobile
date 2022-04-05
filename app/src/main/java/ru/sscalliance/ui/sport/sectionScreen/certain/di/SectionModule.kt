@@ -18,7 +18,7 @@ abstract class SectionModule {
     abstract fun bindSectionInteractor(impl: SectionInteractor): ISectionInteractor
 
     @Binds
-    abstract fun bindSectionPresenter(impl: SectionPresenter<ISectionFragment, ISectionInteractor>)
-            : ISectionPresenter<ISectionFragment, ISectionInteractor>
+    abstract fun bindSectionPresenter(impl: SectionPresenter<ISectionFragment>)
+            : ISectionPresenter<ISectionFragment>
 
 }

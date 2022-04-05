@@ -17,8 +17,8 @@ class PreferencesHelper @Inject constructor(
 ) : IPreferencesHelper {
 
     private companion object {
-        private const val PREFERENCES_NAME = "preferences_instance_name"
-        private const val PREFERENCES_KEY = "PREFERENCES_ACCESS_TOKEN_KEY"
+        private const val PREFERENCES_NAME = "tokenPrefs"
+        private const val PREFERENCES_KEY = "ACCESS_TOKEN_KEY"
     }
 
     private val preferences: SharedPreferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
