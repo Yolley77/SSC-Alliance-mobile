@@ -1,9 +1,15 @@
 package ru.sscalliance.domain.sport.sectionScreen.model
 
+import android.os.Parcelable
+import io.realm.annotations.PrimaryKey
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class SectionBusinessModel(
-    val id: String = "",
-    val title: String = "",
-    val description: String = "",
-    val organizers: String = "",
-    val type: SectionType
-)
+    var id: String = "",
+    var title: String = "",
+    var logo: String = "",
+    var description: String = "",
+    var address: String = "",
+    var schedule: List<String> = listOf()
+): Parcelable

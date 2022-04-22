@@ -15,7 +15,6 @@ class NewsRemoteDataSource @Inject constructor(
 
     override suspend fun getNews(request: NewsRequest): List<NewsBusinessModel> {
         val result = api.getNews(request)?.map(NewsNetToUIMapper::map)
-
         return result.orEmpty()
     }
 

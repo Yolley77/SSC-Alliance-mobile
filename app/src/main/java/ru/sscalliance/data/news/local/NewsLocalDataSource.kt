@@ -7,7 +7,6 @@ import ru.sscalliance.domain.news.NewsBusinessModel
 import javax.inject.Inject
 
 interface INewsLocalDataSource {
-
     fun saveNews(news: List<NewsBusinessModel>)
     fun getNews(): List<NewsBusinessModel>
 }

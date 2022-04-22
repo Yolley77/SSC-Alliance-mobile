@@ -1,4 +1,4 @@
-package ru.sscalliance.data.news
+package ru.sscalliance.data.news.repository
 
 import ru.sscalliance.data.news.remote.model.NewsRequest
 import ru.sscalliance.data.news.local.INewsLocalDataSource

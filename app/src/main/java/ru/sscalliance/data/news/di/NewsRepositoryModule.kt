@@ -8,7 +8,7 @@ import ru.sscalliance.data.news.local.INewsLocalDataSource
 import ru.sscalliance.data.news.local.NewsLocalDataSource
 import ru.sscalliance.data.news.remote.INewsRemoteDataSource
 import ru.sscalliance.data.news.remote.NewsRemoteDataSource
-import ru.sscalliance.data.news.NewsRepository
+import ru.sscalliance.data.news.repository.NewsRepository
 import ru.sscalliance.domain.news.INewsRepository
 
 @Module
