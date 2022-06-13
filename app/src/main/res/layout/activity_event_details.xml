@@ -9,7 +9,7 @@
         android:orientation="vertical" >
 
         <include
-            layout="@layout/fragment_event_information"
+            layout="@layout/inc_event_information"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

@@ -1,12 +1,11 @@
 package ru.sscalliance.domain.sport.mainScreen.interactor
 
-import ru.sscalliance.data.base.preferences.PreferencesHelper
 import ru.sscalliance.domain.base.BaseInteractor
 import ru.sscalliance.domain.base.IMvpInteractor
-import ru.sscalliance.domain.sport.sectionScreen.model.SectionType
 import ru.sscalliance.domain.sport.mainScreen.model.EventBusinessModel
 import ru.sscalliance.domain.sport.mainScreen.model.SectionPreviewBusinessModel
 import ru.sscalliance.domain.sport.mainScreen.repository.ISportRepository
+import ru.sscalliance.domain.sport.sectionScreen.model.SectionType
 import javax.inject.Inject
 
 interface ISportInteractor : IMvpInteractor {

@@ -34,7 +34,6 @@ abstract class BaseFragment<T : ViewBinding> : Fragment(), IView {
 
     override fun hideProgress() {
         activity?.findViewById<FrameLayout>(R.id.incLoader)?.isVisible = false
-
     }
 
     override fun showProgress() {

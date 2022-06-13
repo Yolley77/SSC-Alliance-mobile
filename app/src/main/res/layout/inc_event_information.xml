@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivPreview"
+        android:layout_width="match_parent"
+        android:layout_height="216dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/rounded_news"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/photo_test_1" />
 
     <TextView
         android:id="@+id/eventDetailsTvDescription"
@@ -15,7 +28,7 @@
         android:textColor="@color/blue"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/ivPreview" />
 
     <TextView
         android:id="@+id/eventDetailsDescription"
@@ -27,6 +40,8 @@
         android:text="@string/event_information"
         android:textColor="@color/black"
         android:textSize="18sp"
+        android:maxLines="3"
+        android:ellipsize="end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eventDetailsTvDescription" />
@@ -72,17 +87,33 @@
         app:layout_constraintTop_toBottomOf="@+id/eventDetailsDateOrganizing" />
 
     <TextView
-        android:id="@+id/eventDetailsAddress"
+        android:id="@+id/tvDetailsAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="sans-serif"
+        android:autoLink="all"
         android:text="@string/event_address"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eventDetailsTvAddress" />
+
+    <TextView
+        android:id="@+id/tvSocialTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/tv_social"
+        android:textColor="@color/blue"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailsAddress" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

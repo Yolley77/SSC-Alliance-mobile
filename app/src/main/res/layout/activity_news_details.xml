@@ -12,11 +12,7 @@
 
         <include
             android:id="@+id/fmtEventInfo"
-            layout="@layout/fragment_event_information" />
-
-        <include
-            android:id="@+id/fmtEventOrganizers"
-            layout="@layout/fragment_event_organizers"/>
+            layout="@layout/inc_event_information" />
 
     </LinearLayout>
 

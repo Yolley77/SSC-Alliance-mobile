@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sscalliance.databinding.FragmentNewsBinding
-import ru.sscalliance.domain.news.INewsInteractor
 import ru.sscalliance.domain.news.NewsBusinessModel
 import ru.sscalliance.ui.base.view.BaseActivity
 import ru.sscalliance.ui.base.view.BaseFragment
@@ -41,12 +40,10 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>(), INewsFragment {
         super.onViewCreated(view, savedInstanceState)
         presenter.onAttach(this)
         initViews()
-        setUpNewsRv()
     }
 
     override fun onDestroyView() {
         presenter.onDetach()
-        newsAdapter = null
         super.onDestroyView()
     }
 
@@ -65,9 +62,9 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>(), INewsFragment {
 
     private fun initViews() {
         viewBinding?.srlRefresh?.setOnRefreshListener {
-            newsAdapter?.updateAdapter(emptyList())
-            presenter.getNews()
+            presenter.getNews(isProgressVisible = false)
         }
+        setUpNewsRv()
     }
 
     private fun setUpNewsRv() {

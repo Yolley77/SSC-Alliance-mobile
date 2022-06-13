@@ -33,7 +33,7 @@ abstract class BasePresenter<V : IView> internal constructor() : IPresenter<V>, 
     }
 
     override fun onDetach() {
-        view?.hideProgress()
+        //view?.hideProgress()
         view = null
     }
 

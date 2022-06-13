@@ -26,8 +26,8 @@ class SSCAllianceApp : Application() {
         // Strict Mode for DEBUG
         if (BuildConfig.DEBUG) {
             val threadPolicy = StrictMode.ThreadPolicy.Builder()
-                .detectAll()
-                .penaltyLog()
+                //.detectAll()
+                //.penaltyLog()
                 .build()
             StrictMode.setThreadPolicy(threadPolicy)
 
