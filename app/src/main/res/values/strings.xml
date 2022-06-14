@@ -46,6 +46,8 @@
     <string name="event_date_organizing">15 октября 2020. Начало в 12:00</string>
     <string name="tv_address">Адрес</string>
     <string name="tv_social">Соцсети</string>
+    <string name="show_more">Показать полностью</string>
+    <string name="show_less">Скрыть</string>
     <string name="event_address"><u>проспект вернадского 78</u></string>
     <string name="event_partners">Партнеры</string>
     <string name="show_all">Показать все</string>

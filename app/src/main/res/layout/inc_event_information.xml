@@ -47,6 +47,19 @@
         app:layout_constraintTop_toBottomOf="@+id/eventDetailsTvDescription" />
 
     <TextView
+        android:id="@+id/btnMore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/show_all"
+        android:textColor="@color/grey"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eventDetailsDescription" />
+
+    <TextView
         android:id="@+id/eventDetailsOrganizingDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,7 +70,7 @@
         android:textColor="@color/blue"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventDetailsDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/btnMore" />
 
     <TextView
         android:id="@+id/eventDetailsDateOrganizing"
@@ -114,6 +127,34 @@
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDetailsAddress" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSocialTitle">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_badminton"/>
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_basketball"/>
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_football"/>
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
