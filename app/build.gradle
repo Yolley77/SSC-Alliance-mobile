@@ -5,8 +5,11 @@ plugins {
     id 'kotlin-parcelize'
     id 'realm-android'
     id 'dagger.hilt.android.plugin'
+    id 'org.jetbrains.kotlin.kapt'
     id 'org.sonarqube' version '3.3'
 }
+
+apply plugin: "realm-android"
 
 android {
     compileSdkVersion 31
@@ -72,6 +75,7 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
     // Local Database
+    implementation "io.realm:realm-gradle-plugin:$realm_version"
 
     // Network
     implementation(platform("com.squareup.okhttp3:okhttp-bom:$rootProject.okHttpBOMVersion"))

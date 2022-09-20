@@ -8,6 +8,7 @@ data class NewsBusinessModel(
     var id: String = "",
     var title: String = "",
     var image: String = "",
+    val videoUrl: String = "",
     var publicationDate: String = "",
     var tag: String = "",
 ) : Parcelable
