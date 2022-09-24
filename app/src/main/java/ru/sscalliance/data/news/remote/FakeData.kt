@@ -8,7 +8,7 @@ object FakeData {
         "1",
         "Новости секции по футболу",
         "image",
-        "https://www.youtube.com/embed/bWms--s5d2g",
+        "https://www.demonuts.com/Demonuts/smallvideo.mp4",
         "20/05/2021",
         "#мирэаспортфамили"
     )
@@ -16,7 +16,7 @@ object FakeData {
         "2",
         "Новости секции по баскетболу",
         "https://sun9-28.userapi.com/impg/bt9XrbuavpQcY8DdtvQMnBUJkSTabbX4cdFN1A/zvdSVVfoxf8.jpg?size=2560x1707&quality=96&sign=a5c5dec96796f7ab42dde8cebddf2f69&type=album",
-        "https://vk.com/video-100954433_456240786",
+        "https://www.demonuts.com/Demonuts/smallvideo.mp4",
         "25/05/2021",
         "#баскетбол"
     )

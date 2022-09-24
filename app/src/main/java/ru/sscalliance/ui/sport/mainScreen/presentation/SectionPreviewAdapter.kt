@@ -4,8 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import ru.sscalliance.databinding.ItemSectionBinding
-import ru.sscalliance.domain.sport.sectionScreen.model.SectionType
 import ru.sscalliance.domain.sport.mainScreen.model.SectionPreviewBusinessModel
+import ru.sscalliance.domain.sport.sectionScreen.model.SectionType
 import ru.sscalliance.ui.base.adapter.BaseAdapter
 import ru.sscalliance.ui.base.adapter.BaseViewHolder
 import ru.sscalliance.utils.SectionUtils
@@ -15,8 +15,6 @@ class SectionPreviewAdapter(
     private val context: Context?
 ) :
     BaseAdapter<SectionPreviewBusinessModel>() {
-
-    var onItemClick: (SectionPreviewBusinessModel) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)

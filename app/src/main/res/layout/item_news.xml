@@ -34,21 +34,21 @@
         android:id="@+id/itemNewsTag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/tag"
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/itemNewsImage"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="SmallSp" />
 
     <TextView
         android:id="@+id/itemNewsTitle"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/news_title"
@@ -56,13 +56,13 @@
         android:textSize="16sp"
         android:maxLines="3"
         app:layout_constraintBottom_toTopOf="@+id/itemNewsTag"
-        app:layout_constraintStart_toStartOf="@+id/itemNewsImage" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/itemNewsPublicationDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginBottom="8dp"
         android:text="@string/news_date"
         android:background="@drawable/rounded_news_date"
@@ -74,6 +74,6 @@
         android:paddingEnd="8dp"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/itemNewsTitle"
-        app:layout_constraintStart_toStartOf="@+id/itemNewsImage" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,8 +24,9 @@ class NewsAdapter(private val onItemClicked: (NewsBusinessModel) -> Unit) :
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemNewsBinding.inflate(layoutInflater, parent, false)
 
-        mediacontroller = MediaController(parent.context).apply { this.setAnchorView(binding.vvNews) }
-        binding.vvNews.setMediaController(mediacontroller)
+        mediacontroller =
+            MediaController(parent.context).apply { this.setAnchorView(binding.vvNews) }
+        binding.vvNews.setMediaController(null)
 
         return NewsViewHolder(binding)
     }
@@ -39,41 +40,48 @@ class NewsAdapter(private val onItemClicked: (NewsBusinessModel) -> Unit) :
             itemBinding.itemNewsPublicationDate.text = newsItem.publicationDate
             itemBinding.itemNewsTag.text = newsItem.tag
 
+            itemBinding.itemNewsImage.isVisible = true
+            itemBinding.vvNews.isVisible = false
+
+            Glide.with(itemBinding.root)
+                .load(newsItem.image)
+                .apply(RequestOptions().centerCrop())
+                .transform(
+                    MultiTransformation(
+                        CenterCrop(), RoundedCornersTransformation(40, 0)
+                    )
+                )
+                .error(
+                    Glide
+                        .with(itemBinding.root)
+                        .load(R.drawable.photo_test_1)
+                        .apply(RequestOptions().centerCrop())
+                        .transform(
+                            MultiTransformation(
+                                CenterCrop(), RoundedCornersTransformation(40, 0)
+                            )
+                        )
+                )
+                .into(itemBinding.itemNewsImage)
+
             if (newsItem.videoUrl.isNotBlank()) {
-                itemBinding.vvNews.isVisible = true
-                itemBinding.itemNewsImage.isVisible = false
                 itemBinding.vvNews.setVideoPath(newsItem.videoUrl)
 
-                itemBinding.vvNews.setOnTouchListener { _, _ ->
+                itemBinding.itemNewsImage.setOnTouchListener { view, _ ->
+                    itemBinding.vvNews.isVisible = true
+                    itemBinding.itemNewsImage.isVisible = false
                     itemBinding.vvNews.start()
                     true
                 }
-            } else {
-                itemBinding.itemNewsImage.isVisible = true
-                itemBinding.vvNews.isVisible = false
-                Glide.with(itemBinding.root)
-                    .load(newsItem.image)
-                    .apply(RequestOptions().centerCrop())
-                    .transform(
-                        MultiTransformation(
-                            CenterCrop(), RoundedCornersTransformation(40, 0)
-                        )
-                    )
-                    .error(
-                        Glide
-                            .with(itemBinding.root)
-                            .load(R.drawable.photo_test_1)
-                            .apply(RequestOptions().centerCrop())
-                            .transform(
-                                MultiTransformation(
-                                    CenterCrop(), RoundedCornersTransformation(40, 0)
-                                )
-                            )
-                    )
-                    .into(itemBinding.itemNewsImage)
+                itemBinding.vvNews.setOnCompletionListener {
+                    itemBinding.vvNews.isVisible = false
+                    itemBinding.itemNewsImage.isVisible = true
+                }
             }
 
             itemBinding.root.setOnClickListener {
+                itemBinding.vvNews.isVisible = false
+                itemBinding.itemNewsImage.isVisible = true
                 onItemClicked.invoke(newsItem)
             }
         }

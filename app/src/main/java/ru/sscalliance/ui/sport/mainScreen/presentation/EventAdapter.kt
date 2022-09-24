@@ -42,6 +42,11 @@ class EventAdapter(private val onItemClicked: (EventBusinessModel) -> Unit) :
                         .with(itemBinding.root)
                         .load(R.drawable.photo_test_1)
                         .apply(RequestOptions().centerCrop())
+                        .transform(
+                            MultiTransformation(
+                                CenterCrop(), RoundedCornersTransformation(40, 0)
+                            )
+                        )
                 )
                 .into(itemBinding.itemEventImage)
 
