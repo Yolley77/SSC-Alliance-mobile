@@ -82,5 +82,6 @@
     <string name="final_score">Итоговый счет</string>
     <string name="group_stage">Групповой этап</string>
     <string name="start_game">До начала игры</string>
+    <string name="title_activity_events_view">EventsView</string>
 
 </resources>

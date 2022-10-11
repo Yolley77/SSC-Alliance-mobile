@@ -1,5 +1,6 @@
 package ru.sscalliance.ui.sport.mainScreen.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import ru.sscalliance.domain.sport.mainScreen.model.SectionPreviewBusinessModel
 import ru.sscalliance.ui.base.view.BaseActivity
 import ru.sscalliance.ui.base.view.BaseFragment
 import ru.sscalliance.ui.base.view.IView
+import ru.sscalliance.ui.sport.eventDetails.compose.EventsView
 import javax.inject.Inject
 
 interface ISportFragment : IView {
@@ -52,6 +54,12 @@ class SportFragment : BaseFragment<FragmentSportBinding>(), ISportFragment {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpRVs()
+
+        viewBinding?.tvShowAll?.setOnClickListener {
+            startActivity(
+                Intent(this.context, EventsView::class.java)
+            )
+        }
 
         viewBinding?.btnFindPlayer?.setOnClickListener {
             presenter.toastsHandler.showMessage("Выполнено действие: Поиск игроков")
