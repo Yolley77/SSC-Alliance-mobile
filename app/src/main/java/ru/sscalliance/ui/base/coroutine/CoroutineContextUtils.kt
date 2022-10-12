@@ -8,7 +8,7 @@ import kotlin.coroutines.CoroutineContext
 /**
  * Создание CoroutineContext в главном потоке с обработкой ошибок
  */
-inline fun mainCoroutineContext(
+inline fun MainCoroutineContext(
     job: Job,
     crossinline handleError: (Throwable) -> Unit
 ): CoroutineContext =

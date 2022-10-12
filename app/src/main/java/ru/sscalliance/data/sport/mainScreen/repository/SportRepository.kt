@@ -18,18 +18,22 @@ class SportRepository @Inject constructor(
         val model5 = SectionPreviewBusinessModel("Бадминтон", SectionType.BADMINTON)
         val model6 = SectionPreviewBusinessModel("Шахматы", SectionType.CHESS)
         return listOf(
-                model1, model2, model3, model4, model5, model6
-            )
+            model1, model2, model3, model4, model5, model6
+        )
     }
 
-    override fun getEvents(): List<EventBusinessModel> {
+    override suspend fun getEvents(): List<EventBusinessModel> {
         val model1 = EventBusinessModel("Секция по футболу", "image", "20/05/2021")
-        val model2 = EventBusinessModel("Секция по баскетболу", "image", "25/05/2021")
+        val model2 = EventBusinessModel(
+            "Секция по баскетболу",
+            "https://sun9-28.userapi.com/impg/bt9XrbuavpQcY8DdtvQMnBUJkSTabbX4cdFN1A/zvdSVVfoxf8.jpg?size=2560x1707&quality=96&sign=a5c5dec96796f7ab42dde8cebddf2f69&type=album",
+            "25/05/2021"
+        )
         val model3 = EventBusinessModel("Секция по волейболу", "image", "30/06/2021")
         return listOf(
+            model1, model2, model3,
             model1, model2, model3
         )
-
     }
 }
 

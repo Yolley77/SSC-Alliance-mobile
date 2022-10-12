@@ -12,7 +12,7 @@
         android:theme="@style/Theme.SSCAlliance"
         android:usesCleartextTraffic="false">
         <activity
-            android:name=".ui.sport.eventDetails.compose.EventsView"
+            android:name="ru.sscalliance.ui.sport.mainScreen.v2.compose.EventsView"
             android:exported="false"
             android:label="@string/title_activity_events_view"
             android:theme="@style/Theme.SSCAlliance" />

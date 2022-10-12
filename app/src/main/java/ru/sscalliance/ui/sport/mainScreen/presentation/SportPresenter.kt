@@ -1,5 +1,6 @@
 package ru.sscalliance.ui.sport.mainScreen.presentation
 
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import ru.sscalliance.domain.sport.sectionScreen.model.SectionType
 import ru.sscalliance.domain.sport.mainScreen.interactor.ISportInteractor
@@ -16,20 +17,20 @@ interface ISportPresenter<V : ISportFragment> : IPresenter<V> {
 }
 
 class SportPresenter<V : ISportFragment> @Inject constructor(
-    private val interactor: ISportInteractor,
+    //private val interactor: ISportInteractor,
 ) : BasePresenter<V>(), ISportPresenter<V> {
 
     override fun getSections(): Any? = view?.let { view ->
-        interactor.let {
+        /*interactor.let {
             view.showSections(it.getSections())
-        }
+        }*/
     }
 
     override fun getEvents() {
         launch {
             view?.run {
                 showProgress()
-                showEvents(interactor.getEvents())
+                //showEvents(interactor.getEvents())
                 hideProgress()
             }
         }

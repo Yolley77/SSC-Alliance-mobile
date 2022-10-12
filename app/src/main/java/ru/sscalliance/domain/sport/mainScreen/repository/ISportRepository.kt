@@ -6,6 +6,6 @@ import ru.sscalliance.domain.sport.mainScreen.model.SectionPreviewBusinessModel
 interface ISportRepository {
 
     fun getSections(): List<SectionPreviewBusinessModel>
-    fun getEvents(): List<EventBusinessModel>
+    suspend fun getEvents(): List<EventBusinessModel>
 
 }

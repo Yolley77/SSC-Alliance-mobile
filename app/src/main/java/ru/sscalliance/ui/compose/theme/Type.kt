@@ -1,4 +1,4 @@
-package ru.sscalliance.ui.sport.eventDetails.compose.ui.theme
+package ru.sscalliance.ui.compose.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

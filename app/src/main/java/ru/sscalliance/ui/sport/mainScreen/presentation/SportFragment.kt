@@ -14,7 +14,7 @@ import ru.sscalliance.domain.sport.mainScreen.model.SectionPreviewBusinessModel
 import ru.sscalliance.ui.base.view.BaseActivity
 import ru.sscalliance.ui.base.view.BaseFragment
 import ru.sscalliance.ui.base.view.IView
-import ru.sscalliance.ui.sport.eventDetails.compose.EventsView
+import ru.sscalliance.ui.sport.mainScreen.v2.compose.EventsView
 import javax.inject.Inject
 
 interface ISportFragment : IView {

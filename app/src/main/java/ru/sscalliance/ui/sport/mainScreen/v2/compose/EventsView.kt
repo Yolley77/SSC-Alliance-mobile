@@ -1,8 +1,9 @@
-package ru.sscalliance.ui.sport.eventDetails.compose
+package ru.sscalliance.ui.sport.mainScreen.v2.compose
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -14,9 +15,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import ru.sscalliance.ui.sport.eventDetails.compose.ui.theme.SSCAllianceTheme
+import androidx.hilt.navigation.compose.hiltViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import ru.sscalliance.ui.compose.theme.SSCAllianceTheme
+import ru.sscalliance.ui.sport.mainScreen.v2.viewModel.MainScreenViewModel
 
-class EventsView : ComponentActivity() {
+@AndroidEntryPoint
+internal class EventsView : ComponentActivity() {
+
+    private val viewModel: MainScreenViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -26,15 +34,7 @@ class EventsView : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    EventsListView(
-                        listOf(
-                            "Android ".repeat(5), "Hello", "Hi", "Word ".repeat(5),
-                            "Android ".repeat(5), "Hello", "Hi", "Word ".repeat(5),
-                            "Android ".repeat(5), "Hello", "Hi", "Word ".repeat(5),
-                            "Android ".repeat(5), "Hello", "Hi", "Word ".repeat(5),
-                            "Android ".repeat(5), "Hello", "Hi", "Word ".repeat(5),
-                        ).shuffled()
-                    )
+                    EventsListView(viewModel)
                 }
             }
         }
@@ -42,8 +42,8 @@ class EventsView : ComponentActivity() {
 }
 
 @Composable
-fun EventsListView(
-    events: List<String>
+internal fun EventsListView(
+    viewModel: MainScreenViewModel = hiltViewModel(),
 ) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -51,16 +51,19 @@ fun EventsListView(
             .fillMaxSize()
             .padding(10.dp)
     ) {
-        items(items = events) { item ->
-            EventItem(item)
+        items(items = viewModel.eventsDelegate.events) { item ->
+            EventItemView(
+                item,
+                viewModel.eventsDelegate::onEventClicked,
+            )
         }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+internal fun DefaultPreview() {
     SSCAllianceTheme {
-        EventsListView(listOf("Android"))
+        EventsListView()
     }
 }

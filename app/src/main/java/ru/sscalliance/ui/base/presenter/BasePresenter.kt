@@ -4,7 +4,8 @@ import android.util.Log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import retrofit2.HttpException
-import ru.sscalliance.ui.base.coroutine.mainCoroutineContext
+import ru.sscalliance.ui.base.BaseViewModel
+import ru.sscalliance.ui.base.coroutine.MainCoroutineContext
 import ru.sscalliance.ui.base.view.IView
 import ru.sscalliance.utils.AppConstants
 import ru.sscalliance.utils.ToastsHandler
@@ -20,7 +21,7 @@ abstract class BasePresenter<V : IView> internal constructor() : IPresenter<V>, 
     private val job = SupervisorJob()
 
     override val coroutineContext: CoroutineContext
-        get() = mainCoroutineContext(job, ::handleError)
+        get() = MainCoroutineContext(job, ::handleError)
 
     protected var view: V? = null
 
