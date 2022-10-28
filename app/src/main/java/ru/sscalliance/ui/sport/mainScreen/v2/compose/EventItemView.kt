@@ -23,14 +23,14 @@ import ru.sscalliance.domain.sport.mainScreen.model.EventBusinessModel
 @Composable
 internal fun EventItemView(
     event: EventBusinessModel,
-    onClick: () -> Unit,
+    onClick: (EventBusinessModel) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     EventItemView(
         date = event.publicationDate,
         title = event.title,
         image = event.image,
-        onClick = onClick,
+        onClick = { onClick.invoke(event) },
     )
 }
 

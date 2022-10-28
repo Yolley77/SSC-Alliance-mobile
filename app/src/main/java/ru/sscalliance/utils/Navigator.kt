@@ -7,7 +7,7 @@ import ru.sscalliance.domain.sport.mainScreen.model.EventBusinessModel
 import ru.sscalliance.ui.main.view.MainActivity
 import ru.sscalliance.ui.news.details.NewsDetailsActivity
 import ru.sscalliance.ui.sport.sectionScreen.main.presentation.MainSectionActivity
-import ru.sscalliance.ui.sport.eventDetails.presentation.view.EventDetailsActivity
+import ru.sscalliance.ui.sport.mainScreen.v2.compose.EventDetailsView
 import javax.inject.Inject
 
 interface INavigator {
@@ -38,7 +38,7 @@ class Navigator @Inject constructor(
     )
 
     override fun openEventDetailsScreen(item: EventBusinessModel) = context.startActivity(
-        Intent(context, EventDetailsActivity::class.java)
+        Intent(context, EventDetailsView::class.java)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             .putExtra(EVENT_DETAILS, item)
     )

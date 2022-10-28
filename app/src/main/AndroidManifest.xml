@@ -12,7 +12,12 @@
         android:theme="@style/Theme.SSCAlliance"
         android:usesCleartextTraffic="false">
         <activity
-            android:name="ru.sscalliance.ui.sport.mainScreen.v2.compose.EventsView"
+            android:name=".ui.sport.mainScreen.v2.compose.EventDetailsView"
+            android:exported="false"
+            android:label="@string/title_activity_event_details"
+            android:theme="@style/Theme.SSCAlliance" />
+        <activity
+            android:name=".ui.sport.mainScreen.v2.compose.EventsView"
             android:exported="false"
             android:label="@string/title_activity_events_view"
             android:theme="@style/Theme.SSCAlliance" />
@@ -25,9 +30,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ru.sscalliance.ui.sport.sectionScreen.main.presentation.MainSectionActivity"></activity>
-        <activity android:name=".ui.sport.eventDetails.presentation.view.EventDetailsActivity"></activity>
-        <activity android:name=".ui.news.details.NewsDetailsActivity"></activity>
+        <activity
+            android:name="ru.sscalliance.ui.sport.sectionScreen.main.presentation.MainSectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.sport.eventDetails.presentation.view.EventDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.news.details.NewsDetailsActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

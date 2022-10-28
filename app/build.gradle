@@ -133,7 +133,7 @@ dependencies {
     implementation 'com.github.Liverm0r:delegateadapters:4.0'
 
     // Leak Canary
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakCanaryVersion"
+    //debugImplementation "com.squareup.leakcanary:leakcanary-android:2.5"
 
     // Unit Tests
     testImplementation 'junit:junit:4.13.2'

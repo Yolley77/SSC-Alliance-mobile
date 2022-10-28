@@ -7,7 +7,7 @@ internal interface IEventsDelegate {
     var events: List<EventBusinessModel>
 
     fun getEvents()
-    fun onEventClicked()
+    fun onEventClicked(item: EventBusinessModel)
     fun getEventDetails()
 
 }
